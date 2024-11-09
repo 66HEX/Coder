@@ -7,9 +7,7 @@ import React, { useEffect, useState } from "react";
 import Works from "@/app/sections/Works/Works";
 import Contact from "@/app/sections/Contact/Contact";
 import Preloader from "@/app/sections/Preloader/Preloader";
-import Marquee from "@/app/components/Marquee/Marquee";
 import Testimonials from "@/app/sections/Testimonials/Testimonials";
-import Header from "@/app/components/Header/Header";
 
 export default function Home() {
     const [isHeroAnimationTriggered, setIsHeroAnimationTriggered] = useState(false);
