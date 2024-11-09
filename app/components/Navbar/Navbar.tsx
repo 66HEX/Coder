@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
@@ -46,7 +46,7 @@ export default function Navbar() {
         const observerOptions = {
             root: null,
             rootMargin: "0px",
-            threshold: 0.1,
+            threshold: 0.5,
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -146,6 +146,7 @@ export default function Navbar() {
                 id="toggleButton"
                 aria-controls="menu"
                 aria-label="menu button"
+                aria-expanded={isMobileMenuOpen ? "true" : "false"}
                 className="absolute top-0 right-2 h-12 w-12 rounded-2xl cursor-pointer z-50 md:hidden"
                 onClick={handleToggle}
                 ref={toggleButtonRef}
