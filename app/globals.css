@@ -1,0 +1,20 @@
+@import url(@/app/fonts/fonts.css);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body {
+    overflow-x: hidden;
+}
+::-webkit-scrollbar-thumb{
+    background: rgb(0, 0, 0);
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+
+
+
