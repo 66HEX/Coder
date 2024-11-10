@@ -23,9 +23,14 @@ export default function Navbar() {
         const parent = document.querySelector(".navbar-link");
         const parentElements = document.querySelectorAll(".navbar-link");
 
+        // Po splicie ustawiamy przesunięcie o 100% w dół dla childSplit
         if (parent) {
             childSplit.current = new SplitText(".navbar-link", { type: "lines" });
+
+            // Przesuwamy wszystkie linie o 100% w dół, aby były poza ekranem
+            gsap.set(childSplit.current.lines, { y: "100%" });
         }
+
         parentElements.forEach((parent) => {
             parent.classList.add("overflow-y-clip");
             parent.classList.add("overflow-x-visible");
@@ -35,11 +40,11 @@ export default function Navbar() {
             type: "lines",
             linesClass: "line-wrapper",
         });
+
     }, []);
 
 
     useEffect(() => {
-        // Set initial position of the mobile menu (hidden)
         gsap.set(navMenuRef.current, { left: "100%" });
 
         const sections = document.querySelectorAll("section");
@@ -64,21 +69,19 @@ export default function Navbar() {
 
     const animateText = (direction) => {
         if (childSplit.current) {
-            gsap.set(childSplit.current, { y: '100%' });
-            gsap.fromTo(
-                childSplit.current.lines,
-                { y: direction === "in" ? "100%" : "0%" },
-                {
-                    y: direction === "in" ? "0%" : "100%",
-                    duration: 1,
-                    ease: "customEase",
-                }
-            );
+            gsap.from(childSplit.current.lines, { y: "100%" });
+
+            gsap.to(childSplit.current.lines, {
+                y: direction === "in" ? "-100%" : "0%",
+                duration: 0.8,
+                ease: "customEase",
+            });
         }
     };
 
     const handleToggle = () => {
         const isExpanded = !isMobileMenuOpen;
+        gsap.to(".navbar-link", { autoAlpha: 1 });
 
         gsap.to(toggleButtonLine1Ref.current, {
             duration: 0.2,
@@ -109,7 +112,7 @@ export default function Navbar() {
         } else {
             gsap.to(navMenuRef.current, {
                 duration: 0.3,
-                left: "0%",
+                left: "40%",
                 ease: "customEase",
                 onComplete: () => animateText("in"),
             });
@@ -126,9 +129,7 @@ export default function Navbar() {
             lenis.scrollTo(section, { offset: -60 });
         }
 
-        // Check if the screen size is larger than the sm breakpoint (e.g., 640px or higher)
         if (window.innerWidth < 640) {
-            // For smaller screens, close the menu and trigger toggle
             setMobileMenuOpen(false);
             handleToggle();
         }
@@ -173,8 +174,7 @@ export default function Navbar() {
                             <a
                                 href={item.href}
                                 onClick={(e) => handleScroll(e, item.href.replace("#", ""))}
-                                className="text-hexblack text-fluid2 md:text-base flex items-center navbar-link w-full flex-grow"
-                            >
+                                className="text-hexblack text-fluid2 md:text-base flex items-center navbar-link w-full flex-grow">
                                 <span
                                     className={`relative before:content-[''] before:absolute before:left-[-12px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 ${
                                         activeSection === item.href.replace("#", "")

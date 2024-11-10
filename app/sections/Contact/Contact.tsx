@@ -75,11 +75,11 @@ export default function Contact() {
                     <h2 ref={headerRef} className="about-title font-NeueMontrealVariable font-semibold text-fluid2 uppercase leading-none">
                         <span ref={starRef} className="inline-block mr-2">✺</span> HAVE AN IDEA?
                     </h2>
-                    <p className="about-title hero-web font-NeueMontrealVariable font-semibold text-xl md:text-2xl uppercase leading-none mt-8">
+                    <p className="about-title font-NeueMontrealVariable font-semibold text-xl md:text-2xl uppercase leading-none mt-4">
                         drop me an email:
                     </p>
-                    <a href="mailto:hexthecod@example.com"
-                       className="about-title hero-web font-NeueMontrealVariable font-semibold text-base uppercase leading-none mt-4">
+                    <a href="mailto:hexthecoder@gmail.com"
+                       className="about-title font-NeueMontrealVariable font-semibold text-base uppercase leading-none mt-4">
                         hexthecoder@gmail.com
                     </a>
                 </div>
