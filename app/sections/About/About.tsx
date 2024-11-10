@@ -16,9 +16,9 @@ export default function About() {
     useGSAP(() => {
         CustomEase.create("customEase", "0.76,0,0.24,1");
 
-        const animateText = (lines) => {
+        const animateText = (words) => {
             gsap.fromTo(
-                lines,
+                words,
                 { y: "100%" },
                 {
                     y: "0%",
@@ -47,8 +47,8 @@ export default function About() {
             const parentSplit = new SplitText(".about-description, .technology-column, .languages-column", { type: "lines", linesClass: "line-wrapper overflow-hidden" });
 
             const words = childSplit.words;
-            const techLines = techSplit.words; // Lines for Technologies
-            const langLines = langSplit.words; // Lines for Languages
+            const techWords = techSplit.words; // Lines for Technologies
+            const langWords = langSplit.words; // Lines for Languages
 
             const textObserver = new IntersectionObserver(
                 (entries) => {
@@ -68,7 +68,7 @@ export default function About() {
                 (entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            animateText(techLines); // Animate Technologies
+                            animateText(techWords); // Animate Technologies
                             techObserver.disconnect();
                         }
                     });
@@ -82,7 +82,7 @@ export default function About() {
                 (entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            animateText(langLines); // Animate Languages
+                            animateText(langWords); // Animate Languages
                             langObserver.disconnect();
                         }
                     });
