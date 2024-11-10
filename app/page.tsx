@@ -2,7 +2,7 @@
 import Navbar from "@/app/components/Navbar/Navbar";
 import Hero from "@/app/sections/Hero/Hero";
 import About from "@/app/sections/About/About";
-import { initializeLenis, destroyLenis } from "@/app/utils/LenisUtils";
+
 import React, { useEffect, useState } from "react";
 import Works from "@/app/sections/Works/Works";
 import Contact from "@/app/sections/Contact/Contact";
@@ -16,16 +16,14 @@ export default function Home() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        initializeLenis();
         setIsPreloaderAnimationTriggered(true);
-        return () => {
-            destroyLenis();
-        };
+
     }, []);
 
     const triggerHeroAnimation = () => {
         setIsHeroAnimationTriggered(true);
-        setIsNavbarAnimationTriggered(true);  // Ustawienie animacji navbaru
+        setIsNavbarAnimationTriggered(true);
+        window.scrollTo(0, 0);// Ustawienie animacji navbaru
     };
 
     return (

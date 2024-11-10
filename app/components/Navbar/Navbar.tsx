@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
+import { useLenis } from "@studio-freight/react-lenis"; // Import the hook to access Lenis
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -17,6 +18,8 @@ export default function Navbar({ isAnimationTriggered }) {
 
     const childSplit = useRef(null);
     const parentSplit = useRef(null);
+
+    const lenis = useLenis(); // Access the Lenis instance directly
 
     CustomEase.create("customEase", "0.76,0,0.24,1");
 
@@ -131,10 +134,9 @@ export default function Navbar({ isAnimationTriggered }) {
     const handleScroll = (e, targetId) => {
         e.preventDefault();
         const section = document.getElementById(targetId);
-        const lenis = globalThis.lenis;
 
         if (section && lenis) {
-            lenis.scrollTo(section, { offset: -60 });
+            lenis.scrollTo(section, { offset: -60 }); // Use scrollTo from the lenis instance
         }
 
         if (window.innerWidth < 640) {
@@ -145,7 +147,7 @@ export default function Navbar({ isAnimationTriggered }) {
 
     return (
         <nav ref={navRef} id="nav" className="fixed w-screen  flex justify-between items-center z-30 p-4 bg-hexwhite shadow-xl"
-        style={{visibility: "hidden"}}
+             style={{visibility: "hidden"}}
         >
             <div className="flex items-center">
                 <span className="text-hexblack font-NeueMontrealVariable font-bold uppercase leading-none text-lg">
@@ -191,6 +193,7 @@ export default function Navbar({ isAnimationTriggered }) {
                                             ? "before:bg-hexblack"
                                             : "before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100"
                                     }`}
+
                                 >
                                     {item.label}
                                 </span>
