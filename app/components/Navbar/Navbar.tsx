@@ -168,7 +168,7 @@ export default function Navbar() {
 
             <div
                 ref={navMenuRef}
-                className="flex absolute md:static top-0 left-0 px-4 w-full md:w-auto bg-hexwhite md:bg-transparent flex-col md:flex-row justify-center items-center h-svh md:h-full md:justify-between md:gap-8 font-NeueMontrealVariable font-semibold text-hexblack uppercase"
+                className="flex absolute md:static top-0 left-0 px-4 w-full md:w-auto bg-hexwhite md:bg-transparent flex-col md:flex-row justify-center items-center min-h-svh h-full md:h-full md:justify-between md:gap-8 font-NeueMontrealVariable font-semibold text-hexblack uppercase"
             >
                 <ul className="flex flex-col md:flex-row items-center w-full md:w-auto">
                     {[{ href: "#home", label: "home" }, { href: "#about", label: "about" }, { href: "#works", label: "works" }, { href: "#contact", label: "contact" }].map((item, index) => (
