@@ -168,7 +168,7 @@ export default function Works() {
                         {work.textContent ? (
                             <div className="relative flex justify-center items-center h-full bg-white rounded-xl p-4">
                                 <p
-                                    className="works-header text-xl md:text-2xl text-center font-NeueMontreal"
+                                    className="works-header text-xl md:text-2xl text-center NeueMontrealVariable"
                                     ref={headerRef}
                                 >
                                     {work.textContent}

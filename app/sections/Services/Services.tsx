@@ -66,7 +66,7 @@ export default function Services() {
         <section className="w-screen h-svh text-hexblack p-4 flex flex-col justify-center items-center">
             <h1
                 ref={headerRef}
-                className="works-title font-NeueMontreal font-semibold text-fluid3 uppercase leading-none text-left w-full mb-8"
+                className="works-title NeueMontrealVariable font-semibold text-fluid3 uppercase leading-none text-left w-full mb-8"
             >
                 Services
             </h1>

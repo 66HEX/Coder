@@ -15,7 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         EikoItalic: 'EikoItalic',
-        NeueMontreal: 'NeueMontreal'
+        NeueMontrealVariable: 'NeueMontrealVariable'
       },
       fontSize: {
         fluid: '12.5vw',  // hero, preloader, works

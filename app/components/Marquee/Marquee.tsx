@@ -3,10 +3,14 @@ import { useScroll, useTransform, motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRef } from 'react';
 
+gsap.registerPlugin(CustomEase);
+
 // Placeholder images
 import Picture1 from '@/public/images/about-photo22.png';
 import Picture2 from '@/public/images/about-photo22.png';
 import Picture3 from '@/public/images/about-photo22.png';
+import {gsap} from "gsap";
+import {CustomEase} from "gsap/CustomEase";
 
 export default function Marquee() {
     const container = useRef();
@@ -73,7 +77,7 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
 
                 {/* Cytat na środku */}
                 <div className="text-center mb-auto">
-                    <p className="text-xl md:text-2xl font-NeueMontreal italic">"{text}"</p>
+                    <p className="text-xl md:text-2xl NeueMontrealVariable italic">"{text}"</p>
                 </div>
 
                 {/* Zdjęcie i informacje o autorze w lewym dolnym rogu */}
@@ -82,8 +86,8 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
                         <Image style={{ objectFit: "cover" }} src={src} alt={author} fill />
                     </div>
                     <div>
-                        <p className="font-NeueMontreal font-semibold text-base">{author}</p>
-                        <p className="text-sm font-NeueMontreal">{role}</p>
+                        <p className="NeueMontrealVariable font-semibold text-base">{author}</p>
+                        <p className="text-sm NeueMontrealVariable">{role}</p>
                     </div>
                 </div>
             </div>

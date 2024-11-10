@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import { CustomEase } from 'gsap/CustomEase';
 import Image from "next/image";
@@ -124,7 +124,7 @@ export default function About() {
     return (
         <section
             id="about"
-            className="w-screen text-hexblack px-4 pb-4 flex flex-col justify-center items-center font-NeueMontreal"
+            className="w-screen text-hexblack px-4 pb-4 flex flex-col justify-center items-center NeueMontrealVariable"
         >
             <div className="h-full w-full flex flex-col md:flex-row">
                 <div ref={textRef} className="w-full md:w-2/3 order-2 md:order-1 flex flex-col p-4 bg-white rounded-xl">

@@ -72,20 +72,20 @@ export default function Contact() {
             >
                 {/* Centered content */}
                 <div className="absolute top-1/2 transform -translate-y-1/2 w-full flex flex-col justify-center items-center text-center">
-                    <h2 ref={headerRef} className="about-title font-NeueMontreal font-semibold text-fluid2 uppercase leading-none">
+                    <h2 ref={headerRef} className="about-title NeueMontrealVariable font-semibold text-fluid2 uppercase leading-none">
                         <span ref={starRef} className="inline-block mr-2">✺</span> HAVE AN IDEA?
                     </h2>
-                    <p className="about-title hero-web font-NeueMontreal font-semibold text-xl md:text-2xl uppercase leading-none mt-8">
+                    <p className="about-title hero-web NeueMontrealVariable font-semibold text-xl md:text-2xl uppercase leading-none mt-8">
                         drop me an email:
                     </p>
                     <a href="mailto:hexthecod@example.com"
-                       className="about-title hero-web font-NeueMontreal font-semibold text-base uppercase leading-none mt-4">
+                       className="about-title hero-web NeueMontrealVariable font-semibold text-base uppercase leading-none mt-4">
                         hexthecoder@gmail.com
                     </a>
                 </div>
 
                 <div className="w-full flex-grow flex items-end">
-                    <ul className="flex w-full h-auto flex-row justify-between items-start gap-2 p-4 font-NeueMontreal font-semibold text-base uppercase">
+                    <ul className="flex w-full h-auto flex-row justify-between items-start gap-2 p-4 NeueMontrealVariable font-semibold text-base uppercase">
                         <li>
                             <Link href="https://www.linkedin.com/in/marek-j%C3%B3%C5%BAwiak-29958132a/" target="_blank"
                                   rel="noopener noreferrer">
