@@ -138,7 +138,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav id="nav" className="fixed w-screen h-12 flex justify-between items-center z-30 px-4 bg-hexwhite">
+        <nav id="nav" className="fixed w-screen h-16 flex justify-between items-center z-30 px-4 bg-hexwhite shadow-xl">
             <div className="flex items-center">
                 <span className="text-hexblack font-NeueMontrealVariable font-bold uppercase text-lg">
                     hex the coder
@@ -150,7 +150,7 @@ export default function Navbar() {
                 aria-controls="menu"
                 aria-label="menu button"
                 aria-expanded={isMobileMenuOpen ? "true" : "false"}
-                className="absolute top-0 right-2 h-12 w-12 rounded-2xl cursor-pointer z-50 md:hidden"
+                className="absolute top-2 right-2 h-12 w-12 rounded-2xl cursor-pointer z-50 md:hidden"
                 onClick={handleToggle}
                 ref={toggleButtonRef}
             >
@@ -172,7 +172,7 @@ export default function Navbar() {
             >
                 <ul className="flex flex-col md:flex-row items-center w-full md:w-auto">
                     {[{ href: "#home", label: "home" }, { href: "#about", label: "about" }, { href: "#works", label: "works" }, { href: "#contact", label: "contact" }].map((item, index) => (
-                        <li key={index} className="relative group py-2 md:py-0 px-4 w-full">
+                        <li key={index} className="relative group py-2 md:py-0 px-8 w-full">
                             <a
                                 href={item.href}
                                 onClick={(e) => handleScroll(e, item.href.replace("#", ""))}
