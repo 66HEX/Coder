@@ -41,20 +41,20 @@ export default function About() {
         };
 
         const splitTextElements = () => {
-            const childSplit = new SplitText(".about-description", { type: "lines" });
-            const techSplit = new SplitText(".technology-column", { type: "lines" }); // Split Technologies & Tools
-            const langSplit = new SplitText(".languages-column", { type: "lines" }); // Split Languages
+            const childSplit = new SplitText(".about-description", { type: "words" });
+            const techSplit = new SplitText(".technology-column", { type: "words" }); // Split Technologies & Tools
+            const langSplit = new SplitText(".languages-column", { type: "words" }); // Split Languages
             const parentSplit = new SplitText(".about-description, .technology-column, .languages-column", { type: "lines", linesClass: "line-wrapper overflow-hidden" });
 
-            const lines = childSplit.lines;
-            const techLines = techSplit.lines; // Lines for Technologies
-            const langLines = langSplit.lines; // Lines for Languages
+            const words = childSplit.words;
+            const techLines = techSplit.words; // Lines for Technologies
+            const langLines = langSplit.words; // Lines for Languages
 
             const textObserver = new IntersectionObserver(
                 (entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            animateText(lines);
+                            animateText(words);
                             textObserver.disconnect();
                         }
                     });
