@@ -1,11 +1,15 @@
 @font-face {
     font-family: 'EikoItalic';
-    src: url('eikoitalic.ttf') format('truetype');
+    src: url('PPEikoItalic-Variable.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'NeueMontreal';
-    src: url('neuemontreal.ttf') format('truetype');
+    src: url('PPNeueMontreal-Variable.ttf') format('truetype'),
+    url('PPNeueMontreal-Variable.woff') format('woff'),
+    url('PPNeueMontreal-Variable.woff2') format('woff2');
+    font-weight: 100 900; /* Sets a weight range if variable */
+    font-style: normal;
 }
 
 
