@@ -36,8 +36,9 @@ export default function Counter({ onComplete }) {
 
     return (
         <section
-            className="fixed top-0 left-0 p-4 h-screen w-screen flex justify-center items-center overflow-hidden z-40">
-            <div className="w-full h-full bg-hexblack rounded-xl flex justify-center items-center"
+            className="fixed top-0 left-0 p-4 h-screen w-svh flex justify-center items-center overflow-hidden z-40">
+            <div className="w-full h-12 bg-hexwhite"></div>
+            <div className="w-full h-[calc(100vh-5rem)] bg-hexblack rounded-xl flex justify-center items-center"
                  ref={rectangleRef}
 
                  style={{
