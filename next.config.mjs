@@ -6,14 +6,6 @@ const nextConfig = {
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         });
-
-        // Add GLSL loader for handling shader files
-        config.module.rules.push({
-            test: /\.glsl$/,
-            use: 'webpack-glsl-loader',
-            exclude: /node_modules/,
-        });
-
         return config;
     },
 };
