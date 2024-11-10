@@ -23,12 +23,14 @@ export default function Navbar() {
         const parent = document.querySelector(".navbar-link");
         const parentElements = document.querySelectorAll(".navbar-link");
 
-        // Po splicie ustawiamy przesunięcie o 100% w dół dla childSplit
-        if (parent) {
-            childSplit.current = new SplitText(".navbar-link", { type: "lines" });
+        // Tylko dla widoku mobilnego (np. poniżej 640px)
+        if (window.innerWidth < 640) {
+            if (parent) {
+                childSplit.current = new SplitText(".navbar-link", { type: "lines" });
 
-            // Przesuwamy wszystkie linie o 100% w dół, aby były poza ekranem
-            gsap.set(childSplit.current.lines, { y: "100%" });
+                // Przesuwamy wszystkie linie o 100% w dół, aby były poza ekranem
+                gsap.set(childSplit.current.lines, { y: "100%" });
+            }
         }
 
         parentElements.forEach((parent) => {
@@ -40,8 +42,8 @@ export default function Navbar() {
             type: "lines",
             linesClass: "line-wrapper",
         });
-
     }, []);
+
 
 
     useEffect(() => {
@@ -72,7 +74,7 @@ export default function Navbar() {
             gsap.from(childSplit.current.lines, { y: "100%" });
 
             gsap.to(childSplit.current.lines, {
-                y: direction === "in" ? "0%" : "100%",
+                y: direction === "in" ? "-100%" : "0%",
                 duration: 0.8,
                 ease: "customEase",
             });
@@ -166,7 +168,7 @@ export default function Navbar() {
 
             <div
                 ref={navMenuRef}
-                className="flex absolute md:static top-0 left-0 px-4 w-full md:w-auto bg-hexwhite md:bg-transparent flex-col md:flex-row justify-center items-center min-h-svh md:h-full md:justify-between md:gap-8 font-NeueMontrealVariable font-semibold text-hexblack uppercase"
+                className="flex absolute md:static top-0 left-0 px-4 w-full md:w-auto bg-hexwhite md:bg-transparent flex-col md:flex-row justify-center items-center h-svh md:h-full md:justify-between md:gap-8 font-NeueMontrealVariable font-semibold text-hexblack uppercase"
             >
                 <ul className="flex flex-col md:flex-row items-center w-full md:w-auto">
                     {[{ href: "#home", label: "home" }, { href: "#about", label: "about" }, { href: "#works", label: "works" }, { href: "#contact", label: "contact" }].map((item, index) => (
