@@ -9,10 +9,9 @@ export default function Counter({ onComplete }) {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
-        if (!isVisible) return; // Skip animation if not visible
+        if (!isVisible) return;
         CustomEase.create("customEase", "0.76,0,0.24,1");
 
-        // Timeline do animacji
         const timeline = gsap.timeline({
             onComplete: () => {
                 setIsVisible(false);
@@ -20,7 +19,6 @@ export default function Counter({ onComplete }) {
             }
         });
 
-        // Animacja skalowania div-a o klasie hexblack
         timeline.fromTo(
             rectangleRef.current,
             { scale: 0 },
@@ -39,16 +37,14 @@ export default function Counter({ onComplete }) {
             className="fixed top-0 left-0 p-4 h-screen w-screen flex justify-center items-center overflow-hidden z-40">
             <div className="w-full h-full bg-hexblack rounded-xl flex justify-center items-center"
                  ref={rectangleRef}
-
                  style={{
                      position: "absolute",
-                     width: "100%", // Możesz dostosować szerokość
-                     height: "100%", // Możesz dostosować wysokość
+                     width: "100%",
+                     height: "100%",
                      backgroundColor: "#1C1C1C",
                      zIndex: 10,
                  }}
             >
-
             </div>
         </section>
     );

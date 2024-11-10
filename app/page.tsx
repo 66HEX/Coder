@@ -11,7 +11,8 @@ import Testimonials from "@/app/sections/Testimonials/Testimonials";
 
 export default function Home() {
     const [isHeroAnimationTriggered, setIsHeroAnimationTriggered] = useState(false);
-    const [isPreloaderAnimationTriggered, setIsPreloaderAnimationTriggered] = useState(false); // Stan kontrolujący animację preloadera
+    const [isPreloaderAnimationTriggered, setIsPreloaderAnimationTriggered] = useState(false);
+    const [isNavbarAnimationTriggered, setIsNavbarAnimationTriggered] = useState(false); // Nowy stan
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -24,12 +25,13 @@ export default function Home() {
 
     const triggerHeroAnimation = () => {
         setIsHeroAnimationTriggered(true);
+        setIsNavbarAnimationTriggered(true);  // Ustawienie animacji navbaru
     };
 
     return (
         <div>
             <main className="bg-hexwhite">
-                <Navbar/>
+                <Navbar isAnimationTriggered={isNavbarAnimationTriggered} /> {/* Przekazanie stanu */}
                 <Preloader onComplete={triggerHeroAnimation} isAnimationTriggered={isPreloaderAnimationTriggered} />
                 <Hero isAnimationTriggered={isHeroAnimationTriggered} />
                 <About />
