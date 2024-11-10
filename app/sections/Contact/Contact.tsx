@@ -73,7 +73,7 @@ export default function Contact() {
                 {/* Centered content */}
                 <div className="absolute top-1/2 transform -translate-y-1/2 w-full flex flex-col justify-center items-center text-center">
                     <h2 ref={headerRef} className="about-title font-NeueMontrealVariable font-semibold text-fluid2 uppercase leading-none">
-                        <span ref={starRef} className="inline-block mr-2">✺</span> HAVE AN IDEA?
+                        <span ref={starRef} className="inline-block">✺</span> HAVE AN IDEA?
                     </h2>
                     <p className="about-title font-NeueMontrealVariable font-semibold text-xl md:text-2xl uppercase leading-none mt-4">
                         drop me an email:
