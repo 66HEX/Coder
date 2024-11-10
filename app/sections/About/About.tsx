@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import { CustomEase } from 'gsap/CustomEase';
 import Image from "next/image";
@@ -14,16 +14,7 @@ export default function About() {
     const langRef = useRef(null); // New reference for Languages section
 
     useGSAP(() => {
-        const childSplit = new SplitText(".about-description", { type: "lines" });
-        const techSplit = new SplitText(".technology-column", { type: "lines" }); // Split Technologies & Tools
-        const langSplit = new SplitText(".languages-column", { type: "lines" }); // Split Languages
-        const parentSplit = new SplitText(".about-description, .technology-column, .languages-column", { type: "lines", linesClass: "line-wrapper overflow-hidden" });
-
         CustomEase.create("customEase", "0.76,0,0.24,1");
-
-        const lines = childSplit.lines;
-        const techLines = techSplit.lines; // Lines for Technologies
-        const langLines = langSplit.lines; // Lines for Languages
 
         const animateText = (lines) => {
             gsap.fromTo(
@@ -49,72 +40,84 @@ export default function About() {
             );
         };
 
-        const textObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateText(lines);
-                        textObserver.disconnect();
-                    }
-                });
-            },
-            {
-                threshold: 0.01,
-            }
-        );
+        const splitTextElements = () => {
+            const childSplit = new SplitText(".about-description", { type: "lines" });
+            const techSplit = new SplitText(".technology-column", { type: "lines" }); // Split Technologies & Tools
+            const langSplit = new SplitText(".languages-column", { type: "lines" }); // Split Languages
+            const parentSplit = new SplitText(".about-description, .technology-column, .languages-column", { type: "lines", linesClass: "line-wrapper overflow-hidden" });
 
-        const techObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateText(techLines); // Animate Technologies
-                        techObserver.disconnect();
-                    }
-                });
-            },
-            {
-                threshold: 0.01,
-            }
-        );
+            const lines = childSplit.lines;
+            const techLines = techSplit.lines; // Lines for Technologies
+            const langLines = langSplit.lines; // Lines for Languages
 
-        const langObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateText(langLines); // Animate Languages
-                        langObserver.disconnect();
-                    }
-                });
-            },
-            {
-                threshold: 0.01,
-            }
-        );
+            const textObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateText(lines);
+                            textObserver.disconnect();
+                        }
+                    });
+                },
+                {
+                    threshold: 0.01,
+                }
+            );
 
-        const imageObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateImage();
-                        imageObserver.disconnect();
-                    }
-                });
-            },
-            {
-                threshold: 0.01,
-            }
-        );
+            const techObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateText(techLines); // Animate Technologies
+                            techObserver.disconnect();
+                        }
+                    });
+                },
+                {
+                    threshold: 0.01,
+                }
+            );
 
-        if (textRef.current) textObserver.observe(textRef.current);
-        if (techRef.current) techObserver.observe(techRef.current); // Observe Technologies & Tools
-        if (langRef.current) langObserver.observe(langRef.current); // Observe Languages
-        if (imageRef.current) imageObserver.observe(imageRef.current);
+            const langObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateText(langLines); // Animate Languages
+                            langObserver.disconnect();
+                        }
+                    });
+                },
+                {
+                    threshold: 0.01,
+                }
+            );
+
+            const imageObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateImage();
+                            imageObserver.disconnect();
+                        }
+                    });
+                },
+                {
+                    threshold: 0.01,
+                }
+            );
+
+            // Observing elements
+            if (textRef.current) textObserver.observe(textRef.current);
+            if (techRef.current) techObserver.observe(techRef.current); // Observe Technologies & Tools
+            if (langRef.current) langObserver.observe(langRef.current); // Observe Languages
+            if (imageRef.current) imageObserver.observe(imageRef.current);
+        };
+
+        // Ensure everything is rendered before applying SplitText
+        splitTextElements();
 
         return () => {
-            textObserver.disconnect();
-            techObserver.disconnect();
-            langObserver.disconnect();
-            imageObserver.disconnect();
+
         };
     }, []);
 
