@@ -73,7 +73,7 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
 
                 {/* Cytat na środku */}
                 <div className="text-center mb-auto">
-                    <p className="text-xl md:text-2xl font-NeueMontreal italic">"{text}"</p>
+                    <p className="text-xl md:text-2xl font-NeueMontrealRegular italic">"{text}"</p>
                 </div>
 
                 {/* Zdjęcie i informacje o autorze w lewym dolnym rogu */}
@@ -82,8 +82,8 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
                         <Image style={{ objectFit: "cover" }} src={src} alt={author} fill />
                     </div>
                     <div>
-                        <p className="font-NeueMontreal font-semibold text-base">{author}</p>
-                        <p className="text-sm font-NeueMontreal">{role}</p>
+                        <p className="font-NeueMontrealSemibold text-base">{author}</p>
+                        <p className="text-sm font-NeueMontrealRegular">{role}</p>
                     </div>
                 </div>
             </div>
