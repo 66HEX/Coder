@@ -168,7 +168,7 @@ export default function Works() {
                         {work.textContent ? (
                             <div className="relative flex justify-center items-center h-full bg-white rounded-xl p-4">
                                 <p
-                                    className="works-header text-xl md:text-2xl text-center NeueMontrealVariable"
+                                    className="works-header text-xl md:text-2xl text-center font-NeueMontrealVariable"
                                     ref={headerRef}
                                 >
                                     {work.textContent}
@@ -196,7 +196,7 @@ export default function Works() {
                                         {work.technologies.map((tech, techIndex) => (
                                             <span
                                                 key={techIndex}
-                                                className="font-NeueMontreal text-sm lg:text-base text-white border border-hexwhite rounded-full py-1 px-3"
+                                                className="font-NeueMontrealVariable text-sm lg:text-base text-white border border-hexwhite rounded-full py-1 px-3"
                                             >
                                                 {tech}
                                             </span>

@@ -77,7 +77,7 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
 
                 {/* Cytat na środku */}
                 <div className="text-center mb-auto">
-                    <p className="text-xl md:text-2xl NeueMontrealVariable italic">"{text}"</p>
+                    <p className="text-xl md:text-2xl font-NeueMontrealVariable italic">"{text}"</p>
                 </div>
 
                 {/* Zdjęcie i informacje o autorze w lewym dolnym rogu */}
@@ -87,7 +87,7 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
                     </div>
                     <div>
                         <p className="NeueMontrealVariable font-semibold text-base">{author}</p>
-                        <p className="text-sm NeueMontrealVariable">{role}</p>
+                        <p className="text-sm font-NeueMontrealVariable">{role}</p>
                     </div>
                 </div>
             </div>

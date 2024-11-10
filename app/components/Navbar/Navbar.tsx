@@ -137,7 +137,7 @@ export default function Navbar() {
     return (
         <nav id="nav" className="fixed w-screen h-12 flex justify-between items-center z-30 px-4 bg-hexwhite">
             <div className="flex items-center">
-                <span className="text-hexblack font-NeueMontreal font-bold uppercase text-lg">
+                <span className="text-hexblack font-NeueMontrealVariable font-bold uppercase text-lg">
                     hex the coder
                 </span>
             </div>
@@ -165,7 +165,7 @@ export default function Navbar() {
 
             <div
                 ref={navMenuRef}
-                className="flex absolute md:static top-0 left-0 px-4 w-full md:w-auto bg-hexwhite md:bg-transparent flex-col md:flex-row justify-center items-center h-svh md:h-full md:justify-between md:gap-8 font-NeueMontreal font-semibold text-hexblack uppercase"
+                className="flex absolute md:static top-0 left-0 px-4 w-full md:w-auto bg-hexwhite md:bg-transparent flex-col md:flex-row justify-center items-center h-svh md:h-full md:justify-between md:gap-8 font-NeueMontrealVariable font-semibold text-hexblack uppercase"
             >
                 <ul className="flex flex-col md:flex-row items-center w-full md:w-auto">
                     {[{ href: "#home", label: "home" }, { href: "#about", label: "about" }, { href: "#works", label: "works" }, { href: "#contact", label: "contact" }].map((item, index) => (

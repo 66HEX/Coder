@@ -124,7 +124,7 @@ export default function About() {
     return (
         <section
             id="about"
-            className="w-screen text-hexblack px-4 pb-4 flex flex-col justify-center items-center NeueMontrealVariable"
+            className="w-screen text-hexblack px-4 pb-4 flex flex-col justify-center items-center font-NeueMontrealVariable"
         >
             <div className="h-full w-full flex flex-col md:flex-row">
                 <div ref={textRef} className="w-full md:w-2/3 order-2 md:order-1 flex flex-col p-4 bg-white rounded-xl">
