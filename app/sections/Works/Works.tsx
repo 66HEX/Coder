@@ -6,6 +6,8 @@ import { CustomEase } from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "@/app/utils/gsap/SplitText"; // Assuming SplitText is imported here
 
+gsap.registerPlugin(SplitText, CustomEase);
+
 interface ModalState {
     active: boolean;
     index: number;
