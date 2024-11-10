@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import { CustomEase } from "gsap/CustomEase";
 
+gsap.registerPlugin(SplitText, CustomEase);
+
 export default function Services() {
     const headerRef = useRef<HTMLHeadingElement | null>(null);
 
