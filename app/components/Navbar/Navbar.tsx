@@ -74,7 +74,7 @@ export default function Navbar() {
             gsap.from(childSplit.current.lines, { y: "100%" });
 
             gsap.to(childSplit.current.lines, {
-                y: direction === "in" ? "-100%" : "0%",
+                y: direction === "in" ? "0%" : "100%",
                 duration: 0.8,
                 ease: "customEase",
             });
