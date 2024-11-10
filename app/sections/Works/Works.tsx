@@ -196,7 +196,7 @@ export default function Works() {
                                         {work.technologies.map((tech, techIndex) => (
                                             <span
                                                 key={techIndex}
-                                                className="font-NeueMontrealVariable text-sm lg:text-base text-white border border-hexwhite rounded-full py-1 px-3"
+                                                className="font-NeueMontrealVariable text-sm lg:text-base text-white border border-hexwhite rounded-md py-1 px-3"
                                             >
                                                 {tech}
                                             </span>

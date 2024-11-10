@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import { CustomEase } from 'gsap/CustomEase';
 import Image from "next/image";
@@ -10,15 +10,15 @@ gsap.registerPlugin(SplitText, CustomEase);
 export default function About() {
     const textRef = useRef(null);
     const imageRef = useRef(null);
-    const techRef = useRef(null); // New reference for Technologies & Tools section
-    const langRef = useRef(null); // New reference for Languages section
+    const techRef = useRef(null);
+    const langRef = useRef(null);
 
     useGSAP(() => {
         CustomEase.create("customEase", "0.76,0,0.24,1");
 
-        const animateText = (words) => {
+        const animateText = (lines) => {
             gsap.fromTo(
-                words,
+                lines,
                 { y: "100%" },
                 {
                     y: "0%",
@@ -40,56 +40,50 @@ export default function About() {
             );
         };
 
-        const splitTextElements = () => {
-            const childSplit = new SplitText(".about-description", { type: "words" });
-            const techSplit = new SplitText(".technology-column", { type: "words" }); // Split Technologies & Tools
-            const langSplit = new SplitText(".languages-column", { type: "words" }); // Split Languages
+        const initializeSplitText = () => {
+            const childSplit = new SplitText(".about-description", { type: "lines" });
+            const techSplit = new SplitText(".technology-column", { type: "lines" });
+            const langSplit = new SplitText(".languages-column", { type: "lines" });
             const parentSplit = new SplitText(".about-description, .technology-column, .languages-column", { type: "lines", linesClass: "line-wrapper overflow-hidden" });
 
-            const words = childSplit.words;
-            const techWords = techSplit.words; // Lines for Technologies
-            const langWords = langSplit.words; // Lines for Languages
+            const lines = childSplit.lines;
+            const techLines = techSplit.lines;
+            const langLines = langSplit.lines;
 
             const textObserver = new IntersectionObserver(
                 (entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            animateText(words);
+                            animateText(lines);
                             textObserver.disconnect();
                         }
                     });
                 },
-                {
-                    threshold: 0.01,
-                }
+                { threshold: 0.01 }
             );
 
             const techObserver = new IntersectionObserver(
                 (entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            animateText(techWords); // Animate Technologies
+                            animateText(techLines);
                             techObserver.disconnect();
                         }
                     });
                 },
-                {
-                    threshold: 0.01,
-                }
+                { threshold: 0.01 }
             );
 
             const langObserver = new IntersectionObserver(
                 (entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            animateText(langWords); // Animate Languages
+                            animateText(langLines);
                             langObserver.disconnect();
                         }
                     });
                 },
-                {
-                    threshold: 0.01,
-                }
+                { threshold: 0.01 }
             );
 
             const imageObserver = new IntersectionObserver(
@@ -101,23 +95,30 @@ export default function About() {
                         }
                     });
                 },
-                {
-                    threshold: 0.01,
-                }
+                { threshold: 0.01 }
             );
 
             // Observing elements
             if (textRef.current) textObserver.observe(textRef.current);
-            if (techRef.current) techObserver.observe(techRef.current); // Observe Technologies & Tools
-            if (langRef.current) langObserver.observe(langRef.current); // Observe Languages
+            if (techRef.current) techObserver.observe(techRef.current);
+            if (langRef.current) langObserver.observe(langRef.current);
             if (imageRef.current) imageObserver.observe(imageRef.current);
         };
 
-        // Ensure everything is rendered before applying SplitText
-        splitTextElements();
+        const handleFontLoad = async () => {
+            if (document.fonts) {
+                await document.fonts.ready;  // Wait for all fonts to load
+                setTimeout(() => {
+                    initializeSplitText();   // Initialize SplitText after fonts are ready and 200ms delay
+                }, 200);
+            }
+        };
+
+        // Trigger font loading listener
+        handleFontLoad();
 
         return () => {
-
+            // Cleanup observers if needed
         };
     }, []);
 
