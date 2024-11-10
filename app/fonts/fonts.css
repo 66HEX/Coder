@@ -1,23 +1,23 @@
 @font-face {
     font-family: 'EikoItalic';
     src: url('PPEikoItalic-Variable.ttf') format('truetype');
-    font-weight: 100 800;
+    font-weight: 300;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'NeueMontrealVariable';
-    src: url('PPNeueMontreal-Regular.woff2') format('woff2'); /* Plik dla normal */
-    font-weight: 450; /* Ustalona waga dla normal */
+    src: url('PPNeueMontreal-Regular.woff2') format('woff2');
+    font-weight: 450;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'NeueMontrealVariable';
-    src: url('PPNeueMontreal-Semibold.woff2') format('woff2'); /* Plik dla semibold */
-    font-weight: 700; /* Ustalona waga dla semibold */
+    src: url('PPNeueMontreal-Semibold.woff2') format('woff2');
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
