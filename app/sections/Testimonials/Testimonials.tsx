@@ -4,6 +4,8 @@ import { SplitText } from "@/app/utils/gsap/SplitText";
 import { CustomEase } from "gsap/CustomEase";
 import Marquee from "@/app/components/Marquee/Marquee";
 
+gsap.registerPlugin(SplitText, CustomEase);
+
 export default function Testimonials() {
     const headerRef = useRef<HTMLHeadingElement | null>(null);
 
