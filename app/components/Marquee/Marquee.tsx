@@ -86,7 +86,7 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
                         <Image style={{ objectFit: "cover" }} src={src} alt={author} fill />
                     </div>
                     <div>
-                        <p className="NeueMontrealVariable font-semibold text-base">{author}</p>
+                        <p className="font-NeueMontrealVariable font-semibold text-base">{author}</p>
                         <p className="text-sm font-NeueMontrealVariable">{role}</p>
                     </div>
                 </div>
