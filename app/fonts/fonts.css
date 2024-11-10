@@ -8,8 +8,16 @@
 
 @font-face {
     font-family: 'NeueMontrealVariable';
-    src: url('PPNeueMontreal-Variable.ttf') format('truetype');
-    font-weight: 450 700;
+    src: url('PPNeueMontreal-Regular.woff2') format('woff2'); /* Plik dla normal */
+    font-weight: 450; /* Ustalona waga dla normal */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NeueMontrealVariable';
+    src: url('PPNeueMontreal-Semibold.woff2') format('woff2'); /* Plik dla semibold */
+    font-weight: 700; /* Ustalona waga dla semibold */
     font-style: normal;
     font-display: swap;
 }
