@@ -65,7 +65,7 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="w-screen bg-hexwhite h-[70vh] md:h-[35vh] xl:h-[70vh] px-4 pb-4 flex flex-col justify-center items-center overflow-hidden relative"
+            className="w-screen bg-hexwhite h-[400px] px-4 pb-4 flex flex-col justify-center items-center overflow-hidden relative"
         >
             <div
                 className="w-full h-full flex flex-col justify-between items-center text-hexgray bg-hexblack rounded-xl font-MoriRegular text-xl md:text-2xl lg:text-3xl relative"
