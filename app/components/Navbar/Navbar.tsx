@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
-import { useLenis } from "@studio-freight/react-lenis"; // Import the hook to access Lenis
+import { useLenis } from "@studio-freight/react-lenis";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -19,7 +19,7 @@ export default function Navbar({ isAnimationTriggered }) {
     const childSplit = useRef(null);
     const parentSplit = useRef(null);
 
-    const lenis = useLenis(); // Access the Lenis instance directly
+    const lenis = useLenis();
 
     CustomEase.create("customEase", "0.76,0,0.24,1");
 
@@ -36,43 +36,21 @@ export default function Navbar({ isAnimationTriggered }) {
     useEffect(() => {
 
         const parent = document.querySelector(".navbar-link");
-
         const parentElements = document.querySelectorAll(".navbar-link");
 
-
-
-        // Tylko dla widoku mobilnego (np. poniżej 640px)
-
         if (window.innerWidth < 640) {
-
             if (parent) {
-
                 childSplit.current = new SplitText(".navbar-link", { type: "lines" });
-
-
-
-                // Przesuwamy wszystkie linie o 100% w dół, aby były poza ekranem
-
                 gsap.set(childSplit.current.lines, { y: "100%" });
-
             }
-
         }
-        
         parentElements.forEach((parent) => {
-
             parent.classList.add("overflow-y-clip");
-
             parent.classList.add("overflow-x-visible");
-
         });
-
         parentSplit.current = new SplitText(".navbar-link", {
-
             type: "lines",
-
             linesClass: "line-wrapper",
-
         });
 
     }, []);
@@ -139,7 +117,7 @@ export default function Navbar({ isAnimationTriggered }) {
 
             gsap.to(childSplit.current.lines, {
                 y: direction === "in" ? "0%" : "100%",
-                duration: 0.8,
+                duration: 0.5,
                 ease: "customEase",
             });
         }
