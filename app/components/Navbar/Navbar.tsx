@@ -34,6 +34,50 @@ export default function Navbar({ isAnimationTriggered }) {
     }, [isAnimationTriggered]);
 
     useEffect(() => {
+
+        const parent = document.querySelector(".navbar-link");
+
+        const parentElements = document.querySelectorAll(".navbar-link");
+
+
+
+        // Tylko dla widoku mobilnego (np. poniżej 640px)
+
+        if (window.innerWidth < 640) {
+
+            if (parent) {
+
+                childSplit.current = new SplitText(".navbar-link", { type: "lines" });
+
+
+
+                // Przesuwamy wszystkie linie o 100% w dół, aby były poza ekranem
+
+                gsap.set(childSplit.current.lines, { y: "100%" });
+
+            }
+
+        }
+        
+        parentElements.forEach((parent) => {
+
+            parent.classList.add("overflow-y-clip");
+
+            parent.classList.add("overflow-x-visible");
+
+        });
+
+        parentSplit.current = new SplitText(".navbar-link", {
+
+            type: "lines",
+
+            linesClass: "line-wrapper",
+
+        });
+
+    }, []);
+
+    useEffect(() => {
         const handleClickOutside = (event) => {
             if (
                 navMenuRef.current &&
