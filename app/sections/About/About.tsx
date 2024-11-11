@@ -4,6 +4,7 @@ import { SplitText } from "@/app/utils/gsap/SplitText";
 import { CustomEase } from 'gsap/CustomEase';
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
+import { aboutData } from '@/app/data/aboutData';
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -128,40 +129,32 @@ export default function About() {
             className="w-screen text-hexblack px-4 pb-4 flex flex-col justify-center items-center font-NeueMontrealVariable"
         >
             <div className="h-full w-full flex flex-col md:flex-row">
-                <div ref={textRef} className="w-full md:w-2/3 order-2 md:order-1 flex flex-col p-4 bg-white rounded-xl">
+                <div className="w-full md:w-2/3 order-2 md:order-1 flex flex-col p-4 bg-white rounded-xl">
                     <p className="about-description text-xl md:text-2xl">
-                        I’m Marek Jóźwiak, a web designer and developer with a rich background in electronics, based in
-                        Poland. Originally trained as an electronician, I possess a technical foundation that
-                        enhances my problem-solving approach to web development. With experience as an electronics
-                        technician, I bring a unique, precision-oriented perspective to my design and coding work,
-                        blending visual creativity with technical functionality to create digital solutions that are as
-                        reliable as they are engaging.
+                        {aboutData.description}
                     </p>
                     <div className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-                        <div ref={techRef} className="w-full md:w-1/2">
-                            <h3 className=" technology-column font-semibold text-xl md:text-2xl mb-4">Technologies & Tools</h3>
+                        <div className="w-full md:w-1/2">
+                            <h3 className="technology-column font-semibold text-xl md:text-2xl mb-4">Technologies &
+                                Tools</h3>
                             <ul className="list-disc ml-5">
-                                <li className="technology-column">JavaScript (ES6+)</li>
-                                <li className="technology-column">React & Next.js</li>
-                                <li className="technology-column">HTML & CSS (Sass, Tailwind)</li>
-                                <li className="technology-column">Node.js & Express</li>
-                                <li className="technology-column">Git & GitHub</li>
-                                <li className="technology-column">GSAP</li>
-                                <li className="technology-column">Figma</li>
+                                {aboutData.technologies.map((tech, index) => (
+                                    <li key={index} className="technology-column">{tech}</li>
+                                ))}
                             </ul>
                         </div>
-                        <div ref={langRef} className="w-full md:w-1/2">
+                        <div className="w-full md:w-1/2">
                             <h3 className="languages-column font-semibold text-xl md:text-2xl mb-4">Languages</h3>
                             <ul className="list-disc ml-5">
-                                <li className="languages-column">English (B2)</li>
-                                <li className="languages-column">Polish (native)</li>
+                                {aboutData.languages.map((lang, index) => (
+                                    <li key={index} className="languages-column">{lang}</li>
+                                ))}
                             </ul>
                         </div>
                     </div>
                 </div>
                 <Image
-                    ref={imageRef}
-                    src="/images/about-photo22.png"
+                    src={aboutData.imageUrl}  // URL zdjęcia z danych
                     alt="Zdjęcie profilowe"
                     width={500}
                     height={500}

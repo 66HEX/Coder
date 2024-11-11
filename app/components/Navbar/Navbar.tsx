@@ -210,12 +210,11 @@ export default function Navbar({ isAnimationTriggered }) {
                                 onClick={(e) => handleScroll(e, item.href.replace("#", ""))}
                                 className="text-hexblack text-fluid2 md:text-base flex items-center navbar-link w-full flex-grow leading-none">
                                 <span
-                                    className={`relative  before:content-[''] before:absolute before:left-[-12px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 ${
+                                    className={`relative  before:content-[''] before:absolute before:left-[-12px] before:top-1/2 before:-translate-y-3/4 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 ${
                                         activeSection === item.href.replace("#", "")
                                             ? "before:bg-hexblack"
                                             : "before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100"
                                     }`}
-
                                 >
                                     {item.label}
                                 </span>

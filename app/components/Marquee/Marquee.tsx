@@ -4,12 +4,10 @@ import {gsap} from "gsap";
 import {CustomEase} from "gsap/CustomEase";
 import Image from 'next/image';
 import { useRef } from 'react';
+import { testimonialsData } from '@/app/data/testimonialsData';
 
 gsap.registerPlugin(CustomEase);
 
-import Picture1 from '@/public/images/about-photo22.png';
-import Picture2 from '@/public/images/about-photo22.png';
-import Picture3 from '@/public/images/about-photo22.png';
 
 export default function Marquee() {
     const container = useRef();
@@ -17,39 +15,6 @@ export default function Marquee() {
         target: container,
         offset: ['start end', 'end start']
     });
-
-    const testimonialsData = [
-        {
-            text: "This product changed my life! Highly recommend to everyone.",
-            author: "John Doe",
-            role: "Product Manager",
-            src: Picture1
-        },
-        {
-            text: "Exceptional service and top quality. Truly satisfied!",
-            author: "Jane Smith",
-            role: "Marketing Specialist",
-            src: Picture2
-        },
-        {
-            text: "Outstanding experience, would definitely use again!",
-            author: "Alice Brown",
-            role: "UX Designer",
-            src: Picture3
-        },
-        {
-            text: "Outstanding experience, would definitely use again!",
-            author: "Alice Brown",
-            role: "UX Designer",
-            src: Picture3
-        },
-        {
-            text: "Outstanding experience, would definitely use again!",
-            author: "Alice Brown",
-            role: "UX Designer",
-            src: Picture3
-        }
-    ];
 
     return (
         <main className="">
