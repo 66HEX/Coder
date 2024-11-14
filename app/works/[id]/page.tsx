@@ -220,7 +220,7 @@ const WorkDetailPage = ({ params }) => {
     return (
         <div className="w-screen bg-hexwhite font-NeueMontrealVariable">
             {/* Header Section */}
-            <div className="h-screen w-full p-4">
+            <div className="h-svh w-full p-4">
                 <div className="h-full w-full bg-hexblack rounded-xl p-4 flex justify-start items-end">
                     <h2
                         ref={headerRef}
