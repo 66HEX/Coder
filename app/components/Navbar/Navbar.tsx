@@ -188,7 +188,7 @@ export default function Navbar() {
 
 
     return (
-        <nav ref={navRef} id="nav" className="fixed w-screen  flex justify-between items-center z-30 p-4 bg-hexwhite shadow-xl"
+        <nav ref={navRef} id="nav" className="fixed w-screen  flex justify-between items-center z-30 p-4 bg-white shadow-xl"
              style={{visibility: "hidden"}}
         >
             <div className="flex items-center">
