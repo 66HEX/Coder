@@ -29,11 +29,14 @@ const WorkDetailPage = ({ params }) => {
     }
 
     // Refs for the elements to animate
-    const techRefs = useRef<React.RefObject<HTMLParagraphElement>[]>(project.technologies.map(() => React.createRef<HTMLParagraphElement>()));
-    const roleRefs = useRef<React.RefObject<HTMLParagraphElement>[]>(project.roles.map(() => React.createRef<HTMLParagraphElement>()));
+    // Update the ref types correctly
+    const techRefs = useRef<React.RefObject<HTMLLIElement>[]>(project.technologies.map(() => React.createRef<HTMLLIElement>()));
+    const roleRefs = useRef<React.RefObject<HTMLLIElement>[]>(project.roles.map(() => React.createRef<HTMLLIElement>()));
     const descRefs = useRef<React.RefObject<HTMLParagraphElement>[]>(project.description.map(() => React.createRef<HTMLParagraphElement>()));
     const chalRefs = useRef<React.RefObject<HTMLLIElement>[]>(project.challengesAndSolutions.map(() => React.createRef<HTMLLIElement>()));
-    const linkRef = useRef<HTMLAnchorElement>(null);
+
+
+    const linkRef = useRef(null);
     const imageRef = useRef(null);
     const headerRef = useRef(null);
 
