@@ -129,7 +129,7 @@ export default function About() {
         >
             <div className="h-full w-full flex flex-col md:flex-row">
                 <div ref={textRef} className="w-full md:w-2/3 order-2 md:order-1 flex flex-col p-4 bg-white rounded-xl">
-                    <p className="about-description text-xl md:text-2xl">
+                    <p className="about-description text-base md:text-2xl">
                         I’m Marek Jóźwiak, a web designer and developer with a rich background in electronics, based in
                         Poland. Originally trained as an electronician, I possess a technical foundation that
                         enhances my problem-solving approach to web development. With experience as an electronics
@@ -137,10 +137,10 @@ export default function About() {
                         blending visual creativity with technical functionality to create digital solutions that are as
                         reliable as they are engaging.
                     </p>
-                    <div className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                    <div className="mt-4 md:mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                         <div ref={techRef} className="w-full md:w-1/2">
-                            <h3 className=" technology-column font-semibold text-xl md:text-2xl mb-4">Technologies & Tools</h3>
-                            <ul className="list-disc ml-5">
+                            <h3 className=" technology-column font-semibold text-lg md:text-2xl mb-2 md:mb-4">Technologies & Tools</h3>
+                            <ul className="list-disc ml-4">
                                 <li className="technology-column">JavaScript (ES6+)</li>
                                 <li className="technology-column">React & Next.js</li>
                                 <li className="technology-column">HTML & CSS (Sass, Tailwind)</li>
@@ -151,8 +151,8 @@ export default function About() {
                             </ul>
                         </div>
                         <div ref={langRef} className="w-full md:w-1/2">
-                            <h3 className="languages-column font-semibold text-xl md:text-2xl mb-4">Languages</h3>
-                            <ul className="list-disc ml-5">
+                            <h3 className="languages-column font-semibold text-lg md:text-2xl mb-2 md:mb-4">Languages</h3>
+                            <ul className="list-disc ml-4">
                                 <li className="languages-column">English (B2)</li>
                                 <li className="languages-column">Polish (native)</li>
                             </ul>

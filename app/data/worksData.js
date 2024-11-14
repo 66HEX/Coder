@@ -1,13 +1,16 @@
 export const projects = [
     {
+        id: "0",
         title: "Text Placeholder",
         images: [],
         technologies: [],
         textContent: "New projects in the works. Stay tuned!",
+        githubLink: "https://github.com/username/text-placeholder"
     },
     {
+        id: "1",
         title: "Project One",
-        images: ["/images/mockup11.png", "/images/mockup22.png"],
+        images: ["/images/mockup11.png", "/images/mockup22.png", "/images/mockup33.png"],
         technologies: ["Next.js", "GSAP", "Tailwind CSS"],
         description: [
             "This project is focused on creating a fast, interactive web application using Next.js. It leverages server-side rendering to optimize performance and SEO.",
@@ -20,8 +23,10 @@ export const projects = [
             "Solution: Integrated GSAP for complex animations while ensuring cross-browser compatibility and responsiveness."
         ],
         liveLink: "https://projectone.example.com",
+        githubLink: "https://github.com/username/project-one"
     },
     {
+        id: "2",
         title: "Project Two",
         images: ["/images/mockup22.png", "/images/mockup33.png"],
         technologies: ["React", "Node.js", "MongoDB"],
@@ -36,8 +41,10 @@ export const projects = [
             "Solution: Used Socket.IO to enable real-time communication between the server and client, ensuring quick updates and data consistency."
         ],
         liveLink: "https://projecttwo.example.com",
+        githubLink: "https://github.com/username/project-two"
     },
     {
+        id: "3",
         title: "Project Three",
         images: ["/images/mockup33.png", "/images/mockup22.png"],
         technologies: ["Vue.js", "Nuxt.js", "SASS"],
@@ -52,5 +59,6 @@ export const projects = [
             "Solution: Leveraged Nuxt.js for automatic server-side rendering and optimized routing for better performance."
         ],
         liveLink: "https://projectthree.example.com",
+        githubLink: "https://github.com/username/project-three"
     }
 ];

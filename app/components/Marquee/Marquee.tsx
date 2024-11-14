@@ -37,7 +37,7 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
 
     return (
         <motion.div style={{ x: translateX }} className="w-[400px] h-[300px] flex-shrink-0">
-            <div className="relative flex flex-col justify-center items-center h-full border p-4 rounded-xl shadow-xl bg-white">
+            <div className="relative flex flex-col justify-center items-center h-full p-4 rounded-xl bg-white">
 
                 <div className="text-center mb-auto">
                     <p className="text-xl md:text-2xl font-NeueMontrealVariable italic">"{text}"</p>

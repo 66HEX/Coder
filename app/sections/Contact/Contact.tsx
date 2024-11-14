@@ -93,10 +93,10 @@ export default function Contact() {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/" className="block">
-                                <p className="inline-flex font-EikoItalic mr-1">©</p>
-                                <p className="inline-flex">2024</p>
-                            </Link>
+                            <p  className="block">
+                                <span className="inline-flex font-EikoItalic mr-1">©</span>
+                                <span className="inline-flex">2024</span>
+                            </p>
                         </li>
                         <li>
                             <Link href="https://www.instagram.com/hexthecoder/" target="_blank"

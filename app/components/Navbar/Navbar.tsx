@@ -6,9 +6,11 @@ import { useLenis } from "@studio-freight/react-lenis";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
-export default function Navbar({ isAnimationTriggered }) {
+export default function Navbar() {
     const [activeSection, setActiveSection] = useState("");
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isAnimationTriggered, setAnimationTriggered] = useState(false); // State for animation trigger
+
 
     const toggleButtonRef = useRef(null);
     const toggleButtonLine1Ref = useRef(null);
@@ -22,6 +24,15 @@ export default function Navbar({ isAnimationTriggered }) {
     const lenis = useLenis();
 
     CustomEase.create("customEase", "0.76,0,0.24,1");
+
+    useEffect(() => {
+        // Set isAnimationTriggered to true after 2 seconds
+        const timer = setTimeout(() => {
+            setAnimationTriggered(true);
+        }, 2000);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     useEffect(() => {
         if (isAnimationTriggered) {
@@ -155,17 +166,26 @@ export default function Navbar({ isAnimationTriggered }) {
 
     const handleScroll = (e, targetId) => {
         e.preventDefault();
-        const section = document.getElementById(targetId);
 
-        if (section && lenis) {
-            lenis.scrollTo(section, { offset: -60 }); // Use scrollTo from the lenis instance
+        // Sprawdza, czy użytkownik jest już na stronie głównej
+        if (window.location.pathname !== "/") {
+            // Przekierowuje na stronę główną z fragmentem URL, aby przeskrolować do sekcji
+            window.location.href = `/${targetId ? `#${targetId}` : ''}`;
+        } else {
+            const section = document.getElementById(targetId);
+
+            if (section && lenis) {
+                lenis.scrollTo(section, { offset: -60 }); // Używa funkcji scrollTo z instancji lenis
+            }
         }
 
+        // Zamknij menu na urządzeniach mobilnych po kliknięciu linku
         if (window.innerWidth < 640) {
             setMobileMenuOpen(false);
             handleToggle();
         }
     };
+
 
     return (
         <nav ref={navRef} id="nav" className="fixed w-screen  flex justify-between items-center z-30 p-4 bg-hexwhite shadow-xl"
@@ -200,7 +220,7 @@ export default function Navbar({ isAnimationTriggered }) {
 
             <div
                 ref={navMenuRef}
-                className="flex fixed md:static top-0 left-0 px-4 w-full md:w-auto bg-hexwhite md:bg-transparent flex-col md:flex-row justify-center items-center min-h-svh h-full md:min-h-0 md:justify-between md:gap-8 font-NeueMontrealVariable font-semibold text-hexblack uppercase"
+                className="flex fixed md:static top-0 left-0 px-4 w-full md:w-auto bg-white md:bg-transparent flex-col md:flex-row justify-center items-center min-h-svh h-full md:min-h-0 md:justify-between md:gap-8 font-NeueMontrealVariable font-semibold text-hexblack uppercase"
             >
                 <ul className="flex flex-col md:flex-row items-center w-full md:w-auto">
                     {[{ href: "#home", label: "home" }, { href: "#about", label: "about" }, { href: "#works", label: "works" }, { href: "#contact", label: "contact" }].map((item, index) => (

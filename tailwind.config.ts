@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         hexblack: '#1C1C1C',
         hexgray: '#A4A4A4',
-        hexwhite: '#F3F3F3',
+        hexwhite: '#EAEAEA',
       },
       fontFamily: {
         EikoItalic: 'EikoItalic',

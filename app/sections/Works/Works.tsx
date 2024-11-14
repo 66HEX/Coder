@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -5,8 +6,8 @@ import WorksModal from '@/app/sections/Works/WorksModal/WorksModal';
 import { CustomEase } from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
-import Lightbox from "./Lightbox/Lightbox";
 import { projects } from '@/app/data/worksData';
+import { useRouter } from 'next/navigation';
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -16,8 +17,8 @@ interface ModalState {
 }
 
 export default function Works() {
-    const [lightbox, setLightbox] = useState<ModalState>({ active: false, index: 0 });
     const headerRef = useRef(null);
+    const router = useRouter();
     const [modal, setModal] = useState<ModalState>({ active: false, index: 0 });
     const imageRef = useRef<(HTMLDivElement | null)[]>([]);
     const imageElementRef = useRef<(HTMLImageElement | null)[]>([]); // Add references to image elements
@@ -49,12 +50,8 @@ export default function Works() {
         }
     };
 
-    const handleImageClick = (index: number) => {
-        setLightbox({ active: true, index });
-    };
-
-    const closeLightbox = () => {
-        setLightbox({ active: false, index: 0 });
+    const handleClick = (id: string) => {
+        router.push(`/works/${id}`);
     };
 
     useGSAP(() => {
@@ -144,7 +141,7 @@ export default function Works() {
                 {projects.map((work, index) => (
                     <div
                         key={index}
-                        className="relative overflow-hidden rounded-xl shadow-xl"
+                        className="relative overflow-hidden rounded-xl"
                         ref={el => {
                             if (imageRef.current) imageRef.current[index] = el;
                         }}
@@ -152,7 +149,7 @@ export default function Works() {
                         {work.textContent ? (
                             <div className="relative flex justify-center items-center h-full bg-white rounded-xl p-4">
                                 <p
-                                    className="works-header text-xl md:text-2xl text-center font-NeueMontrealVariable"
+                                    className="works-header text-lg md:text-2xl text-center font-NeueMontrealVariable"
                                     ref={headerRef}
                                 >
                                     {work.textContent}
@@ -162,7 +159,7 @@ export default function Works() {
                             <div className="relative overflow-hidden work-image cursor-pointer"
                                  onMouseEnter={() => handleMouseEnter(index)}
                                  onMouseLeave={() => handleMouseLeave(index)}
-                                 onClick={() => handleImageClick(index)}
+                                 onClick={() => handleClick(work.id)}
                             >
                                 <Image
                                     src={work.images[0]}
@@ -195,11 +192,6 @@ export default function Works() {
                 ))}
             </div>
             <WorksModal modal={modal} />
-            <Lightbox
-                active={lightbox.active}
-                project={projects[lightbox.index]}
-                closeLightbox={closeLightbox}
-            />
         </section>
     );
 }
