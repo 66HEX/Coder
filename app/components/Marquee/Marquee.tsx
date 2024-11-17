@@ -33,14 +33,14 @@ export default function Marquee() {
 }
 
 const TestimonialCard = ({ text, author, role, src, progress }) => {
-    const translateX = useTransform(progress, [0, 1], [150, -150]);
+    const translateX = useTransform(progress, [0, 1], [-100, -550]);
 
     return (
-        <motion.div style={{ x: translateX }} className="w-[400px] h-[250px] flex-shrink-0">
+        <motion.div style={{ x: translateX }} className="w-[400px] h-[200px] xl:h-[250px] flex-shrink-0">
             <div className="relative flex flex-col justify-start items-start h-full p-4 rounded-lg bg-white">
 
                 <div className="text-left mb-auto">
-                    <p className="text-2xl font-NeueMontrealVariable italic">"{text}"</p>
+                    <p className="text-lg xl:text-2xl font-NeueMontrealVariable italic">"{text}"</p>
                 </div>
 
                 <div className="absolute bottom-4 left-4 flex items-center">

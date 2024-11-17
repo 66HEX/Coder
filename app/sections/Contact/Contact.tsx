@@ -58,7 +58,6 @@ export default function Contact() {
             <div
                 className="w-full h-full flex flex-col justify-between items-center text-hexblack bg-white rounded-lg font-MoriRegular text-xl md:text-2xl lg:text-3xl relative overflow-hidden"
             >
-                {/* Centered content */}
                 <div
                     className="absolute top-1/2 transform -translate-y-1/2 w-full flex flex-col justify-center items-center text-center">
                     <h2 ref={headerRef}
@@ -72,9 +71,25 @@ export default function Contact() {
                             className="relative  before:content-[''] before:absolute before:left-[-228px] before:top-1/2 before:-translate-y-3/4 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                     </a>
+                    <Link href="https://www.instagram.com/hexthecoder/" target="_blank"
+                          rel="noopener noreferrer"
+                          className="group mt-4 md:hidden font-NeueMontrealVariable  text-base uppercase">
+                        instagram
+                        <span
+                            className="relative  before:content-[''] before:absolute before:left-[-99px] before:top-1/2 before:-translate-y-3/4 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                        </span>
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/marek-j%C3%B3%C5%BAwiak-29958132a/" target="_blank"
+                          rel="noopener noreferrer"
+                          className="group mt-4 md:hidden font-NeueMontrealVariable  text-base uppercase">
+                        linkedin
+                        <span
+                            className="relative  before:content-[''] before:absolute before:left-[-80px] before:top-1/2 before:-translate-y-3/4 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                        </span>
+                    </Link>
                 </div>
 
-                <div className="w-full flex-grow flex items-end">
+                <div className="w-full flex-grow  items-end hidden md:flex">
                     <ul className="flex w-full h-auto flex-row justify-between items-start gap-2 p-4 font-NeueMontrealVariable  text-base uppercase">
                         <li>
                             <Link href="https://www.linkedin.com/in/marek-j%C3%B3%C5%BAwiak-29958132a/" target="_blank"
@@ -99,7 +114,7 @@ export default function Contact() {
                         </li>
                     </ul>
                 </div>
-                <div className="absolute -top-32 -right-32 z-0">
+                <div className="absolute -top-40 md:-top-32 -right-32 z-0">
                     <Image
                         src="/images/35.png"
                         alt="3D Abstract Shape"
