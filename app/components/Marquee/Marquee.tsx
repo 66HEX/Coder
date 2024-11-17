@@ -36,11 +36,11 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
     const translateX = useTransform(progress, [0, 1], [150, -150]);
 
     return (
-        <motion.div style={{ x: translateX }} className="w-[400px] h-[300px] flex-shrink-0">
-            <div className="relative flex flex-col justify-center items-center h-full p-4 rounded-xl bg-white">
+        <motion.div style={{ x: translateX }} className="w-[400px] h-[250px] flex-shrink-0">
+            <div className="relative flex flex-col justify-start items-start h-full p-4 rounded-lg bg-white">
 
-                <div className="text-center mb-auto">
-                    <p className="text-xl md:text-2xl font-NeueMontrealVariable italic">"{text}"</p>
+                <div className="text-left mb-auto">
+                    <p className="text-2xl font-NeueMontrealVariable italic">"{text}"</p>
                 </div>
 
                 <div className="absolute bottom-4 left-4 flex items-center">
@@ -49,7 +49,7 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
                     </div>
                     <div>
                         <p className="font-NeueMontrealVariable font-semibold text-base">{author}</p>
-                        <p className="text-sm font-NeueMontrealVariable">{role}</p>
+                        <p className="text-sm font-NeueMontrealVariable text-hexgray">{role}</p>
                     </div>
                 </div>
             </div>

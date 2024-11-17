@@ -17,11 +17,11 @@ interface ModalState {
 }
 
 export default function Works() {
-    const headerRef = useRef(null);
     const router = useRouter();
     const [modal, setModal] = useState<ModalState>({ active: false, index: 0 });
     const imageRef = useRef<(HTMLDivElement | null)[]>([]);
-    const imageElementRef = useRef<(HTMLImageElement | null)[]>([]); // Add references to image elements
+    const imageElementRef = useRef<(HTMLImageElement | null)[]>([]);
+
     CustomEase.create("customEase", "0.76,0,0.24,1");
 
     const handleMouseEnter = (index: number) => {
@@ -54,86 +54,6 @@ export default function Works() {
         router.push(`/works/${id}`);
     };
 
-    useGSAP(() => {
-        const childSplit = new SplitText(".works-header", { type: "lines" });
-        const parentSplit = new SplitText(".works-header", { type: "lines", linesClass: "line-wrapper overflow-hidden" });
-
-        CustomEase.create("customEase", "0.76,0,0.24,1");
-
-        const lines = childSplit.lines;
-
-        const animateText = (lines) => {
-            gsap.fromTo(
-                lines,
-                { y: "100%" },
-                {
-                    y: "0%",
-                    duration: 1,
-                    ease: "customEase",
-                }
-            );
-        };
-
-        const headerObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateText(lines);
-                        headerObserver.disconnect();
-                    }
-                });
-            },
-            {
-                threshold: 0.01,
-            }
-        );
-
-        if (headerRef.current) headerObserver.observe(headerRef.current);
-
-        return () => {
-            headerObserver.disconnect();
-        };
-    }, []);
-
-    useEffect(() => {
-        const animateImage = (element: HTMLElement) => {
-            const image = element.querySelector(".work-image");
-            const technologies = element.querySelector(".technologies");
-
-            if (image && technologies) {
-                const tl = gsap.timeline();
-
-                tl.fromTo(
-                    image,
-                    { clipPath: "inset(0% 0% 100% 0%)" },
-                    { clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "customEase" }
-                )
-                    .fromTo(
-                        technologies,
-                        { y: 50, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 1, ease: "customEase" },
-                        "-=0.5"
-                    );
-            }
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    animateImage(entry.target as HTMLElement);
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-
-        imageRef.current.forEach(ref => {
-            if (ref) observer.observe(ref);
-        });
-
-        return () => {
-            observer.disconnect();
-        };
-    }, []);
 
     return (
         <section id="works" className="w-screen text-hexblack px-4 pb-4 flex flex-col justify-center items-center">
@@ -146,16 +66,6 @@ export default function Works() {
                             if (imageRef.current) imageRef.current[index] = el;
                         }}
                     >
-                        {work.textContent ? (
-                            <div className="relative flex justify-center items-center h-full bg-white rounded-xl p-4">
-                                <p
-                                    className="works-header text-lg md:text-2xl text-center font-NeueMontrealVariable"
-                                    ref={headerRef}
-                                >
-                                    {work.textContent}
-                                </p>
-                            </div>
-                        ) : (
                             <div className="relative overflow-hidden work-image cursor-pointer"
                                  onMouseEnter={() => handleMouseEnter(index)}
                                  onMouseLeave={() => handleMouseLeave(index)}
@@ -174,11 +84,12 @@ export default function Works() {
 
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-100 rounded-xl"></div>
-                                <div className="absolute bottom-0 flex flex-row p-4 text-hexwhite rounded-b-xl technologies opacity-0">
+                                <div className="absolute bottom-0 flex flex-row p-4 text-hexwhite rounded-b-xl technologies">
                                     <div className="flex flex-wrap gap-2">
                                         {work.technologies.map((tech, techIndex) => (
                                             <span
                                                 key={techIndex}
+
                                                 className="font-NeueMontrealVariable text-sm lg:text-base text-white border border-hexwhite rounded-md py-1 px-3"
                                             >
                                                 {tech}
@@ -187,7 +98,6 @@ export default function Works() {
                                     </div>
                                 </div>
                             </div>
-                        )}
                     </div>
                 ))}
             </div>

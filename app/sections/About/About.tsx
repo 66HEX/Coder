@@ -1,172 +1,164 @@
-import { gsap } from "gsap";
-import React, { useRef, useEffect } from "react";
-import { SplitText } from "@/app/utils/gsap/SplitText";
-import { CustomEase } from 'gsap/CustomEase';
-import Image from "next/image";
-import { useGSAP } from "@gsap/react";
+import { useState, useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import Image from 'next/image';
+import { CustomEase } from "gsap/CustomEase";
+import { aboutData } from '@/app/data/aboutData';
+import { useLenis } from "@studio-freight/react-lenis";
 
-gsap.registerPlugin(SplitText, CustomEase);
+gsap.registerPlugin( CustomEase );
 
 export default function About() {
-    const textRef = useRef(null);
-    const imageRef = useRef(null);
-    const techRef = useRef(null);
-    const langRef = useRef(null);
+    const [isOpen, setIsOpen] = useState<number | null>(null);
+    const accordionContentRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+    const [screenWidth, setScreenWidth] = useState<number>(0); // Initially set to 0 or some default value
+    const lenis = useLenis();
 
-    useGSAP(() => {
-        CustomEase.create("customEase", "0.76,0,0.24,1");
-
-        const animateText = (lines) => {
-            gsap.fromTo(
-                lines,
-                { y: "100%" },
-                {
-                    y: "0%",
-                    duration: 1,
-                    ease: "customEase",
-                }
-            );
-        };
-
-        const animateImage = () => {
-            gsap.fromTo(
-                imageRef.current,
-                { clipPath: "inset(0% 0% 100% 0%)" },
-                {
-                    clipPath: "inset(0% 0% 0% 0%)",
-                    duration: 1,
-                    ease: "customEase",
-                }
-            );
-        };
-
-        const initializeSplitText = () => {
-            const childSplit = new SplitText(".about-description", { type: "lines" });
-            const techSplit = new SplitText(".technology-column", { type: "lines" });
-            const langSplit = new SplitText(".languages-column", { type: "lines" });
-            const parentSplit = new SplitText(".about-description, .technology-column, .languages-column", { type: "lines", linesClass: "line-wrapper overflow-hidden" });
-
-            const lines = childSplit.lines;
-            const techLines = techSplit.lines;
-            const langLines = langSplit.lines;
-
-            const textObserver = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateText(lines);
-                            textObserver.disconnect();
-                        }
-                    });
-                },
-                { threshold: 0.01 }
-            );
-
-            const techObserver = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateText(techLines);
-                            techObserver.disconnect();
-                        }
-                    });
-                },
-                { threshold: 0.01 }
-            );
-
-            const langObserver = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateText(langLines);
-                            langObserver.disconnect();
-                        }
-                    });
-                },
-                { threshold: 0.01 }
-            );
-
-            const imageObserver = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateImage();
-                            imageObserver.disconnect();
-                        }
-                    });
-                },
-                { threshold: 0.01 }
-            );
-
-            // Observing elements
-            if (textRef.current) textObserver.observe(textRef.current);
-            if (techRef.current) techObserver.observe(techRef.current);
-            if (langRef.current) langObserver.observe(langRef.current);
-            if (imageRef.current) imageObserver.observe(imageRef.current);
-        };
-
-        const handleFontLoad = async () => {
-            if (document.fonts) {
-                await document.fonts.ready;  // Wait for all fonts to load
-                setTimeout(() => {
-                    initializeSplitText();   // Initialize SplitText after fonts are ready and 200ms delay
-                }, 200);
-            }
-        };
-
-        // Trigger font loading listener
-        handleFontLoad();
-
-        return () => {
-            // Cleanup observers if needed
-        };
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const handleResize = () => setScreenWidth(window.innerWidth);
+            handleResize();
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
     }, []);
+
+    CustomEase.create("customEase", "0.76,0,0.24,1");
+
+    useEffect(() => {
+        accordionContentRefs.current.forEach((contentRef, index) => {
+            if (contentRef) {
+                const height = screenWidth < 768
+                    ? '100px' // sm:
+                    : screenWidth >= 1280
+                        ? '65px' // xl:
+                        : screenWidth >= 1024
+                            ? '85px' // lg:
+                            : '100px'; // md:
+
+
+                if (isOpen === index) {
+                    gsap.to(contentRef, {
+                        duration: 0.5,
+                        height: height,
+                        opacity: 1,
+                        ease: 'customEase',
+                    });
+                    gsap.to(buttonRefs.current[index], {
+                        duration: 0.3,
+                        rotation: 90,
+                    });
+                } else {
+                    gsap.to(contentRef, {
+                        duration: 0.5,
+                        height: 0,
+                        opacity: 0,
+                        ease: 'customEase',
+                    });
+                    gsap.to(buttonRefs.current[index], {
+                        duration: 0.3,
+                        rotation: 0,
+                    });
+                }
+            }
+        });
+    }, [isOpen, screenWidth]);
+
+    const handleScrollToContact = (e) => {
+        e.preventDefault();
+        const contactSection = document.getElementById("contact");
+        if (contactSection && lenis) {
+            lenis.scrollTo(contactSection, { offset: -60 });
+        }
+    };
 
     return (
         <section
             id="about"
-            className="w-screen text-hexblack px-4 pb-4 flex flex-col justify-center items-center font-NeueMontrealVariable"
+            className="w-screen text-hexblack px-4 pb-4 mb-4 md:mb-0 flex flex-col justify-center items-center font-NeueMontrealVariable"
         >
-            <div className="h-full w-full flex flex-col md:flex-row">
-                <div ref={textRef} className="w-full md:w-2/3 order-2 md:order-1 flex flex-col p-4 bg-white rounded-xl">
-                    <p className="about-description text-base md:text-2xl">
-                        I’m Marek Jóźwiak, a web designer and developer with a rich background in electronics, based in
-                        Poland. Originally trained as an electronician, I possess a technical foundation that
-                        enhances my problem-solving approach to web development. With experience as an electronics
-                        technician, I bring a unique, precision-oriented perspective to my design and coding work,
-                        blending visual creativity with technical functionality to create digital solutions that are as
-                        reliable as they are engaging.
-                    </p>
-                    <div className="mt-4 md:mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-                        <div ref={techRef} className="w-full md:w-1/2">
-                            <h3 className=" technology-column font-semibold text-lg md:text-2xl mb-2 md:mb-4">Technologies & Tools</h3>
-                            <ul className="list-disc ml-4">
-                                <li className="technology-column">JavaScript (ES6+)</li>
-                                <li className="technology-column">React & Next.js</li>
-                                <li className="technology-column">HTML & CSS (Sass, Tailwind)</li>
-                                <li className="technology-column">Node.js & Express</li>
-                                <li className="technology-column">Git & GitHub</li>
-                                <li className="technology-column">GSAP</li>
-                                <li className="technology-column">Figma</li>
-                            </ul>
+            <div className="w-full h-full grid md:grid-cols-3 ">
+                <div className="h-full col-span-3 md:col-span-2 order-2 md:order-1 grid md:grid-rows-2 gap-4 mt-4 md:mt-0 md:mr-4">
+                    <div className="row-span-1 grid grid-cols-3 gap-4">
+                        <div className="bg-white col-span-3 md:col-span-2 p-4 rounded-lg relative flex flex-col justify-start items-start gap-4">
+                            <p className="uppercase text-hexgray text-sm xl:text-base">about</p>
+                            <p className="text-lg xl:text-2xl">
+                                I’m Marek Jóźwiak, a digital artisan based in Poland, where imagination meets precision
+                                to shape captivating, functional web experiences. I breathe life into every pixel,
+                                constantly pushing the boundaries of design and technology, forever innovating to craft
+                                digital journeys that enchant and endure.
+                            </p>
                         </div>
-                        <div ref={langRef} className="w-full md:w-1/2">
-                            <h3 className="languages-column font-semibold text-lg md:text-2xl mb-2 md:mb-4">Languages</h3>
-                            <ul className="list-disc ml-4">
-                                <li className="languages-column">English (B2)</li>
-                                <li className="languages-column">Polish (native)</li>
-                            </ul>
+                        <div className=" min-h-44 bg-white col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between relative overflow-hidden">
+                            <div>
+                                <p className="uppercase text-hexgray text-sm xl:text-base">Availability</p>
+                                <p className="text-lg xl:text-2xl mt-4">Open to freelance projects.</p>
+                            </div>
+                            <div className="absolute -bottom-48 -right-32 z-0">
+                                <Image src="/images/20.png" alt="3D Abstract Shape" width={300} height={300}/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row-span-1 grid grid-cols-3 gap-4">
+                        <div
+                            className="bg-white col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between items-start gap-4 order-2 md:order-1 relative overflow-hidden">
+                            <div>
+                                <p className="uppercase text-hexgray text-sm xl:text-base">contact</p>
+                                <p className="text-lg xl:text-2xl mt-4">Transform your ideas into exceptional digital experiences.</p>
+                            </div>
+                            <button
+                                className="border-2 border-hexblack text-hexblack rounded-md p-4 text-2xl xl:text-4xl self-end hover:text-hexwhite hover:border-hexwhite hover:bg-hexblack transition duration-300"
+                                onClick={handleScrollToContact}
+                            >
+                                &#8599;
+                            </button>
+                            <div className="absolute -bottom-48 -left-32 z-0">
+                                <Image src="/images/25.png" alt="3D Abstract Shape" width={300} height={300}/>
+                            </div>
+                        </div>
+                        <div
+                            className="bg-white col-span-3 md:col-span-2 p-4 rounded-lg flex flex-col justify-between items-start gap-4 order-1 md:order-2">
+                            <div>
+                                <p className="uppercase text-hexgray text-sm xl:text-base">Services</p>
+                            </div>
+                            <div className="w-full">
+                                {aboutData.map((service, index) => (
+                                    <div key={index} className="service-item">
+                                        <div className="flex justify-between items-center">
+                                            <p className="text-lg xl:text-2xl">{service.title}</p>
+                                            <button
+                                                ref={(el) => { buttonRefs.current[index] = el; }}
+                                                className="text-lg xl:text-2xl transform transition duration-300"
+                                                onClick={() => setIsOpen(isOpen === index ? null : index)}
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                        <hr className="my-2 " />
+                                        <div
+                                            ref={(el) => { accordionContentRefs.current[index] = el; }}
+                                            className="overflow-hidden transition-all duration-500"
+                                            style={{ height: 0, opacity: 0 }}
+                                        >
+                                            <p className="mt-2 text-base text-hexgray">
+                                                {service.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
-                <Image
-                    ref={imageRef}
-                    src="/images/about-photo22.png"
-                    alt="Zdjęcie profilowe"
-                    width={500}
-                    height={500}
-                    className="object-cover about-photo md:w-1/3 md:ml-4 order-1 md:order-2 mb-4 md:mb-0 rounded-xl"
-                />
+                <div className="min-h-[400px] md:min-h-[600px] h-full col-span-3 md:col-span-1 order-1 md:order-2 rounded-lg overflow-hidden relative">
+                    <Image
+                        src="/images/about-photo22.png"
+                        alt="Profile photo"
+                        layout="fill"
+                        objectFit="cover"
+                        className="object-cover"
+                    />
+                </div>
             </div>
         </section>
     );

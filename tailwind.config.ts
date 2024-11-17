@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        hexblack: '#1C1C1C',
+        hexblack: '#252525',
         hexgray: '#A4A4A4',
-        hexwhite: '#EAEAEA',
+        hexwhite: '#EEEEEE',
       },
       fontFamily: {
         EikoItalic: 'EikoItalic',

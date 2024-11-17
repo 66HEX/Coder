@@ -1,8 +1,9 @@
 import { gsap } from "gsap";
 import { CustomEase } from 'gsap/CustomEase';
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import {useGSAP} from "@gsap/react";
+import Image from "next/image";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -36,7 +37,18 @@ export default function Hero({ isAnimationTriggered }) {
             timeline.fromTo(designerSplit.lines, { y: "100%" }, { y: "0%", duration: 1, ease: "customEase" }, "-=1");
             timeline.fromTo(yearSplit.lines, { y: "100%" }, { y: "0%", duration: 1, ease: "customEase" }, "-=1");
             timeline.fromTo(paragraphSplit.lines, { y: "100%" }, { y: "0%", duration: 1, ease: "customEase" }, "-=1");
-
+            timeline.fromTo(
+                ".top-right-image",
+                { x: "100%", y: "-100%", opacity: 0 },
+                { x: "0%", y: "0%", opacity: 1, duration: 1, ease: "customEase" },
+                "-=1"
+            );
+            timeline.fromTo(
+                ".bottom-left-image",
+                { x: "-100%", y: "100%", opacity: 0 },
+                { x: "0%", y: "0%", opacity: 1, duration: 1, ease: "customEase" },
+                "-=1"
+            );
             return () => {
                 webSplit.revert();
                 developerSplit.revert();
@@ -59,8 +71,9 @@ export default function Hero({ isAnimationTriggered }) {
             id="home"
             className="h-svh w-screen p-4"
         >
-            <div className="h-full w-full bg-hexblack flex flex-col justify-center items-center overflow-hidden relative rounded-xl">
-                <div className="w-full flex flex-col items-start text-hexgray p-4">
+            <div
+                className="h-full w-full bg-white flex flex-col justify-center items-center overflow-hidden relative rounded-lg">
+                <div className="w-full flex flex-col items-start text-hexblack p-4 z-30">
                     <h2 className="hero-web font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none">web</h2>
                     <div>
                         <h2 className="hero-developer font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none -mt-2 md:-mt-4 xl:-mt-8">developer</h2>
@@ -75,6 +88,22 @@ export default function Hero({ isAnimationTriggered }) {
                     <p>For innovative brands,</p>
                     <p>digital products and</p>
                     <p>immersive experiences.</p>
+                </div>
+                <div className="absolute -top-32 -right-32 z-0 top-right-image">
+                    <Image
+                        src="/images/17.png"
+                        alt="Zdjęcie profilowe"
+                        width={300}
+                        height={300}
+                    />
+                </div>
+                <div className="absolute -bottom-32 -left-32 z-0 bottom-left-image">
+                    <Image
+                        src="/images/17.png"
+                        alt="Zdjęcie profilowe"
+                        width={300}
+                        height={300}
+                    />
                 </div>
             </div>
         </section>

@@ -1,7 +1,5 @@
 "use client";
 import { projects } from '@/app/data/worksData';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Contact from "@/app/sections/Contact/Contact";
@@ -9,6 +7,7 @@ import WorksDetailModal from "@/app/sections/Works/WorksDetailModal/WorksDetailM
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import { CustomEase } from 'gsap/CustomEase';
 import { gsap } from "gsap";
+import {useGSAP} from "@gsap/react";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -28,14 +27,12 @@ const WorkDetailPage = ({ params }) => {
         return <h2>Project not found</h2>;
     }
 
-    // Refs for the elements to animate
-    // Update the ref types correctly
     const techRefs = useRef<React.RefObject<HTMLLIElement>[]>(project.technologies.map(() => React.createRef<HTMLLIElement>()));
     const roleRefs = useRef<React.RefObject<HTMLLIElement>[]>(project.roles.map(() => React.createRef<HTMLLIElement>()));
     const descRefs = useRef<React.RefObject<HTMLParagraphElement>[]>(project.description.map(() => React.createRef<HTMLParagraphElement>()));
     const chalRefs = useRef<React.RefObject<HTMLLIElement>[]>(project.challengesAndSolutions.map(() => React.createRef<HTMLLIElement>()));
 
-
+    const sectionRef = useRef(null);
     const linkRef = useRef(null);
     const imageRef = useRef(null);
     const headerRef = useRef(null);
@@ -64,135 +61,85 @@ const WorkDetailPage = ({ params }) => {
         );
     };
 
-    useEffect(() => {
+    useGSAP(() => {
         CustomEase.create("customEase", "0.76,0,0.24,1");
 
         const initializeSplitText = () => {
-            const titleElement = headerRef.current;
-            const linkElement = linkRef.current;
+            const sectionElement = sectionRef.current;
 
-            if (titleElement) {
-                const titleSplit = new SplitText(titleElement, { type: "lines" });
-                const parentSplit = new SplitText(titleElement, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
+            if (!sectionElement) return;
 
-                const titleLines = titleSplit.lines;
-                const titleObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateText(titleLines);
-                            titleObserver.disconnect();
-                        }
-                    });
-                }, { threshold: 0.01 });
-                titleObserver.observe(titleElement);
-            }
-
-            if (linkElement) {
-                const linkSplit = new SplitText(titleElement, { type: "lines" });
-                const parentSplit = new SplitText(titleElement, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
-
-                const linkLines = linkSplit.lines;
-                const linkObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateText(linkLines);
-                            linkObserver.disconnect();
-                        }
-                    });
-                }, { threshold: 0.01 });
-                linkObserver.observe(titleElement);
-            }
-
-            techRefs.current.forEach(ref => {
-                if (ref.current) {
-                    const split = new SplitText(ref.current, { type: "lines" });
-                    new SplitText(ref.current, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
-                    const lines = split.lines;
-
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                animateText(lines);
-                                observer.disconnect();
-                            }
-                        });
-                    }, { threshold: 0.01 });
-
-                    observer.observe(ref.current);
+            const animateAllElements = () => {
+                // Animacja tytułu
+                if (headerRef.current) {
+                    const titleSplit = new SplitText(headerRef.current, { type: "lines" });
+                    new SplitText(headerRef.current, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
+                    animateText(titleSplit.lines);
                 }
-            });
 
-            roleRefs.current.forEach(ref => {
-                if (ref.current) {
-                    const split = new SplitText(ref.current, { type: "lines" });
-                    new SplitText(ref.current, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
-                    const lines = split.lines;
-
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                animateText(lines);
-                                observer.disconnect();
-                            }
-                        });
-                    }, { threshold: 0.01 });
-
-                    observer.observe(ref.current);
+                // Animacja linku
+                if (linkRef.current) {
+                    const linkSplit = new SplitText(linkRef.current, { type: "lines" });
+                    new SplitText(linkRef.current, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
+                    animateText(linkSplit.lines);
                 }
-            });
 
-            descRefs.current.forEach((ref, index) => {
-                if (ref.current) {
-                    const descSplit = new SplitText(ref.current, { type: "lines" });
-                    new SplitText(ref.current, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
+                // Animacja techRefs
+                techRefs.current.forEach(ref => {
+                    if (ref.current) {
+                        const split = new SplitText(ref.current, { type: "lines" });
+                        new SplitText(ref.current, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
+                        animateText(split.lines);
+                    }
+                });
 
-                    const descLines = descSplit.lines;
-                    const descObserver = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                animateText(descLines);
-                                descObserver.disconnect();
-                            }
-                        });
-                    }, { threshold: 0.01 });
-                    descObserver.observe(ref.current);
+                // Animacja roleRefs
+                roleRefs.current.forEach(ref => {
+                    if (ref.current) {
+                        const split = new SplitText(ref.current, { type: "lines" });
+                        new SplitText(ref.current, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
+                        animateText(split.lines);
+                    }
+                });
+
+                // Animacja descRefs
+                descRefs.current.forEach(ref => {
+                    if (ref.current) {
+                        const descSplit = new SplitText(ref.current, { type: "lines" });
+                        new SplitText(ref.current, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
+                        animateText(descSplit.lines);
+                    }
+                });
+
+                // Animacja chalRefs
+                chalRefs.current.forEach(ref => {
+                    if (ref.current) {
+                        const split = new SplitText(ref.current, { type: "lines" });
+                        new SplitText(ref.current, { type: "lines", linesClass: "line-wrapper overflow-hidden" });
+                        animateText(split.lines);
+                    }
+                });
+
+                // Animacja obrazu
+                if (imageRef.current) {
+                    animateImage();
                 }
-            });
+            };
 
-            chalRefs.current.forEach(ref => {
-                if (ref.current) {
-                    const split = new SplitText(ref.current, {type: "lines"});
-                    new SplitText(ref.current, {type: "lines", linesClass: "line-wrapper overflow-hidden"});
-                    const lines = split.lines;
+            // Tworzenie IntersectionObserver dla sekcji
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateAllElements();
+                        observer.disconnect(); // Odłączenie obserwatora po uruchomieniu animacji
+                    }
+                });
+            }, { threshold: 0.1 }); // Procent widoczności sekcji wymagany do uruchomienia
 
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                animateText(lines);
-                                observer.disconnect();
-                            }
-                        });
-                    }, {threshold: 0.01});
-
-                    observer.observe(ref.current);
-                }
-            });
-
-            if (imageRef.current) {
-                const imageObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateImage();
-                            imageObserver.disconnect();
-                        }
-                    });
-                }, { threshold: 0.01 }); // Trigger when 20% of the image is in view
-                imageObserver.observe(imageRef.current);
-            }
+            observer.observe(sectionElement);
         };
 
-
-        // Wait for font load and initialize animations
+        // Czekaj na załadowanie czcionek i inicjalizuj animacje
         const handleFontLoad = async () => {
             if (document.fonts) {
                 await document.fonts.ready;
@@ -205,9 +152,10 @@ const WorkDetailPage = ({ params }) => {
         handleFontLoad();
 
         return () => {
-            // Cleanup observers if needed
+            // Cleanup observer (jeśli istnieje)
         };
     }, []);
+
 
     const handleMouseEnter = (index: number) => {
         setModal({ active: true, index });
@@ -220,11 +168,11 @@ const WorkDetailPage = ({ params }) => {
     return (
         <div className="w-screen bg-hexwhite font-NeueMontrealVariable">
             {/* Header Section */}
-            <div className="h-screen w-full p-4">
-                <div className="h-full w-full bg-hexblack rounded-xl p-4 flex justify-start items-end">
+            <div className=" w-full p-4">
+                <div className="h-full w-full bg-white rounded-xl p-4 flex justify-start items-end">
                     <h2
                         ref={headerRef}
-                        className="font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none text-hexgray header-split"
+                        className="font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none text-hexblack header-split"
                     >
                         {project.title}
                     </h2>
@@ -232,7 +180,7 @@ const WorkDetailPage = ({ params }) => {
             </div>
 
             {/* Main Content Section */}
-            <div className="w-full px-4 mb-4">
+            <div ref={sectionRef} className="w-full px-4 mb-4 text-hexblack">
                 <div className="w-full">
                     <div className="grid grid-cols-1 md:flex md:flex-col xl:grid xl:grid-cols-3 xl:gap-4">
                         <div className="xl:col-span-2 w-full mb-4">
@@ -252,23 +200,31 @@ const WorkDetailPage = ({ params }) => {
                                 />
                             </div>
                             {/* Pasek miniatur */}
-                            <div className="flex mt-4 space-x-4">
-                                {project.images.map((img, index) => (
+                            <div className="flex mt-4 space-x-2">
+                                {[...project.images, ...new Array(3 - project.images.length).fill(null)].map((img, index) => (
                                     <button
                                         key={index}
-                                        onClick={() => setCurrentImageIndex(index)}
-                                        className={` rounded-md overflow-hidden ${index === currentImageIndex ? "ring-2 ring-hexblack" : ""}`}
+                                        onClick={() => img && setCurrentImageIndex(index)}
+                                        className={`flex-shrink-0 rounded-md overflow-hidden ${index === currentImageIndex ? "ring-2 ring-hexblack" : ""}`}
+                                        style={{ width: `calc(33.333% - 6px)` }}
                                     >
-                                        <Image
-                                            src={img}
-                                            alt={`${project.title} thumbnail ${index + 1}`}
-                                            layout="responsive"
-                                            width={80}
-                                            height={56}
-                                        />
+                                        {img ? (
+                                            <Image
+                                                src={img}
+                                                alt={`${project.title} thumbnail ${index + 1}`}
+                                                layout="responsive"
+                                                width={100}
+                                                height={100}
+                                            />
+                                        ) : (
+
+                                            <div className="w-full h-0" style={{ paddingTop: '56.25%' }} />
+                                        )}
                                     </button>
                                 ))}
                             </div>
+
+
                         </div>
                         <div className="relative xl:col-span-1 grid grid-cols-1">
                             {/* Technologies and Roles */}
@@ -330,7 +286,6 @@ const WorkDetailPage = ({ params }) => {
                                                     rel="noopener noreferrer"
                                                     className="text-hexblack font-semibold flex items-center hover:underline link-split"
                                                 >
-                                                    <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2"/>
                                                     Live Project
                                                 </a>
                                             </div>
@@ -350,8 +305,8 @@ const WorkDetailPage = ({ params }) => {
                                 </div>
                                 <div className="bg-white p-4 rounded-xl block md:hidden xl:block">
                                     <h3 className="font-semibold text-lg md:text-2xl mb-2 md:mb-4 link-split">Links:</h3>
-                                    <div className="flex flex-row">
-                                        <div className="flex-grow" ref={linkRef}>
+                                    <div className="flex flex-row" ref={linkRef}>
+                                        <div className="flex-grow ">
                                             <a
                                                 href={project.liveLink}
                                                 target="_blank"
@@ -362,7 +317,7 @@ const WorkDetailPage = ({ params }) => {
                                                 Live Project
                                             </a>
                                         </div>
-                                        <div className="flex-grow">
+                                        <div className="flex-grow ml-12 md:ml-24">
                                             <a
                                                 href={project.githubLink}
                                                 target="_blank"

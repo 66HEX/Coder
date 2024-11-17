@@ -1,9 +1,6 @@
-"use client"
-import type { Metadata } from "next";
-
 import "./globals.css";
 import SmoothScrolling from "@/app/components/SmoothScrolling/SmoothScrolling";
-import Navbar from "@/app/components/Navbar/Navbar";
+import Dock from "@/app/components/Dock/Dock";
 
 
 export default function RootLayout({
@@ -15,7 +12,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <SmoothScrolling>
-          <Navbar/>
+            <Dock/>
             {children}
         </SmoothScrolling>
       </body>

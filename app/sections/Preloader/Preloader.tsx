@@ -1,8 +1,9 @@
 import { gsap } from "gsap";
 import { CustomEase } from 'gsap/CustomEase';
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import {useGSAP} from "@gsap/react";
+import Image from "next/image";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -89,13 +90,16 @@ export default function Preloader({ onComplete, isAnimationTriggered }) {
         <section
             ref={sectionRef}
             id="preloader"
-            className="fixed top-0 left-0 h-svh w-screen p-4 bg-hexwhite flex flex-col justify-center items-center overflow-hidden z-30"
+            className="fixed top-0 left-0 h-svh w-screen p-4 bg-hexwhite flex flex-col justify-center items-center overflow-hidden z-50 "
         >
-            <div className="text-hexgray bg-hexblack w-full rounded-xl p-4 h-full flex flex-col items-start justify-center">
-                <h2 className="preloader-name font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none text-left" style={{visibility: 'hidden'}}>
+            <div
+                className="text-hexblack bg-white w-full rounded-lg p-4 h-full flex flex-col items-start justify-center">
+                <h2 className="preloader-name font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none text-left"
+                    style={{visibility: 'hidden'}}>
                     marek
                 </h2>
-                <h2 className="preloader-surname font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none text-left" style={{visibility: 'hidden'}}>
+                <h2 className="preloader-surname font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none text-left"
+                    style={{visibility: 'hidden'}}>
                     jóźwiak
                 </h2>
             </div>

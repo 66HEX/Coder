@@ -1,13 +1,5 @@
 export const projects = [
     {
-        id: "0",
-        title: "Text Placeholder",
-        images: [],
-        technologies: [],
-        textContent: "New projects in the works. Stay tuned!",
-        githubLink: "https://github.com/username/text-placeholder"
-    },
-    {
         id: "1",
         title: "Project One",
         images: ["/images/mockup11.png", "/images/mockup22.png", "/images/mockup33.png"],
@@ -60,5 +52,23 @@ export const projects = [
         ],
         liveLink: "https://projectthree.example.com",
         githubLink: "https://github.com/username/project-three"
+    },
+    {
+        id: "4",
+        title: "Project Four",
+        images: ["/images/mockup11.png", "/images/mockup22.png"],
+        technologies: ["Angular", "Firebase", "Bootstrap"],
+        description: [
+            "This project is a progressive web application (PWA) developed with Angular for a highly modular and scalable architecture.",
+            "Firebase is used for real-time database and hosting services, ensuring seamless data updates and a serverless backend solution.",
+            "The design leverages Bootstrap for a consistent and mobile-first approach to UI, ensuring responsiveness across all devices."
+        ],
+        roles: ["Front-end Developer", "Cloud Integration Specialist"],
+        challengesAndSolutions: [
+            "Challenge: Integrating real-time data updates with a highly interactive interface.",
+            "Solution: Leveraged Firebase’s real-time database for instant updates and Angular's reactive forms to sync changes dynamically."
+        ],
+        liveLink: "https://projectfour.example.com",
+        githubLink: "https://github.com/username/project-four"
     }
 ];

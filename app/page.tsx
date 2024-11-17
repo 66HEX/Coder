@@ -1,13 +1,13 @@
 "use client";
-import Navbar from "@/app/components/Navbar/Navbar";
 import Hero from "@/app/sections/Hero/Hero";
-import About from "@/app/sections/About/About";
-
 import React, { useEffect, useState } from "react";
 import Works from "@/app/sections/Works/Works";
 import Contact from "@/app/sections/Contact/Contact";
 import Preloader from "@/app/sections/Preloader/Preloader";
 import Testimonials from "@/app/sections/Testimonials/Testimonials";
+import About2 from "@/app/sections/About/About";
+import About from "@/app/sections/About/About";
+
 
 export default function Home() {
     const [isHeroAnimationTriggered, setIsHeroAnimationTriggered] = useState(false);
@@ -29,8 +29,7 @@ export default function Home() {
             <main className="bg-hexwhite">
                 <Preloader onComplete={triggerHeroAnimation} isAnimationTriggered={isPreloaderAnimationTriggered} />
                 <Hero isAnimationTriggered={isHeroAnimationTriggered} />
-                <About />
-                <Works />
+                <About/>
                 <Testimonials />
                 <Contact />
             </main>
