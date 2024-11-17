@@ -11,7 +11,7 @@ export default function About() {
     const [isOpen, setIsOpen] = useState<number | null>(null);
     const accordionContentRefs = useRef<(HTMLDivElement | null)[]>([]);
     const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
-    const [screenWidth, setScreenWidth] = useState<number>(0); // Initially set to 0 or some default value
+    const [screenWidth, setScreenWidth] = useState<number>(0);
     const lenis = useLenis();
 
     useEffect(() => {
@@ -152,10 +152,9 @@ export default function About() {
                 </div>
                 <div className="min-h-[400px] md:min-h-[600px] h-full col-span-3 md:col-span-1 order-1 md:order-2 rounded-lg overflow-hidden relative">
                     <Image
-                        src="/images/about-photo22.png"
+                        src="/images/about-photo.png"
                         alt="Profile photo"
-                        layout="fill"
-                        objectFit="cover"
+                        fill
                         className="object-cover"
                     />
                 </div>

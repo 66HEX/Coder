@@ -1,10 +1,9 @@
 "use client"
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { gsap } from "gsap";
 import WorksModal from '@/app/sections/Works/WorksModal/WorksModal';
 import { CustomEase } from "gsap/CustomEase";
-import { useGSAP } from "@gsap/react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import { projects } from '@/app/data/worksData';
 import { useRouter } from 'next/navigation';

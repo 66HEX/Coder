@@ -5,7 +5,7 @@ import gsap from 'gsap';
 interface ModalProps {
     modal: {
         active: boolean;
-        index: number; // Retain this if it’s part of the ModalProps
+        index: number;
     };
 }
 

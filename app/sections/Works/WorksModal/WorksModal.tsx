@@ -5,7 +5,7 @@ import gsap from 'gsap';
 interface ModalProps {
     modal: {
         active: boolean;
-        index: number; // Retain this if it’s part of the ModalProps
+        index: number;
     };
 }
 
@@ -29,7 +29,7 @@ export default function WorksModal({ modal }: ModalProps) {
             const yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "top", { duration: 0.45, ease: "power3" });
 
             const handleMouseMove = (e: MouseEvent) => {
-                const { clientX, clientY } = e; // Use clientX and clientY for viewport-relative position
+                const { clientX, clientY } = e;
                 xMoveCursor(clientX);
                 yMoveCursor(clientY);
                 xMoveCursorLabel(clientX);

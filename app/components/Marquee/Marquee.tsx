@@ -1,30 +1,53 @@
 'use client'
-import { useScroll, useTransform, motion } from 'framer-motion';
-import {gsap} from "gsap";
-import {CustomEase} from "gsap/CustomEase";
+import { gsap } from "gsap";
+import { Observer } from "gsap/Observer";
+import { CustomEase } from "gsap/CustomEase";
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import { testimonialsData } from '@/app/data/testimonialsData';
+import horizontalLoop from '@/app/utils/HorizontalLoop'; // Assuming you have this helper function
 
-gsap.registerPlugin(CustomEase);
-
+gsap.registerPlugin(CustomEase, Observer);
 
 export default function Marquee() {
     const container = useRef();
-    const { scrollYProgress } = useScroll({
-        target: container,
-        offset: ['start end', 'end start']
-    });
+
+    useLayoutEffect(() => {
+        const speed = 1.125;  // Speed of the loop
+        document.fonts.ready.then(() => {
+            const loop = horizontalLoop('.testimonial-card', {
+                repeat: -1, // Infinite loop
+                speed: speed,
+                paddingRight: 16,
+            });
+
+            let tl;
+
+            // Using Observer.create instead of observe
+            Observer.create({
+                target: window,
+                type: 'wheel',
+                onChangeY: (self) => {
+                    tl && tl.kill();
+                    const factor = self.deltaY > 0 ? 1 : -1;
+                    tl = gsap.timeline()
+                        .to(loop, { timeScale: speed * factor, duration: 0.25 })
+                        .to(loop, { timeScale: 1 * factor, duration: 1 });
+                },
+            });
+        });
+    }, []);
 
     return (
-        <main className="">
-            <div className="" />
-            <div ref={container} className="flex space-x-4">
+        <main>
+            <div ref={container} className="testimonial-container flex space-x-4 overflow-hidden"
+                 style={{
+                     maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+                 }}>
                 {testimonialsData.map((testimonial, index) => (
                     <TestimonialCard
                         key={index}
                         {...testimonial}
-                        progress={scrollYProgress}
                     />
                 ))}
             </div>
@@ -32,13 +55,10 @@ export default function Marquee() {
     );
 }
 
-const TestimonialCard = ({ text, author, role, src, progress }) => {
-    const translateX = useTransform(progress, [0, 1], [-100, -550]);
-
+const TestimonialCard = ({ text, author, role, src }) => {
     return (
-        <motion.div style={{ x: translateX }} className="w-[400px] h-[200px] xl:h-[250px] flex-shrink-0">
+        <div className="testimonial-card w-[350px] md:w-[400px] h-[200px] xl:h-[250px] flex-shrink-0">
             <div className="relative flex flex-col justify-start items-start h-full p-4 rounded-lg bg-white">
-
                 <div className="text-left mb-auto">
                     <p className="text-lg xl:text-2xl font-NeueMontrealVariable italic">"{text}"</p>
                 </div>
@@ -53,6 +73,6 @@ const TestimonialCard = ({ text, author, role, src, progress }) => {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 }

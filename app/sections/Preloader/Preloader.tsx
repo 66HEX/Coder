@@ -3,7 +3,6 @@ import { CustomEase } from 'gsap/CustomEase';
 import React, { useRef, useState } from "react";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import {useGSAP} from "@gsap/react";
-import Image from "next/image";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
