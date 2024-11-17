@@ -296,7 +296,7 @@ const WorkDetailPage = ({ params }) => {
                                                     rel="noopener noreferrer"
                                                     className="text-hexblack font-semibold flex items-center hover:underline link-split"
                                                 >
-                                                    <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2"/>
+
                                                     GitHub Link
                                                 </a>
                                             </div>
@@ -313,7 +313,7 @@ const WorkDetailPage = ({ params }) => {
                                                 rel="noopener noreferrer"
                                                 className="text-hexblack font-semibold flex items-center hover:underline link-split"
                                             >
-                                                <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2"/>
+
                                                 Live Project
                                             </a>
                                         </div>
@@ -324,7 +324,7 @@ const WorkDetailPage = ({ params }) => {
                                                 rel="noopener noreferrer"
                                                 className="text-hexblack font-semibold flex items-center hover:underline link-split"
                                             >
-                                                <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2"/>
+
                                                 GitHub Link
                                             </a>
                                         </div>
