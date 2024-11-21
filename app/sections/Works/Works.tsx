@@ -1,14 +1,13 @@
 "use client"
 import Image from "next/image";
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { gsap } from "gsap";
 import WorksModal from '@/app/sections/Works/WorksModal/WorksModal';
 import { CustomEase } from "gsap/CustomEase";
-import { SplitText } from "@/app/utils/gsap/SplitText";
 import { projects } from '@/app/data/worksData';
 import { useRouter } from 'next/navigation';
 
-gsap.registerPlugin(SplitText, CustomEase);
+gsap.registerPlugin(CustomEase);
 
 interface ModalState {
     active: boolean;
@@ -49,9 +48,10 @@ export default function Works() {
         }
     };
 
-    const handleClick = (id: string) => {
-        router.push(`/works/${id}`);
+    const handleClick = (liveLink: string) => {
+        window.open(liveLink, "_blank");
     };
+
 
 
     return (
@@ -60,47 +60,39 @@ export default function Works() {
                 {projects.map((work, index) => (
                     <div
                         key={index}
-                        className="relative overflow-hidden rounded-xl"
+                        className="relative overflow-hidden rounded-lg bg-white"
                         ref={el => {
                             if (imageRef.current) imageRef.current[index] = el;
                         }}
                     >
-                            <div className="relative overflow-hidden work-image cursor-pointer"
-                                 onMouseEnter={() => handleMouseEnter(index)}
-                                 onMouseLeave={() => handleMouseLeave(index)}
-                                 onClick={() => handleClick(work.id)}
-                            >
-                                <Image
-                                    src={work.images[0]}
-                                    alt={work.title}
-                                    layout="responsive"
-                                    width={500}
-                                    height={500}
-                                    className="object-cover w-full h-auto rounded-xl"
-                                    ref={el => {
-                                        if (imageElementRef.current) imageElementRef.current[index] = el;
-                                    }}
-
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-100 rounded-xl"></div>
-                                <div className="absolute bottom-0 flex flex-row p-4 text-hexwhite rounded-b-xl technologies">
-                                    <div className="flex flex-wrap gap-2">
-                                        {work.technologies.map((tech, techIndex) => (
-                                            <span
-                                                key={techIndex}
-
-                                                className="font-NeueMontrealVariable text-sm lg:text-base text-white border border-hexwhite rounded-md py-1 px-3"
-                                            >
-                                                {tech}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
+                        <div
+                            className="relative overflow-hidden work-image cursor-pointer rounded-lg"
+                            onMouseEnter={() => handleMouseEnter(index)}
+                            onMouseLeave={() => handleMouseLeave(index)}
+                            onClick={() => handleClick(work.liveLink)} // Użycie liveLink
+                        >
+                            <Image
+                                src={work.images[0]}
+                                alt={work.title}
+                                layout="responsive"
+                                width={500}
+                                height={500}
+                                className="object-cover w-full h-auto"
+                                ref={el => {
+                                    if (imageElementRef.current) imageElementRef.current[index] = el;
+                                }}
+                            />
+                            <div
+                                className="absolute top-4 left-4 text-hexblack">
+                                <p className="uppercase text-hexgray text-sm xl:text-base">{work.title}</p>
                             </div>
+                        </div>
                     </div>
+
+
                 ))}
             </div>
-            <WorksModal modal={modal} />
+            <WorksModal modal={modal}/>
         </section>
     );
 }

@@ -68,7 +68,7 @@ export default function Contact() {
                        className="font-NeueMontrealVariable text-base uppercase leading-none mt-4 group">
                         hexthecoder@gmail.com
                         <span
-                            className="relative  before:content-[''] before:absolute before:left-[-228px] before:top-1/2 before:-translate-y-3/4 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                            className="relative  before:content-[''] before:absolute before:left-[-228px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                     </a>
                     <Link href="https://www.instagram.com/hexthecoder/" target="_blank"
@@ -76,7 +76,7 @@ export default function Contact() {
                           className="group mt-4 md:hidden font-NeueMontrealVariable  text-base uppercase">
                         instagram
                         <span
-                            className="relative  before:content-[''] before:absolute before:left-[-99px] before:top-1/2 before:-translate-y-3/4 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                            className="relative  before:content-[''] before:absolute before:left-[-99px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                     </Link>
                     <Link href="https://www.linkedin.com/in/marek-j%C3%B3%C5%BAwiak-29958132a/" target="_blank"
@@ -84,7 +84,7 @@ export default function Contact() {
                           className="group mt-4 md:hidden font-NeueMontrealVariable  text-base uppercase">
                         linkedin
                         <span
-                            className="relative  before:content-[''] before:absolute before:left-[-80px] before:top-1/2 before:-translate-y-3/4 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                            className="relative  before:content-[''] before:absolute before:left-[-80px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                     </Link>
                 </div>
@@ -97,7 +97,7 @@ export default function Contact() {
                                   className="group">
                                 linkedin
                                 <span
-                                    className="relative  before:content-[''] before:absolute before:left-[-80px] before:top-1/2 before:-translate-y-3/4 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                                    className="relative  before:content-[''] before:absolute before:left-[-80px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                             </Link>
                         </li>
@@ -108,7 +108,7 @@ export default function Contact() {
                                   className="group">
                                 instagram
                                 <span
-                                    className="relative  before:content-[''] before:absolute before:left-[-99px] before:top-1/2 before:-translate-y-3/4 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                                    className="relative  before:content-[''] before:absolute before:left-[-99px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                             </Link>
                         </li>

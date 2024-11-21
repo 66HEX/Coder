@@ -75,24 +75,23 @@ export default function About() {
     return (
         <section
             id="about"
-            className="w-screen text-hexblack px-4 pb-4 mb-4 md:mb-0 flex flex-col justify-center items-center font-NeueMontrealVariable"
+            className="w-screen text-hexblack px-4 pb-4  flex flex-col justify-center items-center font-NeueMontrealVariable"
         >
-            <div className="w-full h-full grid md:grid-cols-3 ">
-                <div className="h-full col-span-3 md:col-span-2 order-2 md:order-1 grid md:grid-rows-2 gap-4 mt-4 md:mt-0 md:mr-4">
+            <div className="w-full h-full grid md:grid-cols-3 gap-4">
+                <div className="h-full col-span-3 md:col-span-2 order-2 md:order-1 grid md:grid-rows-2 gap-4  ">
                     <div className="row-span-1 grid grid-cols-3 gap-4">
                         <div className="bg-white col-span-3 md:col-span-2 p-4 rounded-lg relative flex flex-col justify-start items-start gap-4">
                             <p className="uppercase text-hexgray text-sm xl:text-base">about</p>
-                            <p className="text-lg xl:text-2xl">
+                            <p className="text-xl xl:text-2xl">
                                 I’m Marek Jóźwiak, a digital artisan based in Poland, where imagination meets precision
                                 to shape captivating, functional web experiences. I breathe life into every pixel,
                                 constantly pushing the boundaries of design and technology, forever innovating to craft
                                 digital journeys that enchant and endure.
                             </p>
                         </div>
-                        <div className=" min-h-44 bg-white col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between relative overflow-hidden">
+                        <div className="min-h-44 bg-white col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between relative overflow-hidden">
                             <div>
-                                <p className="uppercase text-hexgray text-sm xl:text-base">Availability</p>
-                                <p className="text-lg xl:text-2xl mt-4">Open to freelance projects.</p>
+                                <p className="text-xl xl:text-2xl">Open to freelance projects.</p>
                             </div>
                             <div className="absolute -bottom-48 -right-32 z-0">
                                 <Image src="/images/20.png" alt="3D Abstract Shape" width={300} height={300}/>
@@ -101,35 +100,28 @@ export default function About() {
                     </div>
                     <div className="row-span-1 grid grid-cols-3 gap-4">
                         <div
-                            className="bg-white col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between items-start gap-4 order-2 md:order-1 relative overflow-hidden">
+                            className=" min-h-44 bg-white col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between items-start gap-4 order-2 md:order-1 relative overflow-hidden">
                             <div>
-                                <p className="uppercase text-hexgray text-sm xl:text-base">contact</p>
-                                <p className="text-lg xl:text-2xl mt-4">Transform your ideas into exceptional digital experiences.</p>
+                                <p className="text-xl xl:text-2xl">Transform your ideas into exceptional digital experiences.</p>
                             </div>
-                            <button
-                                className="border-2 border-hexblack text-hexblack rounded-md p-4 text-2xl xl:text-4xl self-end hover:text-hexwhite hover:border-hexwhite hover:bg-hexblack transition duration-300"
-                                onClick={handleScrollToContact}
-                            >
-                                &#8599;
-                            </button>
                             <div className="absolute -bottom-48 -left-32 z-0">
                                 <Image src="/images/25.png" alt="3D Abstract Shape" width={300} height={300}/>
                             </div>
                         </div>
                         <div
-                            className="bg-white col-span-3 md:col-span-2 p-4 rounded-lg flex flex-col justify-between items-start gap-4 order-1 md:order-2">
+                            className="bg-white col-span-3 md:col-span-2 p-4 rounded-lg flex flex-col justify-between items-start gap-4 md:gap-0 order-1 md:order-2">
                             <div>
                                 <p className="uppercase text-hexgray text-sm xl:text-base">Services</p>
                             </div>
                             <div className="w-full">
                                 {aboutData.map((service, index) => (
                                     <div key={index} className="service-item">
-                                        <div className="flex justify-between items-center">
-                                            <p className="text-lg xl:text-2xl">{service.title}</p>
+                                        <div className="flex justify-between items-center cursor-pointer"
+                                             onClick={() => setIsOpen(isOpen === index ? null : index)}>
+                                            <p className="text-xl xl:text-2xl">{service.title}</p>
                                             <button
                                                 ref={(el) => { buttonRefs.current[index] = el; }}
-                                                className="text-lg xl:text-2xl transform transition duration-300"
-                                                onClick={() => setIsOpen(isOpen === index ? null : index)}
+                                                className="text-xl xl:text-2xl transform transition duration-300"
                                             >
                                                 +
                                             </button>

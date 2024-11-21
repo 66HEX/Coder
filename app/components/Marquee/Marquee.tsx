@@ -5,7 +5,7 @@ import { CustomEase } from "gsap/CustomEase";
 import Image from 'next/image';
 import { useRef, useLayoutEffect } from 'react';
 import { testimonialsData } from '@/app/data/testimonialsData';
-import horizontalLoop from '@/app/utils/HorizontalLoop'; // Assuming you have this helper function
+import horizontalLoop from '@/app/utils/HorizontalLoop';
 
 gsap.registerPlugin(CustomEase, Observer);
 
@@ -13,7 +13,7 @@ export default function Marquee() {
     const container = useRef();
 
     useLayoutEffect(() => {
-        const speed = 1.125;  // Speed of the loop
+        const speed = 1;  // Speed of the loop
         document.fonts.ready.then(() => {
             const loop = horizontalLoop('.testimonial-card', {
                 repeat: -1, // Infinite loop
@@ -23,7 +23,6 @@ export default function Marquee() {
 
             let tl;
 
-            // Using Observer.create instead of observe
             Observer.create({
                 target: window,
                 type: 'wheel',
@@ -40,10 +39,7 @@ export default function Marquee() {
 
     return (
         <main>
-            <div ref={container} className="testimonial-container flex space-x-4 overflow-hidden"
-                 style={{
-                     maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-                 }}>
+            <div ref={container} className="testimonial-container flex space-x-4 overflow-hidden">
                 {testimonialsData.map((testimonial, index) => (
                     <TestimonialCard
                         key={index}
@@ -60,7 +56,7 @@ const TestimonialCard = ({ text, author, role, src }) => {
         <div className="testimonial-card w-[350px] md:w-[400px] h-[200px] xl:h-[250px] flex-shrink-0">
             <div className="relative flex flex-col justify-start items-start h-full p-4 rounded-lg bg-white">
                 <div className="text-left mb-auto">
-                    <p className="text-lg xl:text-2xl font-NeueMontrealVariable italic">"{text}"</p>
+                    <p className="text-xl xl:text-2xl font-NeueMontrealVariable italic">"{text}"</p>
                 </div>
 
                 <div className="absolute bottom-4 left-4 flex items-center">

@@ -31,7 +31,7 @@ export default function Home() {
                 <Preloader onComplete={triggerHeroAnimation} isAnimationTriggered={isPreloaderAnimationTriggered} />
                 <Hero isAnimationTriggered={isHeroAnimationTriggered} />
                 <About/>
-
+                <Works/>
                 <Testimonials />
                 <Contact />
             </main>
