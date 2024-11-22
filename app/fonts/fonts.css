@@ -6,7 +6,9 @@
 
 @font-face {
     font-family: 'NeueMontrealVariable';
-    src: url('PPNeueMontreal-Variable.ttf') format('truetype');
+    src: url('PPNeueMontreal-Variable.woff2') format('woff2'),
+    url('PPNeueMontreal-Variable.woff') format('woff'),
+    url('PPNeueMontreal-Variable.ttf') format('truetype');
     font-weight: 200 800;
     font-style: normal;
     font-display: swap;

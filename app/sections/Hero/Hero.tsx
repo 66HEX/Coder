@@ -74,9 +74,9 @@ export default function Hero({ isAnimationTriggered }) {
             <div
                 className="h-full w-full bg-white flex flex-col justify-center items-center overflow-hidden relative rounded-lg">
                 <div className="w-full flex flex-col items-start text-hexblack p-4 z-30">
-                    <h2 className="hero-web font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none">web</h2>
+                    <h2 className="hero-web font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none antialiased">web</h2>
                     <div>
-                        <h2 className="hero-developer font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none -mt-2 md:-mt-4 xl:-mt-8">developer</h2>
+                        <h2 className="hero-developer font-NeueMontrealVariable font-semibold text-fluid uppercase subpixel-antialiased leading-none -mt-2 md:-mt-4 xl:-mt-8">developer</h2>
                         <div className="w-full flex justify-end -mt-2 md:-mt-4 xl:-mt-8">
                             <h2 className="hero-plus font-EikoItalic font-light text-fluid uppercase leading-none">+</h2>
                             <h2 className="hero-designer font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none ml-4 text-right">designer</h2>
