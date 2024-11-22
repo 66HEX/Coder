@@ -1,32 +1,38 @@
 export const testimonialsData = [
     {
-        text: "This product changed my life! Highly recommend to everyone.",
-        author: "John Doe",
-        role: "Product Manager",
-        src: "/images/about-photo.png"
+        text: "My online store came out great, super smooth and professional process all the way.",
+        author: "Angelika Grzejdziak",
+        role: "Personal Trainer & Nutritionist",
+        src: "/images/angelika.jpg"
     },
     {
-        text: "Exceptional service and top quality. Truly satisfied!",
-        author: "Jane Smith",
-        role: "Marketing Specialist",
-        src: "/images/about-photo.png" // Zmieniony obrazek
+        text: "Marek did an amazing job with our website! He made everything look great and work perfectly.",
+        author: "Łukasz Klugiewicz",
+        role: "Lean Bulls Gym Co-Founder",
+        src: "/images/lukasz-testimonial.jpg"
     },
     {
-        text: "Outstanding experience, would definitely use again!",
-        author: "Alice Brown",
-        role: "UX Designer",
-        src: "/images/about-photo.png" // Zmieniony obrazek
+        text: "Delivered excellent work on my online store. Professional, efficient, and a pleasure to collaborate with!",
+        author: "Natalia Jasińska",
+        role: "Personal Trainer & Nutritionist",
+        src: "/images/natalia-testimonial.jpg"
     },
     {
-        text: "Impressive quality and customer support. Very happy with my purchase!",
-        author: "Tom Harris",
-        role: "Software Engineer",
-        src: "/images/about-photo.png" // Nowy wpis z unikalnym obrazkiem
+        text: "My online store came out great, super smooth and professional process all the way.",
+        author: "Angelika Grzejdziak",
+        role: "Personal Trainer & Nutritionist",
+        src: "/images/angelika-testimonial.jpg"
     },
     {
-        text: "I’ve never had such a seamless experience. Highly recommend!",
-        author: "Emily White",
-        role: "Data Analyst",
-        src: "/images/about-photo.png" // Nowy wpis z unikalnym obrazkiem
-    }
+        text: "Marek did an amazing job with our website! He made everything look great and work perfectly.",
+        author: "Łukasz Klugiewicz",
+        role: "Lean Bulls Gym Co-Founder",
+        src: "/images/lukasz-testimonial.jpg"
+    },
+    {
+        text: "Delivered excellent work on my online store. Professional, efficient, and a pleasure to collaborate with!",
+        author: "Natalia Jasińska",
+        role: "Personal Trainer & Nutritionist",
+        src: "/images/natalia-testimonial.jpg"
+    },
 ];

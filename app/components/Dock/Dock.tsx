@@ -78,7 +78,7 @@ export default function Dock() {
         >
             <div
                 ref={navMenuRef}
-                className="flex bg-hexblack flex-row items-center justify-between md:gap-8 font-NeueMontrealLight text-hexwhite uppercase px-8 py-4 rounded-lg"
+                className="flex bg-hexblack flex-row items-center justify-between md:gap-8 font-NeueMontrealVariable text-hexwhite uppercase px-8 py-4 rounded-lg"
             >
                 <ul className="flex flex-row items-center">
                     {[{ href: "#home", label: "home" }, { href: "#about", label: "about" }, { href: "#works", label: "works" }, { href: "#contact", label: "contact" }].map((item, index) => (

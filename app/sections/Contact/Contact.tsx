@@ -61,7 +61,7 @@ export default function Contact() {
                 <div
                     className="absolute top-1/2 transform -translate-y-1/2 w-full flex flex-col justify-center items-center text-center">
                     <h2 ref={headerRef}
-                        className="about-title font-NeueMontrealSemibold  text-fluid2 uppercase leading-none">
+                        className="about-title font-NeueMontrealVariable font-semibold text-fluid2 uppercase leading-none">
                         HAVE AN IDEA?
                     </h2>
                     <a href="mailto:hexthecoder@gmail.com"
@@ -73,7 +73,7 @@ export default function Contact() {
                     </a>
                     <Link href="https://www.instagram.com/hexthecoder/" target="_blank"
                           rel="noopener noreferrer"
-                          className="group mt-4 md:hidden font-NeueMontrealLight text-base uppercase">
+                          className="group mt-4 md:hidden font-NeueMontrealVariable  text-base uppercase">
                         instagram
                         <span
                             className="relative  before:content-[''] before:absolute before:left-[-99px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
@@ -90,7 +90,7 @@ export default function Contact() {
                 </div>
 
                 <div className="w-full flex-grow  items-end hidden md:flex">
-                    <ul className="flex w-full h-auto flex-row justify-between items-start gap-2 p-4 font-NeueMontrealLight text-base uppercase">
+                    <ul className="flex w-full h-auto flex-row justify-between items-start gap-2 p-4 font-NeueMontrealVariable  text-base uppercase">
                         <li>
                             <Link href="https://www.linkedin.com/in/marek-j%C3%B3%C5%BAwiak-29958132a/" target="_blank"
                                   rel="noopener noreferrer"

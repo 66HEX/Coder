@@ -32,7 +32,7 @@ export default function Works() {
     };
 
     return (
-        <section id="works" className="w-screen text-hexblack px-4 pb-4 flex flex-col justify-center items-center font-NeueMontrealLight">
+        <section id="works" className="w-screen text-hexblack px-4 pb-4 flex flex-col justify-center items-center font-NeueMontrealVariable">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                 {projects.map((work, index) => (
                     <div
