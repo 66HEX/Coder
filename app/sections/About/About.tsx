@@ -75,7 +75,7 @@ export default function About() {
     return (
         <section
             id="about"
-            className="w-screen text-hexblack px-4 pb-4  flex flex-col justify-center items-center font-NeueMontrealVariable"
+            className="w-screen text-hexblack px-4 pb-4  flex flex-col justify-center items-center font-NeueMontrealLight"
         >
             <div className="w-full h-full grid md:grid-cols-3 gap-4">
                 <div className="h-full col-span-3 md:col-span-2 order-2 md:order-1 grid md:grid-rows-2 gap-4  ">

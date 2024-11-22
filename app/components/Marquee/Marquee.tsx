@@ -56,7 +56,7 @@ const TestimonialCard = ({ text, author, role, src }) => {
         <div className="testimonial-card w-[350px] md:w-[400px] h-[200px] xl:h-[250px] flex-shrink-0">
             <div className="relative flex flex-col justify-start items-start h-full p-4 rounded-lg bg-white">
                 <div className="text-left mb-auto">
-                    <p className="text-xl xl:text-2xl font-NeueMontrealVariable italic">"{text}"</p>
+                    <p className="text-xl xl:text-2xl font-NeueMontrealLight italic">"{text}"</p>
                 </div>
 
                 <div className="absolute bottom-4 left-4 flex items-center">
@@ -64,8 +64,8 @@ const TestimonialCard = ({ text, author, role, src }) => {
                         <Image style={{ objectFit: "cover" }} src={src} alt={author} fill />
                     </div>
                     <div>
-                        <p className="font-NeueMontrealVariable font-semibold text-base">{author}</p>
-                        <p className="text-sm font-NeueMontrealVariable text-hexgray">{role}</p>
+                        <p className="font-NeueMontrealLight font-semibold text-base">{author}</p>
+                        <p className="text-sm font-NeueMontrealLight text-hexgray">{role}</p>
                     </div>
                 </div>
             </div>

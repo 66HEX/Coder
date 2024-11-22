@@ -15,7 +15,9 @@ const config: Config = {
       },
       fontFamily: {
         EikoItalic: 'EikoItalic',
-        NeueMontrealVariable: 'NeueMontrealVariable'
+        NeueMontrealVariable: 'NeueMontrealVariable',
+        NeueMontrealLight: 'NeueMontrealLight',
+        NeueMontrealSemibold: 'NeueMontrealSemibold'
       },
       fontSize: {
         '2xl': ['1.5rem', '2.25rem' ],

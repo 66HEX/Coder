@@ -5,6 +5,18 @@
 }
 
 @font-face {
+    font-family: 'NeueMontrealLight';
+    src: url('PPNeueMontreal-Light.woff2') format('woff2');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'NeueMontrealSemibold';
+    src: url('PPNeueMontreal-Semibold.woff2') format('woff2');
+    font-weight: 530;
+}
+
+@font-face {
     font-family: 'NeueMontrealVariable';
     src: url('PPNeueMontreal-Variable.woff2') format('woff2'),
     url('PPNeueMontreal-Variable.woff') format('woff'),
