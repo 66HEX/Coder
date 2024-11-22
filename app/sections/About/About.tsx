@@ -80,7 +80,7 @@ export default function About() {
             <div className="w-full h-full grid md:grid-cols-3 gap-4">
                 <div className="h-full col-span-3 md:col-span-2 order-2 md:order-1 grid md:grid-rows-2 gap-4  ">
                     <div className="row-span-1 grid grid-cols-3 gap-4">
-                        <div className="bg-white col-span-3 md:col-span-2 p-4 rounded-lg relative flex flex-col justify-start items-start gap-4">
+                        <div className="bg-white shadow-lg col-span-3 md:col-span-2 p-4 rounded-lg relative flex flex-col justify-start items-start gap-4">
                             <p className="uppercase text-hexgray text-sm xl:text-base">about</p>
                             <p className="text-xl xl:text-2xl">
                                 I’m Marek Jóźwiak, a digital artisan based in Poland, where imagination meets precision
@@ -89,9 +89,9 @@ export default function About() {
                                 digital journeys that enchant and endure.
                             </p>
                         </div>
-                        <div className="min-h-44 bg-white col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between relative overflow-hidden">
+                        <div className="min-h-44 bg-white shadow-lg col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between relative overflow-hidden">
                             <div>
-                                <p className="text-xl xl:text-2xl">Open to freelance projects.</p>
+                                <p className="text-xl xl:text-2xl">I’m available for freelance projects and excited to take on new challenges.</p>
                             </div>
                             <div className="absolute -bottom-48 -right-32 z-0">
                                 <Image src="/images/20.png" alt="3D Abstract Shape" width={300} height={300}/>
@@ -100,7 +100,7 @@ export default function About() {
                     </div>
                     <div className="row-span-1 grid grid-cols-3 gap-4">
                         <div
-                            className=" min-h-44 bg-white col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between items-start gap-4 order-2 md:order-1 relative overflow-hidden">
+                            className=" min-h-44 bg-white shadow-lg col-span-3 md:col-span-1 p-4 rounded-lg flex flex-col justify-between items-start gap-4 order-2 md:order-1 relative overflow-hidden">
                             <div>
                                 <p className="text-xl xl:text-2xl">Transform your ideas into exceptional digital experiences.</p>
                             </div>
@@ -109,7 +109,7 @@ export default function About() {
                             </div>
                         </div>
                         <div
-                            className="bg-white col-span-3 md:col-span-2 p-4 rounded-lg flex flex-col justify-between items-start gap-4 md:gap-0 order-1 md:order-2">
+                            className="bg-white shadow-lg col-span-3 md:col-span-2 p-4 rounded-lg flex flex-col justify-between items-start gap-4 md:gap-0 order-1 md:order-2">
                             <div>
                                 <p className="uppercase text-hexgray text-sm xl:text-base">Services</p>
                             </div>

@@ -2,7 +2,7 @@ export const projects = [
     {
         id: "1",
         title: "Lean Bulls Gym",
-        images: ["/images/leanbulls-project.png"],
+        images: ["/images/leanbulls-mockup.png"],
         technologies: ["Next.js", "GSAP", "Tailwind CSS"],
         description: [
             "This project is focused on creating a fast, interactive web application using Next.js. It leverages server-side rendering to optimize performance and SEO."
@@ -13,7 +13,7 @@ export const projects = [
     {
         id: "2",
         title: "Angelika Grzejdziak",
-        images: ["/images/angelika-project.png"],
+        images: ["/images/angelika-mockup.png"],
         technologies: ["React", "Node.js", "MongoDB"],
         description: [
             "This project is a full-stack web application built with React for the frontend and Node.js for the backend. The main focus is on building a real-time, scalable app with an interactive user interface."
@@ -24,7 +24,7 @@ export const projects = [
     {
         id: "3",
         title: "Natalia Jasińska",
-        images: ["/images/natalia-project.png"],
+        images: ["/images/natalia-mockup.png"],
         technologies: ["Vue.js", "Nuxt.js", "SASS"],
         description: [
             "This project is designed using Vue.js, which ensures a smooth and reactive user interface. The combination of Nuxt.js enhances performance and SEO by providing server-side rendering and optimized routing."

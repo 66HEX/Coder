@@ -56,7 +56,7 @@ export default function Contact() {
             className="w-screen bg-hexwhite h-[400px] px-4 pb-4 flex flex-col justify-center items-center overflow-hidden relative"
         >
             <div
-                className="w-full h-full flex flex-col justify-between items-center text-hexblack bg-white rounded-lg font-MoriRegular text-xl md:text-2xl lg:text-3xl relative overflow-hidden"
+                className="w-full h-full flex flex-col justify-between items-center text-hexblack bg-white shadow-lg rounded-lg font-MoriRegular text-xl md:text-2xl lg:text-3xl relative overflow-hidden"
             >
                 <div
                     className="absolute top-1/2 transform -translate-y-1/2 w-full flex flex-col justify-center items-center text-center">

@@ -3,7 +3,7 @@ export const testimonialsData = [
         text: "My online store came out great, super smooth and professional process all the way.",
         author: "Angelika Grzejdziak",
         role: "Personal Trainer & Nutritionist",
-        src: "/images/angelika.jpg"
+        src: "/images/angelika-testimonial.jpg"
     },
     {
         text: "Marek did an amazing job with our website! He made everything look great and work perfectly.",

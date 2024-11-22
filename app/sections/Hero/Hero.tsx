@@ -72,7 +72,7 @@ export default function Hero({ isAnimationTriggered }) {
             className="h-svh w-screen p-4"
         >
             <div
-                className="h-full w-full bg-white flex flex-col justify-center items-center overflow-hidden relative rounded-lg">
+                className="h-full w-full bg-white shadow-lg flex flex-col justify-center items-center overflow-hidden relative rounded-lg">
                 <div className="w-full flex flex-col items-start text-hexblack p-4 z-30">
                     <h2 className="hero-web font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none">web</h2>
                     <div>

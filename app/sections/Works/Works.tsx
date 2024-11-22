@@ -37,7 +37,7 @@ export default function Works() {
                 {projects.map((work, index) => (
                     <div
                         key={index}
-                        className="relative overflow-hidden rounded-lg bg-white"
+                        className="relative overflow-hidden rounded-lg bg-white shadow-lg min-h-[250px] flex items-end"
                         ref={el => {
                             if (imageRef.current) imageRef.current[index] = el;
                         }}
@@ -46,7 +46,7 @@ export default function Works() {
                             className="relative overflow-hidden work-image cursor-pointer rounded-lg"
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={() => handleMouseLeave(index)}
-                            onClick={() => handleClick(work.liveLink)} // Użycie liveLink
+                            onClick={() => handleClick(work.liveLink)}
                         >
                             <Image
                                 src={work.images[0]}
@@ -57,9 +57,9 @@ export default function Works() {
                                 className="object-cover w-full h-auto"
 
                             />
-                            <div className="absolute top-4 left-4 text-hexblack">
-                                <p className="uppercase text-hexgray text-sm xl:text-base">{work.title}</p>
-                            </div>
+                        </div>
+                        <div className="absolute top-4 left-4 text-hexblack">
+                            <p className="uppercase text-hexgray text-sm xl:text-base">{work.title}</p>
                         </div>
                     </div>
 

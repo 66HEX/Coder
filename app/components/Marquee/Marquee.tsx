@@ -39,7 +39,7 @@ export default function Marquee() {
 
     return (
         <main>
-            <div ref={container} className="testimonial-container flex space-x-4 overflow-hidden">
+            <div ref={container} className="testimonial-container flex space-x-4">
                 {testimonialsData.map((testimonial, index) => (
                     <TestimonialCard
                         key={index}
@@ -54,7 +54,7 @@ export default function Marquee() {
 const TestimonialCard = ({ text, author, role, src }) => {
     return (
         <div className="testimonial-card w-[350px] md:w-[400px] h-[200px] xl:h-[250px] flex-shrink-0">
-            <div className="relative flex flex-col justify-start items-start h-full p-4 rounded-lg bg-white">
+            <div className="relative flex flex-col justify-start items-start h-full p-4 rounded-lg bg-white shadow-lg">
                 <div className="text-left mb-auto">
                     <p className="text-xl xl:text-2xl font-NeueMontrealVariable italic">"{text}"</p>
                 </div>

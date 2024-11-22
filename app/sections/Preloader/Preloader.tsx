@@ -92,7 +92,7 @@ export default function Preloader({ onComplete, isAnimationTriggered }) {
             className="fixed top-0 left-0 h-svh w-screen p-4 bg-hexwhite flex flex-col justify-center items-center overflow-hidden z-50 "
         >
             <div
-                className="text-hexblack bg-white w-full rounded-lg p-4 h-full flex flex-col items-start justify-center">
+                className="text-hexblack bg-white shadow-lg w-full rounded-lg p-4 h-full flex flex-col items-start justify-center">
                 <h2 className="preloader-name font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none text-left"
                     style={{visibility: 'hidden'}}>
                     marek

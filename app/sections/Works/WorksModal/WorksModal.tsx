@@ -51,12 +51,12 @@ export default function WorksModal({ modal }: ModalProps) {
                 variants={scaleAnimation}
                 initial="initial"
                 animate={active ? "enter" : "closed"}
-                className="h-32 w-32 hidden lg:flex fixed overflow-hidden pointer-events-none items-center justify-center z-30" // Change to 'fixed'
+                className="h-32 w-32 hidden lg:flex fixed overflow-hidden pointer-events-none items-center justify-center z-30"
                 style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
             />
             <motion.div
                 ref={cursor}
-                className="text-white w-32 h-32 rounded-full bg-hexblack bg-opacity-70 backdrop-blur-xl fixed z-40 hidden lg:flex items-center justify-center pointer-events-none" // Change to 'fixed'
+                className="text-white w-32 h-32 rounded-full bg-hexblack bg-opacity-70 backdrop-blur-xl fixed z-40 hidden lg:flex items-center justify-center pointer-events-none"
                 variants={scaleAnimation}
                 initial="initial"
                 animate={active ? "enter" : "closed"}
