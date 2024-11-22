@@ -5,10 +5,7 @@ import Works from "@/app/sections/Works/Works";
 import Contact from "@/app/sections/Contact/Contact";
 import Preloader from "@/app/sections/Preloader/Preloader";
 import Testimonials from "@/app/sections/Testimonials/Testimonials";
-import About2 from "@/app/sections/About/About";
 import About from "@/app/sections/About/About";
-import Works2 from "@/app/sections/Works2/Works2";
-
 
 export default function Home() {
     const [isHeroAnimationTriggered, setIsHeroAnimationTriggered] = useState(false);
