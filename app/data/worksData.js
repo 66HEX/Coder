@@ -11,17 +11,6 @@ export const projects = [
         liveLink: "https://lean-bulls-gym.vercel.app/"
     },
     {
-        id: "2",
-        title: "Angelika Grzejdziak",
-        images: ["/images/angelika-mockup.png"],
-        technologies: ["React", "Node.js", "MongoDB"],
-        description: [
-            "This project is a full-stack web application built with React for the frontend and Node.js for the backend. The main focus is on building a real-time, scalable app with an interactive user interface."
-        ],
-        roles: ["Full-stack Developer", "Back-end Developer"],
-        liveLink: "https://angelikagrzejdziak.pl/"
-    },
-    {
         id: "3",
         title: "Natalia Jasińska",
         images: ["/images/natalia-mockup.png"],
@@ -32,4 +21,15 @@ export const projects = [
         roles: ["Front-end Developer", "CSS Specialist"],
         liveLink: "https://nataliajasinska.pl/"
     },
+    {
+        id: "2",
+        title: "Angelika Grzejdziak",
+        images: ["/images/angelika-mockup.png"],
+        technologies: ["React", "Node.js", "MongoDB"],
+        description: [
+            "This project is a full-stack web application built with React for the frontend and Node.js for the backend. The main focus is on building a real-time, scalable app with an interactive user interface."
+        ],
+        roles: ["Full-stack Developer", "Back-end Developer"],
+        liveLink: "https://angelikagrzejdziak.pl/"
+    }
 ];
