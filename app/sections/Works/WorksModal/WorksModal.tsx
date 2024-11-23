@@ -56,7 +56,7 @@ export default function WorksModal({ modal }: ModalProps) {
             />
             <motion.div
                 ref={cursor}
-                className="text-white w-32 h-32 rounded-full bg-hexblack bg-opacity-70 backdrop-blur-xl fixed z-40 hidden lg:flex items-center justify-center pointer-events-none"
+                className="text-white w-32 h-32 rounded-full bg-hexblack bg-opacity-70 backdrop-blur-md fixed z-40 hidden lg:flex items-center justify-center pointer-events-none"
                 variants={scaleAnimation}
                 initial="initial"
                 animate={active ? "enter" : "closed"}
