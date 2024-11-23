@@ -144,7 +144,7 @@ export default function About() {
                 </div>
                 <div className="min-h-[400px] md:min-h-[600px] h-full col-span-3 md:col-span-1 order-1 md:order-2 rounded-lg overflow-hidden relative">
                     <Image
-                        src="/images/about-photo.png"
+                        src="/images/about-photo.jpg"
                         alt="Profile photo"
                         fill
                         className="object-cover"
