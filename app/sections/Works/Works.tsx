@@ -37,7 +37,7 @@ export default function Works() {
                 {projects.map((work, index) => (
                     <div
                         key={index}
-                        className="relative overflow-hidden rounded-lg bg-white shadow-lg min-h-[250px] flex items-end"
+                        className="relative overflow-hidden rounded-lg bg-white shadow-lg min-h-[300px] flex items-end"
                         ref={el => {
                             if (imageRef.current) imageRef.current[index] = el;
                         }}
@@ -62,8 +62,6 @@ export default function Works() {
                             <p className="uppercase text-hexgray text-sm xl:text-base">{work.title}</p>
                         </div>
                     </div>
-
-
                 ))}
             </div>
             <WorksModal modal={modal}/>

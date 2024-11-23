@@ -31,5 +31,5 @@ export const projects = [
         ],
         roles: ["Full-stack Developer", "Back-end Developer"],
         liveLink: "https://angelikagrzejdziak.pl/"
-    }
+    },
 ];
