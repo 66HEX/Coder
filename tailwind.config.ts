@@ -9,16 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        hexblack: '#252525',
-        hexgray: '#A4A4A4',
-        hexwhite: '#EEEEEE',
+        background: '#EEEEEE', // Ciemne tło
+        card: '#FFFFFF',
+        textPrimary: '#232323',
+        textSecondary: '#A4A4A4',
+      },
+      boxShadow: {
+        cardShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+      },
+      borderRadius: {
+        'cardRadius': '0.5rem',
       },
       fontFamily: {
         EikoItalic: 'EikoItalic',
         NeueMontrealVariable: 'NeueMontrealVariable'
       },
       fontSize: {
-        '2xl': ['1.5rem', '2.25rem' ],
+        '2xl': ['1.5rem', '2.125rem'],
         fluid: '12.5vw',  // hero, preloader, works
         fluid2: '9vw',    // contact
         fluid3: '12.5vw',

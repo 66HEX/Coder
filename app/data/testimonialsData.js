@@ -12,7 +12,7 @@ export const testimonialsData = [
         src: "/images/lukasz-testimonial.jpg"
     },
     {
-        text: "Delivered excellent work on my online store. Professional, efficient, and a pleasure to collaborate with!",
+        text: "Delivered excellent work on my online store. Professional and a pleasure to collaborate with!",
         author: "Natalia Jasińska",
         role: "Personal Trainer & Nutritionist",
         src: "/images/natalia-testimonial.jpg"
@@ -30,7 +30,7 @@ export const testimonialsData = [
         src: "/images/lukasz-testimonial.jpg"
     },
     {
-        text: "Delivered excellent work on my online store. Professional, efficient, and a pleasure to collaborate with!",
+        text: "Delivered excellent work on my online store. Professional and a pleasure to collaborate with!",
         author: "Natalia Jasińska",
         role: "Personal Trainer & Nutritionist",
         src: "/images/natalia-testimonial.jpg"

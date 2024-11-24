@@ -56,14 +56,14 @@ export default function WorksModal({ modal }: ModalProps) {
             />
             <motion.div
                 ref={cursor}
-                className="text-white w-32 h-32 rounded-full bg-hexblack bg-opacity-70 backdrop-blur-md fixed z-40 hidden lg:flex items-center justify-center pointer-events-none"
+                className="text-white w-32 h-32 rounded-full bg-textPrimary fixed z-40 hidden lg:flex items-center justify-center pointer-events-none"
                 variants={scaleAnimation}
                 initial="initial"
                 animate={active ? "enter" : "closed"}
             />
             <motion.div
                 ref={cursorLabel}
-                className={`bg-transparent font-NeueMontrealVariable text-base text-hexwhite fixed z-50 hidden lg:flex items-center justify-center pointer-events-none ${active ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} // Change to 'fixed'
+                className={`bg-transparent font-NeueMontrealVariable text-base font-semibold text-background fixed z-50 hidden lg:flex items-center justify-center pointer-events-none ${active ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} // Change to 'fixed'
                 variants={scaleAnimation}
                 initial="initial"
                 animate={active ? "enter" : "closed"}

@@ -53,19 +53,19 @@ export default function Marquee() {
 
 const TestimonialCard = ({ text, author, role, src }) => {
     return (
-        <div className="testimonial-card w-[350px] md:w-[400px] h-[200px] xl:h-[250px] flex-shrink-0">
-            <div className="relative flex flex-col justify-start items-start h-full p-4 rounded-lg bg-white shadow-lg">
+        <div className="testimonial-card w-[350px] md:w-[400px] h-[200px] xl:h-[250px] flex-shrink-0 text-textPrimary">
+            <div className="relative flex flex-col justify-start items-start h-full p-4 rounded-cardRadius bg-card shadow-cardShadow ">
                 <div className="text-left mb-auto">
                     <p className="text-xl xl:text-2xl font-NeueMontrealVariable italic">"{text}"</p>
                 </div>
 
                 <div className="absolute bottom-4 left-4 flex items-center">
-                    <div className="relative h-[60px] w-[60px] rounded-md overflow-hidden mr-4">
+                    <div className="relative h-[60px] w-[60px] rounded-full overflow-hidden mr-4">
                         <Image style={{ objectFit: "cover" }} src={src} alt={author} fill />
                     </div>
                     <div>
                         <p className="font-NeueMontrealVariable font-semibold text-base">{author}</p>
-                        <p className="text-sm font-NeueMontrealVariable text-hexgray">{role}</p>
+                        <p className="text-sm font-NeueMontrealVariable text-textSecondary">{role}</p>
                     </div>
                 </div>
             </div>

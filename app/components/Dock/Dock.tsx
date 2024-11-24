@@ -73,12 +73,12 @@ export default function Dock() {
 
 
     return (
-        <nav ref={navRef} id="nav" className="fixed bottom-2 left-1/2 transform -translate-x-1/2 flex justify-between items-center z-30"
+        <nav ref={navRef} id="nav" className="fixed bottom-2 left-1/2 transform -translate-x-1/2 flex justify-between items-center z-50"
 
         >
             <div
                 ref={navMenuRef}
-                className="flex bg-hexblack flex-row items-center justify-between md:gap-8 font-NeueMontrealVariable text-hexwhite uppercase px-8 py-4 rounded-lg shadow-lg"
+                className="flex bg-textPrimary flex-row items-center justify-between md:gap-8 font-NeueMontrealVariable text-card uppercase px-8 py-4 rounded-lg shadow-card "
             >
                 <ul className="flex flex-row items-center">
                     {[{ href: "#home", label: "home" }, { href: "#about", label: "about" }, { href: "#works", label: "works" }, { href: "#contact", label: "contact" }].map((item, index) => (
@@ -91,8 +91,8 @@ export default function Dock() {
                                     className={`relative before:content-[''] before:absolute before:left-[-12px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 
                                     ${
                                         activeSection === item.href.replace("#", "")
-                                            ? "before:bg-hexwhite"
-                                            : "before:border-2 before:border-hexwhite before:opacity-0 group-hover:before:opacity-100"
+                                            ? "before:bg-card"
+                                            : "before:border-2 before:border-card before:opacity-0 group-hover:before:opacity-100"
                                     }
                                             before:hidden md:before:block`}
                                 >

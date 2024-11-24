@@ -53,10 +53,10 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="w-screen bg-hexwhite h-[400px] px-4 pb-4 flex flex-col justify-center items-center overflow-hidden relative"
+            className="w-screen h-[400px] px-4 pb-4 flex flex-col justify-center items-center overflow-hidden relative"
         >
             <div
-                className="w-full h-full flex flex-col justify-between items-center text-hexblack bg-white shadow-lg rounded-lg font-MoriRegular text-xl md:text-2xl lg:text-3xl relative overflow-hidden"
+                className="w-full h-full flex flex-col justify-between items-center text-textPrimary bg-card shadow-cardShadow rounded-cardRadius font-MoriRegular text-xl md:text-2xl lg:text-3xl relative overflow-hidden"
             >
                 <div
                     className="absolute top-1/2 transform -translate-y-1/2 w-full flex flex-col justify-center items-center text-center">
@@ -68,7 +68,7 @@ export default function Contact() {
                        className="font-NeueMontrealVariable text-base uppercase leading-none mt-4 group">
                         hexthecoder@gmail.com
                         <span
-                            className="relative  before:content-[''] before:absolute before:left-[-228px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                            className="relative before:border-textPrimary  before:content-[''] before:absolute before:left-[-228px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                     </a>
                     <Link href="https://www.instagram.com/hexthecoder/" target="_blank"
@@ -84,7 +84,7 @@ export default function Contact() {
                           className="group mt-4 md:hidden font-NeueMontrealVariable  text-base uppercase">
                         linkedin
                         <span
-                            className="relative  before:content-[''] before:absolute before:left-[-80px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                            className="relative before:border-textPrimary  before:content-[''] before:absolute before:left-[-80px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                     </Link>
                 </div>
@@ -97,7 +97,7 @@ export default function Contact() {
                                   className="group">
                                 linkedin
                                 <span
-                                    className="relative  before:content-[''] before:absolute before:left-[-80px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                                    className="relative before:border-textPrimary before:content-[''] before:absolute before:left-[-80px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                             </Link>
                         </li>
@@ -108,7 +108,7 @@ export default function Contact() {
                                   className="group">
                                 instagram
                                 <span
-                                    className="relative  before:content-[''] before:absolute before:left-[-99px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
+                                    className="relative before:border-textPrimary before:content-[''] before:absolute before:left-[-99px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:transition-opacity before:duration-300 before:border-2 before:border-hexblack before:opacity-0 group-hover:before:opacity-100">
                         </span>
                             </Link>
                         </li>
@@ -116,7 +116,7 @@ export default function Contact() {
                 </div>
                 <div className="absolute -top-40 md:-top-32 -right-32 z-0">
                     <Image
-                        src="/images/35.png"
+                        src="/images/blob4.png"
                         alt="3D Abstract Shape"
                         width={300}
                         height={300}

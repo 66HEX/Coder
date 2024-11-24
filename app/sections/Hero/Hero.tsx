@@ -72,26 +72,26 @@ export default function Hero({ isAnimationTriggered }) {
             className="h-svh w-screen p-4"
         >
             <div
-                className="h-full w-full bg-white shadow-lg flex flex-col justify-center items-center overflow-hidden relative rounded-lg">
-                <div className="w-full flex flex-col items-start text-hexblack p-4 z-30">
+                className="h-full w-full bg-card shadow-cardShadow flex flex-col justify-center items-center overflow-hidden relative rounded-cardRadius">
+                <div className="w-full flex flex-col items-start text-textPrimary p-4 z-30">
                     <h2 className="hero-web font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none">web</h2>
                     <div>
                         <h2 className="hero-developer font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none -mt-2 md:-mt-4 xl:-mt-8">developer</h2>
-                        <div className="w-full flex justify-end -mt-2 md:-mt-4 xl:-mt-8">
+                        <div className="w-full flex justify-end -mt-2 md:-mt-4 xl:-mt-8 font-semibold">
                             <h2 className="hero-plus font-EikoItalic font-light text-fluid uppercase leading-none">+</h2>
-                            <h2 className="hero-designer font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none ml-4 text-right">designer</h2>
+                            <h2 className="hero-designer font-NeueMontrealVariable text-fluid uppercase leading-none ml-4 text-right">designer</h2>
                         </div>
                     </div>
                 </div>
                 <div
-                    className="hero-paragraph absolute bottom-4 xl:bottom-28 right-4 text-hexgray font-NeueMontrealVariable text-base md:text-2xl">
+                    className="hero-paragraph absolute bottom-4 xl:bottom-28 right-4 text-textSecondary font-NeueMontrealVariable text-base md:text-2xl z-30">
                     <p>For innovative brands,</p>
                     <p>digital products and</p>
                     <p>immersive experiences.</p>
                 </div>
                 <div className="absolute -top-32 -right-32 z-0 top-right-image">
                     <Image
-                        src="/images/17.png"
+                        src="/images/blob1.png"
                         alt="Zdjęcie profilowe"
                         width={300}
                         height={300}
@@ -99,7 +99,7 @@ export default function Hero({ isAnimationTriggered }) {
                 </div>
                 <div className="absolute -bottom-32 -left-32 z-0 bottom-left-image">
                     <Image
-                        src="/images/17.png"
+                        src="/images/blob1.png"
                         alt="Zdjęcie profilowe"
                         width={300}
                         height={300}

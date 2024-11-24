@@ -24,7 +24,7 @@ export default function Home() {
 
     return (
         <div>
-            <main className="bg-hexwhite">
+            <main className="bg-background">
                 <Preloader onComplete={triggerHeroAnimation} isAnimationTriggered={isPreloaderAnimationTriggered} />
                 <Hero isAnimationTriggered={isHeroAnimationTriggered} />
                 <About/>
