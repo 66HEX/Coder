@@ -40,8 +40,8 @@ export default function Dock() {
         const sections = document.querySelectorAll("section");
         const observerOptions = {
             root: null,
-            rootMargin: "0px",
-            threshold: 0.5,
+            rootMargin: "-50% 0px",
+            threshold: 0,
         };
 
         const observer = new IntersectionObserver((entries) => {

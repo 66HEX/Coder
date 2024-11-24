@@ -32,7 +32,7 @@ export default function Works() {
     };
 
     return (
-        <section id="works" className="w-screen text-textPrimary px-4 pb-4 flex flex-col justify-center items-center font-NeueMontrealVariable">
+        <section id="works" className="w-screen text-textPrimary px-4 pb-4 font-NeueMontrealVariable">
             <div className="flex flex-col gap-4 w-full">
                 {projects.map((work, index) => (
                     <div key={index} className="w-full grid grid-cols-1 md:grid-cols-4 xl:grid-cols-3 gap-y-4 gap-x-0 md:gap-x-4">
@@ -83,7 +83,7 @@ export default function Works() {
                             ))}
                             <button
                                 onClick={() => handleClick(work.liveLink)}
-                                className="uppercase text-xl xl:text-2xl bg-textPrimary hover:bg-transparent text-card border-2 hover:border-textPrimary hover:text-textPrimary transition duration-300 px-4 py-1 rounded-full font-semibold w-full mt-8">
+                                className="uppercase text-xl xl:text-2xl bg-textPrimary hover:bg-transparent text-card border-2 border-textPrimary hover:text-textPrimary transition duration-300 px-4 py-1 rounded-full font-semibold w-full mt-8">
                                 Live Demo
                             </button>
                         </div>
