@@ -56,8 +56,10 @@ export default function Contact() {
             className="w-screen h-[400px] px-4 pb-4 flex flex-col justify-center items-center overflow-hidden relative"
         >
             <div
-                className="w-full h-full flex flex-col justify-between items-center text-textPrimary bg-card shadow-cardShadow rounded-cardRadius font-MoriRegular text-xl md:text-2xl lg:text-3xl relative overflow-hidden"
+                className="w-full h-full flex flex-col justify-between items-start text-textPrimary bg-card shadow-cardShadow rounded-cardRadius font-MoriRegular text-xl md:text-2xl lg:text-3xl relative overflow-hidden"
             >
+                <p className="uppercase text-sm xl:text-base bg-textPrimary text-card px-4 py-1 rounded-full font-semibold m-4">contact</p>
+
                 <div
                     className="absolute top-1/2 transform -translate-y-1/2 w-full flex flex-col justify-center items-center text-center">
                     <h2 ref={headerRef}
@@ -113,14 +115,6 @@ export default function Contact() {
                             </Link>
                         </li>
                     </ul>
-                </div>
-                <div className="absolute -top-40 md:-top-32 -right-32 z-0">
-                    <Image
-                        src="/images/blob4.png"
-                        alt="3D Abstract Shape"
-                        width={300}
-                        height={300}
-                    />
                 </div>
             </div>
         </section>
