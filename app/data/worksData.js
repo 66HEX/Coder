@@ -4,13 +4,13 @@ export const projects = [
         title: "Lean Bulls Gym",
         images: ["/images/leanbulls-mockup2.png"],
         description: [
-            "Clean and modern platform for a powerlifting gym that provides detailed information about the gym's training programs, available equipment and the club's dedication to promoting strength sports."
+            "Modern platform for a powerlifting gym, showcasing training programs, equipment, and a focus on strength sports."
         ],
         challenge: [
-            "Ensuring consistent styling across all components in a scalable way: while Tailwind CSS simplifies styling, maintaining a unified design language across the project can be challenging as the component base grows."
+            "Maintaining consistent styling across components as the project scales, despite Tailwind CSS's utility-first approach."
         ],
         solution: [
-            "Leveraging Tailwind's design system: created reusable class components and utility-first CSS patterns to enforce consistency, making styling modular and maintainable."
+            "Used Tailwind's design system with reusable classes and utility patterns for scalable, consistent styling."
         ],
         liveLink: "https://lean-bulls-gym.vercel.app/"
     },
@@ -19,12 +19,13 @@ export const projects = [
         title: "Natalia Jasińska",
         images: ["/images/natalia-mockup2.png"],
         description: [
-            "An e-commerce platform for a nutritionist to sell personalized services and e-books. The site features a professional design aligned with her branding, ensuring an engaging user experience."
+            "E-commerce site for a nutritionist, offering personalized services and e-books, designed to match her branding."
         ],
         challenge: [
-            "Optimizing the platform to provide a seamless purchasing experience for users, especially for digital products like e-books."        ],
+            "Optimizing the platform for seamless purchases, especially for digital products like e-books."
+        ],
         solution: [
-            "Implemented Shopify's built-in digital product delivery system and streamlined the checkout process to ensure smooth transactions for clients."
+            "Integrated Shopify's digital delivery system and streamlined checkout for smooth transactions."
         ],
         liveLink: "https://nataliajasinska.pl/"
     },
@@ -33,13 +34,13 @@ export const projects = [
         title: "Angelika Grzejdziak",
         images: ["/images/angelika-mockup2.png"],
         description: [
-            "A dynamic e-commerce site for a personal trainer, offering custom workout plans, fitness programs, and merchandise, with a sleek design and smooth user experience."
+            "E-commerce site for a trainer, offering workout plans, fitness programs, and merchandise with a sleek user experience."
         ],
         challenge: [
-            "Ensuring a smooth process for users to book training sessions and sync appointments with Angelika's Google Calendar, allowing users to schedule sessions effortlessly."
+            "Creating a seamless booking process with real-time syncing to Angelika's Google Calendar."
         ],
         solution: [
-            "Integrated a booking app compatible with Shopify, enabling users to book training sessions that automatically synced with Angelika’s Google Calendar, ensuring real-time updates and avoiding scheduling conflicts."
+            "Added a booking app compatible with Shopify, enabling session scheduling synced with her calendar."
         ],
         liveLink: "https://angelikagrzejdziak.pl/"
     },

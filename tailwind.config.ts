@@ -9,10 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#EEEEEE', // Ciemne tło
+        background: '#F0F2FB',
         card: '#FFFFFF',
-        textPrimary: '#232323',
+        textPrimary: '#323232',
         textSecondary: '#A4A4A4',
+        accent: '#323232'
       },
       boxShadow: {
         cardShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
@@ -21,8 +22,9 @@ const config: Config = {
         'cardRadius': '1rem',
       },
       fontFamily: {
-        EikoItalic: 'EikoItalic',
-        NeueMontrealVariable: 'NeueMontrealVariable'
+        AeonikProRegular: 'AeonikProRegular',
+        AeonikProRegularItalic: 'AeonikProRegularItalic',
+        AeonikProSemibold: 'AeonikProSemibold'
       },
       fontSize: {
         '2xl': ['1.5rem', '2.125rem'],

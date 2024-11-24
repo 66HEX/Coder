@@ -76,14 +76,14 @@ export default function About() {
     return (
         <section
             id="about"
-            className="w-screen text-textPrimary px-4 pb-4  flex flex-col justify-center items-center font-NeueMontrealVariable"
+            className="w-screen text-textPrimary px-4 pb-4  flex flex-col justify-center items-center font-AeonikProRegular"
         >
-            <div className="w-full h-full grid md:grid-cols-3 gap-4">
+            <div className="w-full h-full grid md:grid-cols-4 xl:grid-cols-3 gap-4">
                 <div className="h-full col-span-3 md:col-span-2 order-2 md:order-1 grid md:grid-rows-2 gap-4">
                     <div className="row-span-1 grid grid-cols-3 gap-4">
                         <div
-                            className="bg-card shadow-cardShadow col-span-3 md:col-span-2 p-4 rounded-cardRadius relative flex flex-col justify-start items-start gap-4">
-                            <p className="uppercase text-sm xl:text-base bg-textPrimary text-card px-4 py-1 rounded-full font-semibold">about</p>
+                            className="bg-card shadow-cardShadow col-span-3 xl:col-span-2 p-4 rounded-cardRadius relative flex flex-col justify-start items-start gap-4">
+                            <p className="uppercase text-sm xl:text-base bg-accent text-card px-4 py-1 rounded-full font-AeonikProSemibold">about</p>
                             <p className="text-xl xl:text-2xl">
                                 I’m Marek Jóźwiak, a digital artisan based in Poland, where imagination meets precision
                                 to shape captivating, functional web experiences. I breathe life into every pixel,
@@ -92,8 +92,8 @@ export default function About() {
                             </p>
                         </div>
                         <div
-                            className="bg-card shadow-cardShadow col-span-3 md:col-span-1 p-4 rounded-cardRadius flex flex-col justify-start items-start relative overflow-hidden gap-4">
-                            <p className="uppercase text-sm xl:text-base bg-textPrimary text-card px-4 py-1 rounded-full font-semibold">Availability</p>
+                            className="bg-card shadow-cardShadow col-span-3 xl:col-span-1 p-4 rounded-cardRadius flex flex-col justify-start items-start relative overflow-hidden gap-4">
+                            <p className="uppercase text-sm xl:text-base bg-accent text-card px-4 py-1 rounded-full font-AeonikProSemibold">Availability</p>
 
                             <div>
                                 <p className="text-xl xl:text-2xl">I’m available for freelance projects and excited to
@@ -103,13 +103,13 @@ export default function About() {
                     </div>
                     <div className="row-span-1 grid grid-cols-3 gap-4">
                         <div
-                            className="min-h-44 bg-card shadow-cardShadow col-span-3 md:col-span-1 p-4 rounded-cardRadius flex flex-col justify-between items-start gap-4 order-2 md:order-1 relative overflow-hidden">
-                            <p className="uppercase text-sm xl:text-base bg-textPrimary text-card px-4 py-1 rounded-full font-semibold">contact</p>
+                            className="min-h-24 bg-card shadow-cardShadow col-span-3 xl:col-span-1 p-4 rounded-cardRadius flex flex-col justify-between items-start gap-4 order-2 md:order-1 relative overflow-hidden">
+                            <p className="uppercase text-sm xl:text-base bg-accent text-card px-4 py-1 rounded-full font-AeonikProSemibold">contact</p>
                         </div>
                         <div
-                            className="bg-card shadow-cardShadow col-span-3 md:col-span-2 p-4 rounded-cardRadius flex flex-col justify-between items-start gap-4 md:gap-0 order-1 md:order-2">
+                            className="bg-card shadow-cardShadow col-span-3 xl:col-span-2 p-4 rounded-cardRadius flex flex-col justify-between items-start gap-4 md:gap-0 order-1 md:order-2">
                             <div>
-                                <p className="uppercase text-sm xl:text-base bg-textPrimary text-card px-4 py-1 rounded-full font-semibold">Services</p>
+                                <p className="uppercase text-sm xl:text-base bg-accent text-card px-4 py-1 rounded-full font-AeonikProSemibold">Services</p>
                             </div>
                             <div className="w-full">
                                 {aboutData.map((service, index) => (
@@ -140,7 +140,7 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-                <div className="min-h-[400px] md:min-h-[600px] h-full shadow-cardShadow col-span-3 md:col-span-1 order-1 md:order-2 rounded-cardRadius overflow-hidden relative">
+                <div className="min-h-[400px] md:min-h-[600px] h-full shadow-cardShadow col-span-3 md:col-span-2 xl:col-span-1 order-1 md:order-2 rounded-cardRadius overflow-hidden relative">
                     <Image
                         src="/images/about-photo.jpg"
                         alt="Profile photo"

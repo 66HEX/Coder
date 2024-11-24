@@ -93,11 +93,11 @@ export default function Preloader({ onComplete, isAnimationTriggered }) {
         >
             <div
                 className="text-textPrimary bg-card shadow-cardShadow w-full rounded-cardRadius p-4 h-full flex flex-col items-start justify-center">
-                <h2 className="preloader-name font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none text-left"
+                <h2 className="preloader-name font-AeonikProSemibold text-fluid uppercase leading-none text-left"
                     style={{visibility: 'hidden'}}>
                     marek
                 </h2>
-                <h2 className="preloader-surname font-NeueMontrealVariable font-semibold text-fluid uppercase leading-none text-left"
+                <h2 className="preloader-surname font-AeonikProSemibold text-fluid uppercase leading-none text-left"
                     style={{visibility: 'hidden'}}>
                     jóźwiak
                 </h2>

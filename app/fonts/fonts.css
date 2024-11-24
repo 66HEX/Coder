@@ -1,14 +1,21 @@
 @font-face {
-    font-family: 'EikoItalic';
-    src: url('PPEikoItalic-Variable.ttf') format('truetype');
-    font-weight: 300;
+    font-family: 'AeonikProRegular';
+    src: url('AeonikPro-Regular.woff2') format('woff2');
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
 }
 
-
 @font-face {
-    font-family: 'NeueMontrealVariable';
-    src: url('SegoeUI-VF.ttf') format('truetype');
-
+    font-family: 'AeonikProRegularItalic';
+    src: url('AeonikPro-RegularItalic.woff2') format('woff2');
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'AeonikProSemibold';
+    src: url('AeonikPro-SemiBold.woff2') format('woff2');
     font-weight: 200 800;
     font-style: normal;
     font-display: swap;

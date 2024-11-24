@@ -63,7 +63,7 @@ export default function WorksModal({ modal }: ModalProps) {
             />
             <motion.div
                 ref={cursorLabel}
-                className={`bg-transparent font-NeueMontrealVariable text-base font-semibold text-background fixed z-50 hidden lg:flex items-center justify-center pointer-events-none ${active ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} // Change to 'fixed'
+                className={`bg-transparent font-AeonikProRegular text-base font-semibold text-background fixed z-50 hidden lg:flex items-center justify-center pointer-events-none ${active ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} // Change to 'fixed'
                 variants={scaleAnimation}
                 initial="initial"
                 animate={active ? "enter" : "closed"}
