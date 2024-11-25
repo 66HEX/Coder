@@ -4,6 +4,7 @@ import About from "@/app/sections/About/About";
 import Works from "@/app/sections/Works/Works";
 import Testimonials from "@/app/sections/Testimonials/Testimonials";
 import Contact from "@/app/sections/Contact/Contact";
+
 export default function Home() {
 
     return (

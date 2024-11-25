@@ -89,14 +89,14 @@ const Menu: React.FC = () => {
                     y: "0%",
                     opacity: 1,
                     delay: 0.25,
-                    duration: 0.75,
+                    duration: 0.5,
                     ease: "customEase",
                     stagger: 0.1,
                 }
             );
         } else {
             gsap.to(links, {
-                duration: 0.75,
+                duration: 0.5,
                 y: "100%",
                 opacity: 0,
                 ease: "customEase",
@@ -134,13 +134,13 @@ const Menu: React.FC = () => {
                     });
 
                     gsap.to(navMenuRef.current, {
-                        duration: 0.25,
+                        duration: 0.5,
                         visibility: "hidden",
                         opacity: 0,
                         ease: "customEase",
                     });
                     gsap.to(links, {
-                        duration: 0.75,
+                        duration: 0.5,
                         opacity: 1,
                         y: "0%",
                         ease: "customEase",
@@ -187,48 +187,60 @@ const Menu: React.FC = () => {
     }, [isToggled, handleToggle]);
 
     const headerData = [
-        { id: "home", label: "Home" },
-        { id: "about", label: "About" },
-        { id: "works", label: "Works" },
-        { id: "contact", label: "Contact" },
+        { id: "home", label: "home" },
+        { id: "about", label: "about" },
+        { id: "works", label: "works" },
+        { id: "contact", label: "contact" },
     ];
 
     return (
         <nav
             ref={navRef}
             className="fixed top-4 right-4 h-16 w-16 md:h-20 md:w-20 bg-card rounded-2xl z-30 shadow-cardShadow"
+            aria-label="Main navigation"
         >
             <button
                 id="toggleButton"
                 className="absolute top-0 right-0 h-16 w-16 md:h-20 md:w-20 rounded-full bg-card cursor-pointer z-40 shadow-cardShadow"
                 onClick={handleToggle}
                 ref={toggleButtonRef}
+                aria-expanded={isToggled ? "true" : "false"}
+                aria-controls="navMenu"
+                aria-label="Toggle navigation menu"
             >
                 <div
                     ref={toggleButtonLine1Ref}
                     id="toggleButtonLine1"
                     className="absolute w-1/2 border border-textPrimary top-[42.5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                    aria-hidden="true"
                 ></div>
                 <div
                     ref={toggleButtonLine2Ref}
                     id="toggleButtonLine2"
                     className="absolute w-1/2 border border-textPrimary top-[57.5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                    aria-hidden="true"
                 ></div>
             </button>
             <ul
                 className="h-full w-full flex flex-col items-center justify-center gap-4 p-4 opacity-0 invisible"
                 ref={navMenuRef}
+                id="navMenu"
+                role="menu"
+                aria-hidden={!isToggled}
             >
                 {headerData.map((item) => (
                     <li
                         key={item.id}
                         className="w-full list-none flex items-center justify-between"
                         ref={addToMenuLinksRef}
+                        role="none"
                     >
                         <Link
                             href={`#${item.id}`}
-                            className="font-AeonikProRegular text-4xl md:text-6xl text-textPrimary"
+                            className="font-AeonikProRegular text-4xl md:text-6xl text-textPrimary cursor-pointer"
                             onClick={(e) => handleScroll(e, item.id)}
+                            role="menuitem"
+                            aria-label={`Navigate to ${item.label}`}
                         >
                             {item.label}
                         </Link>

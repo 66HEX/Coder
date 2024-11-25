@@ -1,19 +1,7 @@
-"use client"
 import Image from "next/image";
-import { useState, useRef } from "react";
-import { gsap } from "gsap";
-
-import { CustomEase } from "gsap/CustomEase";
 import { projects } from '@/app/data/worksData';
 
-gsap.registerPlugin(CustomEase);
-
-
-
 export default function Works() {
-    const imageRef = useRef<(HTMLDivElement | null)[]>([]);
-
-    CustomEase.create("customEase", "0.76,0,0.24,1");
 
     const handleClick = (liveLink: string) => {
         window.open(liveLink, "_blank");
@@ -26,17 +14,11 @@ export default function Works() {
                     <div key={index} className="w-full grid grid-cols-1 md:grid-cols-4 xl:grid-cols-3 gap-y-4 gap-x-0 md:gap-x-4">
                         <div
                             className="relative overflow-hidden rounded-cardRadius bg-card shadow-cardShadow p-4 flex flex-col justify-start items-start col-span-2"
-                            ref={el => {
-                                if (imageRef.current) imageRef.current[index] = el;
-                            }}
                         >
                             <div className="text-hexblack">
                                 <p className="uppercase text-sm xl:text-base bg-accent text-card px-4 py-1 rounded-full font-AeonikProSemibold mb-4">{work.title}</p>
                             </div>
-                            <div
-                                className="relative overflow-hidden work-image cursor-pointer rounded-cardRadius"
-                                onClick={() => handleClick(work.liveLink)}
-                            >
+                            <div className="relative overflow-hidden rounded-cardRadius">
                                 <Image
                                     src={work.images[0]}
                                     alt={work.title}
@@ -69,7 +51,7 @@ export default function Works() {
                             ))}
                             <button
                                 onClick={() => handleClick(work.liveLink)}
-                                className="uppercase text-xl xl:text-2xl bg-accent hover:bg-transparent text-card border-2 border-accent hover:text-accent transition duration-300 px-4 py-1 rounded-full font-AeonikProSemibold w-full mt-8 md:mt-auto">
+                                className="uppercase text-xl xl:text-2xl bg-accent text-card  px-4 py-1 rounded-lg font-AeonikProSemibold w-full mt-8 md:mt-auto">
                                 Live Demo
                             </button>
                         </div>

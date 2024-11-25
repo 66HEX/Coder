@@ -11,9 +11,9 @@ const config: Config = {
       colors: {
         background: '#F0F2FB',
         card: '#FFFFFF',
-        textPrimary: '#323232',
+        textPrimary: '#353535',
         textSecondary: '#A4A4A4',
-        accent: '#323232'
+        accent: '#353535',
       },
       boxShadow: {
         cardShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',

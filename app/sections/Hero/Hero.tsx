@@ -2,7 +2,6 @@ import {Scene} from "@/app/components/Scene/Scene";
 
 export default function Hero() {
 
-
     return (
         <section
 
