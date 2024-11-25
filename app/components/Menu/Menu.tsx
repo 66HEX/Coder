@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Link from "next/link";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import { useLenis } from "@studio-freight/react-lenis";
+import AnimatedLink from "@/app/components/AnimatedLink/AnimatedLink";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -242,7 +243,7 @@ const Menu: React.FC = () => {
                             role="menuitem"
                             aria-label={`Navigate to ${item.label}`}
                         >
-                            {item.label}
+                            <AnimatedLink>{item.label}</AnimatedLink>
                         </Link>
                     </li>
                 ))}

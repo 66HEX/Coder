@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { projects } from '@/app/data/worksData';
+import AnimatedLink from "@/app/components/AnimatedLink/AnimatedLink";
 
 export default function Works() {
 
@@ -51,8 +52,8 @@ export default function Works() {
                             ))}
                             <button
                                 onClick={() => handleClick(work.liveLink)}
-                                className="uppercase text-xl xl:text-2xl bg-accent text-card  px-4 py-1 rounded-lg font-AeonikProSemibold w-full mt-8 md:mt-auto">
-                                Live Demo
+                                className="uppercase text-xl xl:text-2xl bg-accent text-card flex justify-center overflow-hidden px-4 py-1 rounded-lg font-AeonikProSemibold w-full mt-8 md:mt-auto">
+                                <AnimatedLink>Live Demo</AnimatedLink>
                             </button>
                         </div>
                     </div>
