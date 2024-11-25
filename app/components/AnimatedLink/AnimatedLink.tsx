@@ -1,7 +1,8 @@
-import React, { useRef, useEffect, ReactNode } from 'react';
+import React, { useRef, ReactNode } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import { CustomEase } from "gsap/CustomEase";
+import {useGSAP} from "@gsap/react";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -17,7 +18,7 @@ const AnimatedLink: React.FC<TextWrapperProps> = ({ children, className }) => {
 
     CustomEase.create("customEase", "0.76,0,0.24,1");
 
-    useEffect(() => {
+    useGSAP(() => {
         const wrapper = wrapperRef.current;
         const textElement = textRef.current;
         const copyElement = copyRef.current;
@@ -79,10 +80,10 @@ const AnimatedLink: React.FC<TextWrapperProps> = ({ children, className }) => {
             ref={wrapperRef}
             className={`relative flex cursor-pointer ${className}`}
         >
-            <div ref={textRef} className="inline-block">
+            <div ref={textRef} className="flex">
                 {children}
             </div>
-            <div ref={copyRef} className="absolute top-0 left-0 inline-block"
+            <div ref={copyRef} className="absolute top-0 left-0 flex"
                  style={{ transform: 'translateY(100%)' }}
             >
                 {children}

@@ -243,7 +243,9 @@ const Menu: React.FC = () => {
                             role="menuitem"
                             aria-label={`Navigate to ${item.label}`}
                         >
-                            <AnimatedLink>{item.label}</AnimatedLink>
+                            <AnimatedLink>
+                                {item.label}
+                            </AnimatedLink>
                         </Link>
                     </li>
                 ))}
