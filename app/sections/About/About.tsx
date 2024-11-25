@@ -104,7 +104,7 @@ export default function About() {
                                     href="https://www.instagram.com/hexthecoder/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-6xl text-textPrimary"
+                                    className="text-4xl md:text-6xl text-textPrimary"
                                     aria-label="Visit Instagram profile"
                                 >
                                     <FontAwesomeIcon icon={faInstagram}/>
@@ -113,7 +113,7 @@ export default function About() {
                                     href="https://www.linkedin.com/in/marek-j%C3%B3%C5%BAwiak-29958132a/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-6xl text-textPrimary"
+                                    className="text-4xl md:text-6xl text-textPrimary"
                                     aria-label="Visit LinkedIn profile"
                                 >
                                     <FontAwesomeIcon icon={faLinkedin}/>
@@ -122,7 +122,7 @@ export default function About() {
                                     href="https://github.com/66HEX"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-6xl text-textPrimary"
+                                    className="text-4xl md:text-6xl text-textPrimary"
                                     aria-label="Visit GitHub profile"
                                 >
                                     <FontAwesomeIcon icon={faGithub}/>
