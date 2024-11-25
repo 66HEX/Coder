@@ -43,7 +43,7 @@ const AnimatedLink: React.FC<TextWrapperProps> = ({ children, className }) => {
         });
 
         timeline.to(copy.lines, {
-            y: '-50%',
+            y: '-100%',
             rotationX: 0,
             opacity: 1,
             duration: 0.5,
