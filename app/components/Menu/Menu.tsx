@@ -28,7 +28,7 @@ const Menu: React.FC = () => {
 
     const handleToggle = () => {
         const isXLView = window.matchMedia("(min-width: 768px)").matches;
-        const smallClosedSize = "3rem";
+        const smallClosedSize = "4rem";
         const largeClosedSize = "5rem";
         const smallOpenWidth = "15rem";
         const smallOpenHeight = "20rem";
@@ -84,51 +84,72 @@ const Menu: React.FC = () => {
 
             gsap.fromTo(
                 links,
-                { y: "100%" },
+                { y: "100%", opacity: 0 },
                 {
                     y: "0%",
+                    opacity: 1,
                     delay: 0.25,
                     duration: 0.75,
                     ease: "customEase",
+                    stagger: 0.1,
                 }
             );
         } else {
-            gsap.to(navRef.current, {
-                duration: 0.5,
-                width: closedSize,
-                height: closedSize,
-                ease: "customEase",
-                borderRadius: "1rem",
-            });
-            gsap.to(toggleButtonRef.current, {
-                duration: 0.25,
-                top: "0vh",
-                right: "0vh",
-                ease: "customEase",
-            });
-            gsap.to(toggleButtonLine1Ref.current, {
-                duration: 0.25,
-                rotate: 0,
-                top: "42.5%",
-                left: "50%",
-                ease: "customEase",
-            });
-            gsap.to(toggleButtonLine2Ref.current, {
-                duration: 0.25,
-                rotate: 0,
-                top: "57.5%",
-                left: "50%",
-                ease: "customEase",
-            });
-            gsap.to(navMenuRef.current, {
-                duration: 0.25,
-                visibility: "hidden",
+            gsap.to(links, {
+                duration: 0.75,
+                y: "100%",
                 opacity: 0,
                 ease: "customEase",
-            });
+                stagger: 0.1,
+                onComplete: () => {
+                    // After the links fade out, animate the rest of the menu
+                    gsap.to(navRef.current, {
+                        duration: 0.5,
+                        width: closedSize,
+                        height: closedSize,
+                        ease: "customEase",
+                        borderRadius: "1rem",
+                    });
 
-            gsap.set(links, { y: "0%" });
+                    gsap.to(toggleButtonRef.current, {
+                        duration: 0.25,
+                        top: "0vh",
+                        right: "0vh",
+                        ease: "customEase",
+                    });
+
+                    gsap.to(toggleButtonLine1Ref.current, {
+                        duration: 0.25,
+                        rotate: 0,
+                        top: "42.5%",
+                        left: "50%",
+                        ease: "customEase",
+                    });
+
+                    gsap.to(toggleButtonLine2Ref.current, {
+                        duration: 0.25,
+                        rotate: 0,
+                        top: "57.5%",
+                        left: "50%",
+                        ease: "customEase",
+                    });
+
+                    gsap.to(navMenuRef.current, {
+                        duration: 0.25,
+                        visibility: "hidden",
+                        opacity: 0,
+                        ease: "customEase",
+                    });
+                    gsap.to(links, {
+                        duration: 0.75,
+                        opacity: 1,
+                        y: "0%",
+                        ease: "customEase",
+                    });
+                },
+            });
         }
+
 
         setIsToggled(!isToggled);
     };
@@ -136,7 +157,6 @@ const Menu: React.FC = () => {
 
     const handleScroll = (e, targetId) => {
         e.preventDefault();
-
         if (window.location.pathname !== "/") {
             window.location.href = `/${targetId ? `#${targetId}` : ""}`;
         } else {
@@ -146,23 +166,42 @@ const Menu: React.FC = () => {
                 lenis.scrollTo(section, { offset: -15 });
             }
         }
+        handleToggle();
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (navRef.current && !navRef.current.contains(event.target as Node)) {
+                handleToggle();
+            }
+        };
+
+        if (isToggled) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isToggled, handleToggle]);
+
     const headerData = [
-        { id: "home", label: "home" },
-        { id: "about", label: "about" },
-        { id: "works", label: "works" },
-        { id: "contact", label: "contact" },
+        { id: "home", label: "Home" },
+        { id: "about", label: "About" },
+        { id: "works", label: "Works" },
+        { id: "contact", label: "Contact" },
     ];
 
     return (
         <nav
             ref={navRef}
-            className="fixed top-4 right-4 h-12 w-12 md:h-20 md:w-20 bg-card rounded-2xl z-30 shadow-cardShadow"
+            className="fixed top-4 right-4 h-16 w-16 md:h-20 md:w-20 bg-card rounded-2xl z-30 shadow-cardShadow"
         >
             <button
                 id="toggleButton"
-                className="absolute top-0 right-0 h-12 w-12 md:h-20 md:w-20 rounded-full bg-card cursor-pointer z-40 shadow-cardShadow"
+                className="absolute top-0 right-0 h-16 w-16 md:h-20 md:w-20 rounded-full bg-card cursor-pointer z-40 shadow-cardShadow"
                 onClick={handleToggle}
                 ref={toggleButtonRef}
             >
@@ -189,7 +228,7 @@ const Menu: React.FC = () => {
                     >
                         <Link
                             href={`#${item.id}`}
-                            className="font-AeonikProRegular text-2xl md:text-6xl text-textPrimary uppercase"
+                            className="font-AeonikProRegular text-4xl md:text-6xl text-textPrimary"
                             onClick={(e) => handleScroll(e, item.id)}
                         >
                             {item.label}

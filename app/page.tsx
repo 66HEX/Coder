@@ -1,32 +1,16 @@
 "use client";
 import Hero from "@/app/sections/Hero/Hero";
-import React, { useEffect, useState } from "react";
 import Works from "@/app/sections/Works/Works";
 import Contact from "@/app/sections/Contact/Contact";
-import Preloader from "@/app/sections/Preloader/Preloader";
 import Testimonials from "@/app/sections/Testimonials/Testimonials";
 import About from "@/app/sections/About/About";
 
 export default function Home() {
-    const [isHeroAnimationTriggered, setIsHeroAnimationTriggered] = useState(false);
-    const [isPreloaderAnimationTriggered, setIsPreloaderAnimationTriggered] = useState(false);
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        setIsPreloaderAnimationTriggered(true);
-
-    }, []);
-
-    const triggerHeroAnimation = () => {
-        setIsHeroAnimationTriggered(true);
-        window.scrollTo(0, 0);
-    };
 
     return (
         <div>
             <main className="bg-background">
-                <Preloader onComplete={triggerHeroAnimation} isAnimationTriggered={isPreloaderAnimationTriggered} />
-                <Hero isAnimationTriggered={isHeroAnimationTriggered} />
+                <Hero />
                 <About/>
                 <Works/>
                 <Testimonials />

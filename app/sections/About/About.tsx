@@ -142,7 +142,7 @@ export default function About() {
                 </div>
                 <div className="min-h-[400px] md:min-h-[600px] h-full shadow-cardShadow col-span-3 md:col-span-2 xl:col-span-1 order-1 md:order-2 rounded-cardRadius overflow-hidden relative">
                     <Image
-                        src="/images/about-photo.jpg"
+                        src="/images/about-photo.png"
                         alt="Profile photo"
                         fill
                         className="object-cover"
