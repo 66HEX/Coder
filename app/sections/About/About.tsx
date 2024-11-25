@@ -160,7 +160,7 @@ export default function About() {
                                                 +
                                             </button>
                                         </div>
-                                        <hr className="mb-2 border-gray-150" />
+                                        <hr className="m-2 border-gray-150" />
                                         <div
                                             ref={(el) => {
                                                 accordionContentRefs.current[index] = el;
