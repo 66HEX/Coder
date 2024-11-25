@@ -1,3 +1,4 @@
+"use client"
 import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
@@ -5,6 +6,7 @@ import { CustomEase } from "gsap/CustomEase";
 import { FaInstagram } from "react-icons/fa";
 import { aboutData } from "@/app/data/aboutData";
 import { useGSAP } from "@gsap/react";
+import AnimatedLink from "@/app/components/AnimatedLink/AnimatedLink";
 
 gsap.registerPlugin(CustomEase);
 
@@ -141,10 +143,14 @@ export default function About() {
                                 {aboutData.map((service, index) => (
                                     <div key={index} className="service-item">
                                         <div
-                                            className="flex justify-between items-center cursor-pointer"
+                                            className="flex justify-between items-center cursor-pointer overflow-hidden"
                                             onClick={() => setIsOpen(isOpen === index ? null : index)}
                                         >
-                                            <p className="text-xl xl:text-2xl">{service.title}</p>
+                                            <div className="text-xl xl:text-2xl w-full">
+                                                <AnimatedLink>
+                                                    {service.title}
+                                                </AnimatedLink>
+                                            </div>
                                             <button
                                                 ref={(el) => {
                                                     buttonRefs.current[index] = el;
@@ -154,7 +160,7 @@ export default function About() {
                                                 +
                                             </button>
                                         </div>
-                                        <hr className="mb-2 border-textSecondary" />
+                                        <hr className="mb-2 border-gray-150" />
                                         <div
                                             ref={(el) => {
                                                 accordionContentRefs.current[index] = el;

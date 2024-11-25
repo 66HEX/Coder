@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import { projects } from '@/app/data/worksData';
 import AnimatedLink from "@/app/components/AnimatedLink/AnimatedLink";

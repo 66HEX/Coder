@@ -83,7 +83,7 @@ const AnimatedLink: React.FC<TextWrapperProps> = ({ children, className }) => {
             <div ref={textRef} className="flex">
                 {children}
             </div>
-            <div ref={copyRef} className="absolute top-0 left-0 flex"
+            <div ref={copyRef} className="absolute top-0 left-0 inline-flex"
                  style={{ transform: 'translateY(100%)' }}
             >
                 {children}
