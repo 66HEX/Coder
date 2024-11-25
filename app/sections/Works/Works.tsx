@@ -52,7 +52,7 @@ export default function Works() {
                             ))}
                             <button
                                 onClick={() => handleClick(work.liveLink)}
-                                className="uppercase text-xl xl:text-2xl bg-accent text-card flex justify-center overflow-hidden px-4 py-1 rounded-lg font-AeonikProSemibold w-full mt-8 md:mt-auto">
+                                className="uppercase text-xl xl:text-2xl bg-accent text-card flex justify-center overflow-hidden px-4 py-1 rounded-full font-AeonikProSemibold w-full mt-8 md:mt-auto">
                                 <AnimatedLink>Live Demo</AnimatedLink>
                             </button>
                         </div>
