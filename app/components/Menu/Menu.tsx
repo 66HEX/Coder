@@ -102,7 +102,6 @@ const Menu: React.FC = () => {
                 ease: "customEase",
                 stagger: 0.1,
                 onComplete: () => {
-                    // After the links fade out, animate the rest of the menu
                     gsap.to(navRef.current, {
                         duration: 0.5,
                         width: closedSize,

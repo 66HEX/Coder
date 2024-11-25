@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { useRef, useReducer, useMemo, useState } from 'react';
+import React, { useRef, useReducer, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useGLTF, Environment, Lightformer } from '@react-three/drei';
 import { CuboidCollider, BallCollider, Physics, RigidBody } from '@react-three/rapier';
@@ -32,7 +32,11 @@ export const Scene = (props) => {
         setTargetBackground(new THREE.Color(backgroundColors[accent]));
     };
 
-    const isMobile = window.innerWidth <= 768;
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth <= 768);
+    }, []);
 
     return (
         <Canvas
@@ -71,7 +75,7 @@ function BackgroundAnimator({ targetBackground }) {
     return null;
 }
 
-function DynamicEnvironment({ accentColor }) {
+const DynamicEnvironment = React.forwardRef(({ accentColor }, ref) => {
     const { scene } = useThree();
     const environmentRef = useRef();
 
@@ -82,7 +86,7 @@ function DynamicEnvironment({ accentColor }) {
     });
 
     return (
-        <Environment resolution={256} ref={environmentRef}>
+        <Environment resolution={256} ref={ref || environmentRef}>
             <group rotation={[-Math.PI / 3, 0, 1]}>
                 <Lightformer form="circle" intensity={4} rotation-x={Math.PI / 2} position={[0, 5, -9]} scale={2} color={accentColor} />
                 <Lightformer form="circle" intensity={2} rotation-y={Math.PI / 2} position={[-5, 1, -1]} scale={2} />
@@ -91,7 +95,7 @@ function DynamicEnvironment({ accentColor }) {
             </group>
         </Environment>
     );
-}
+});
 
 function Connector({ position, children, vec = new THREE.Vector3(), scale, r = THREE.MathUtils.randFloatSpread, accent, ...props }) {
     const api = useRef()
