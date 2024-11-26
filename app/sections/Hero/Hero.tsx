@@ -59,7 +59,7 @@ export default function Hero() {
             </div>
             <div
                 id="hero-scene"
-                className="h-2/3 w-full bg-card shadow-cardShadow flex flex-col justify-center items-center overflow-hidden relative rounded-cardRadius"
+                className=" w-full bg-card shadow-cardShadow flex flex-col justify-center items-center overflow-hidden relative rounded-cardRadius"
             >
                 <Scene />
             </div>
