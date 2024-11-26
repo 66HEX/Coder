@@ -42,9 +42,9 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="h-svh w-screen p-4 font-AeonikProRegular text-textPrimary"
+            className="h-svh w-screen px-4 font-AeonikProRegular text-textPrimary"
         >
-            <div className="h-1/3 w-full grid grid-cols-4">
+            <div className="mt-4 h-1/3 w-full grid grid-cols-4">
                 <div className="col-span-1 h-full">
                     <h1 id="hero-title" className="text-6xl">
                         hex.
@@ -59,7 +59,7 @@ export default function Hero() {
             </div>
             <div
                 id="hero-scene"
-                className=" h-full w-full bg-card shadow-cardShadow flex flex-col justify-center items-center overflow-hidden relative rounded-cardRadius"
+                className="mb-4 h-2/3 w-full bg-card shadow-cardShadow flex flex-col justify-center items-center overflow-hidden relative rounded-cardRadius"
             >
                 <Scene />
             </div>
