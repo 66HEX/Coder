@@ -44,7 +44,7 @@ export default function Hero() {
             id="home"
             className="h-svh w-screen p-4 font-AeonikProRegular text-textPrimary"
         >
-            <div className=" w-full grid grid-cols-4">
+            <div className=" h-1/3 w-full grid grid-cols-4">
                 <div className="col-span-1 h-full">
                     <h1 id="hero-title" className="text-6xl">
                         hex.
