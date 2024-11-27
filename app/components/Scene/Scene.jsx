@@ -7,7 +7,8 @@ import { EffectComposer, N8AO } from '@react-three/postprocessing';
 import { easing } from 'maath';
 
 const accents = ['#4060ff', '#20ffa0', '#ff4060', '#ffcc00'];
-const backgroundColors = ['#051a14', '#1a0a14', '#1a1405', '#0a0c1a'];
+const backgroundColors = ['#030e0a', '#0d0505', '#0a0b05', '#06080e'];
+
 
 const shuffle = (accent = 0) => [
     { color: '#444', roughness: 0.1 },
@@ -22,25 +23,27 @@ const shuffle = (accent = 0) => [
 ];
 
 export const Scene = (props) => {
-    const [accent, click] = useReducer((state) => ++state % accents.length, 0);
+    const [accent, click] = useState(0);
     const [targetBackground, setTargetBackground] = useState(new THREE.Color(backgroundColors[3]));
+    const [isMobile, setIsMobile] = useState(false);
+    const [isPointerOver, setIsPointerOver] = useState(false);
 
     const connectors = useMemo(() => shuffle(accent), [accent]);
-
-    const handleClick = () => {
-        click();
-        setTargetBackground(new THREE.Color(backgroundColors[accent]));
-    };
-
-    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         setIsMobile(window.innerWidth <= 768);
     }, []);
 
+    const handleClick = () => {
+        click((prev) => (prev + 1) % accents.length);
+        setTargetBackground(new THREE.Color(backgroundColors[accent]));
+    };
+
     return (
         <Canvas
             onClick={handleClick}
+            onPointerEnter={() => setIsPointerOver(true)}
+            onPointerLeave={() => setIsPointerOver(false)}
             shadows
             dpr={[1, 1.5]}
             gl={{ antialias: false }}
@@ -51,7 +54,7 @@ export const Scene = (props) => {
             <ambientLight intensity={0.4} />
             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
             <Physics gravity={[0, 0, 0]}>
-                <Pointer />
+                <Pointer isPointerOver={isPointerOver} />
                 {connectors.slice(0, isMobile ? 6 : connectors.length).map((props, i) => (
                     <Connector key={i} {...props} />
                 ))}
@@ -115,16 +118,41 @@ function Connector({ position, children, vec = new THREE.Vector3(), scale, r = T
     )
 }
 
-function Pointer({ vec = new THREE.Vector3() }) {
-    const ref = useRef()
+function Pointer({ vec = new THREE.Vector3(), isPointerOver }) {
+    const ref = useRef();
+    const [sensitivity, setSensitivity] = useState(0);
+
+    useEffect(() => {
+        if (isPointerOver) {
+            const timer = setInterval(() => {
+                setSensitivity((prev) => {
+                    if (prev < 0.75) {
+                        return prev + 0.05;
+                    } else {
+                        clearInterval(timer);
+                        return 0.75;
+                    }
+                });
+            }, 16);
+            return () => clearInterval(timer);
+        }
+    }, [isPointerOver]);
+
     useFrame(({ mouse, viewport }) => {
-        ref.current?.setNextKinematicTranslation(vec.set((mouse.x * viewport.width) / 2, (mouse.y * viewport.height) / 2, 0))
-    })
+        ref.current?.setNextKinematicTranslation(
+            vec.set(
+                (mouse.x * viewport.width) / 2 * sensitivity,
+                (mouse.y * viewport.height) / 2 * sensitivity,
+                0
+            )
+        );
+    });
+
     return (
         <RigidBody position={[0, 0, 0]} type="kinematicPosition" colliders={false} ref={ref}>
             <BallCollider args={[1]} />
         </RigidBody>
-    )
+    );
 }
 
 function Model({ children, color = 'white', roughness = 0, ...props }) {

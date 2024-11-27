@@ -12,7 +12,7 @@ export default function Hero() {
     const [isLoaded, setIsLoaded] = useState(false); // Dodajemy stan dla załadowania komponentu
 
     CustomEase.create("customEase", "0.76,0,0.24,1");
-    
+
     useEffect(() => {
         const handleLoad = () => {
             setIsLoaded(true);

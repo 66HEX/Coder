@@ -17,7 +17,7 @@ export const metadata: Metadata = {
                 url: "https://hexthecoder.pl/images/about-photo.png",
                 width: 1200,
                 height: 630,
-                alt: "Hex - Web Developer Portfolio Preview",
+                alt: "Hex - Web Developer Portfolio",
             },
         ],
     },
