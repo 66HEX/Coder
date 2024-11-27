@@ -9,7 +9,7 @@ gsap.registerPlugin(SplitText, CustomEase);
 
 export default function Hero() {
     const descRef = useRef<HTMLHeadingElement>(null);
-    const [isLoaded, setIsLoaded] = useState(false); // Dodajemy stan dla załadowania komponentu
+    const [isLoaded, setIsLoaded] = useState(false);
 
     CustomEase.create("customEase", "0.76,0,0.24,1");
 
