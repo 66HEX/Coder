@@ -2,17 +2,28 @@ import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { SplitText } from "@/app/utils/gsap/SplitText";
 import { Scene } from "@/app/components/Scene/Scene";
-import {useGSAP} from "@gsap/react";
-import {useRef} from "react";
+import { useGSAP } from "@gsap/react";
+import { useRef, useState, useEffect } from "react";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
 export default function Hero() {
     const descRef = useRef<HTMLHeadingElement>(null);
+    const [isLoaded, setIsLoaded] = useState(false); // Dodajemy stan dla załadowania komponentu
 
     CustomEase.create("customEase", "0.76,0,0.24,1");
+    
+    useEffect(() => {
+        const handleLoad = () => {
+            setIsLoaded(true);
+        };
+
+        handleLoad();
+    }, []);
 
     useGSAP(() => {
+        if (!isLoaded) return;
+
         const childSplit = new SplitText(descRef.current, { type: "lines" });
         new SplitText(descRef.current, {
             type: "lines",
@@ -37,14 +48,14 @@ export default function Hero() {
                 { y: '0%', opacity: 1, duration: 1 },
                 "-=0.5"
             );
-    }, []);
+    }, [isLoaded]);
 
     return (
         <section
             id="home"
             className="h-svh w-screen p-4 font-AeonikProRegular text-textPrimary"
         >
-            <div className=" h-1/3 w-full grid grid-cols-4">
+            <div className="h-1/3 w-full grid grid-cols-4">
                 <div className="col-span-1 h-full">
                     <h1 id="hero-title" className="text-6xl">
                         hex.
@@ -59,7 +70,7 @@ export default function Hero() {
             </div>
             <div
                 id="hero-scene"
-                className=" h-2/3 w-full bg-card shadow-cardShadow flex flex-col justify-center items-center overflow-hidden relative rounded-cardRadius"
+                className="h-2/3 w-full bg-card shadow-cardShadow flex flex-col justify-center items-center overflow-hidden relative rounded-cardRadius"
             >
                 <Scene />
             </div>

@@ -3,7 +3,8 @@ import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 import { CustomEase } from "gsap/CustomEase";
-import { FaInstagram } from "react-icons/fa";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { aboutData } from "@/app/data/aboutData";
 import { useGSAP } from "@gsap/react";
 import AnimatedLink from "@/app/components/AnimatedLink/AnimatedLink";
@@ -118,22 +119,45 @@ export default function About() {
                         </div>
                     </div>
                     <div className="row-span-1 grid grid-cols-3 gap-4">
-                        <div className="bg-card shadow-cardShadow col-span-3 xl:col-span-1 p-4 rounded-cardRadius flex flex-col justify-center items-center gap-4 order-2 md:order-1 relative overflow-hidden">
-                            <a
-                                href="https://www.instagram.com/hexthecoder/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-6xl text-textPrimary"
-                                aria-label="Visit Instagram profile"
-                                ref={instagramIconRef}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                <FaInstagram className="w-12 h-12 md:w-32 md:h-32" />
-                            </a>
+                        <div
+                            className="bg-card shadow-cardShadow col-span-3 xl:col-span-1 p-4 rounded-cardRadius flex flex-col justify-between items-start gap-4 order-2 md:order-1 relative overflow-hidden"
+                        >
+                            <p className="uppercase text-sm xl:text-base bg-accent text-card px-4 py-1 rounded-full font-AeonikProSemibold">
+                                socials
+                            </p>
+                            <div className="flex gap-4">
+                                <a
+                                    href="https://www.instagram.com/hexthecoder/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-4xl md:text-6xl text-textPrimary"
+                                    aria-label="Visit Instagram profile"
+                                >
+                                    <FontAwesomeIcon icon={faInstagram}/>
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/marek-j%C3%B3%C5%BAwiak-29958132a/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-4xl md:text-6xl text-textPrimary"
+                                    aria-label="Visit LinkedIn profile"
+                                >
+                                    <FontAwesomeIcon icon={faLinkedin}/>
+                                </a>
+                                <a
+                                    href="https://github.com/66HEX"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-4xl md:text-6xl text-textPrimary"
+                                    aria-label="Visit GitHub profile"
+                                >
+                                    <FontAwesomeIcon icon={faGithub}/>
+                                </a>
+                            </div>
                         </div>
 
-                        <div className="bg-card shadow-cardShadow col-span-3 xl:col-span-2 p-4 rounded-cardRadius flex flex-col justify-between items-start gap-4 md:gap-0 order-1 md:order-2">
+                        <div
+                            className="bg-card shadow-cardShadow col-span-3 xl:col-span-2 p-4 rounded-cardRadius flex flex-col justify-between items-start gap-4 md:gap-0 order-1 md:order-2">
                             <div>
                                 <p className="uppercase text-sm xl:text-base bg-accent text-card px-4 py-1 rounded-full font-AeonikProSemibold">
                                     Services
@@ -160,7 +184,7 @@ export default function About() {
                                                 +
                                             </button>
                                         </div>
-                                        <hr className="m-2 border-gray-150" />
+                                        <hr className="mb-2 border-gray-150"/>
                                         <div
                                             ref={(el) => {
                                                 accordionContentRefs.current[index] = el;
@@ -178,7 +202,8 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-                <div className="min-h-[400px] md:min-h-[600px] h-full shadow-cardShadow col-span-3 md:col-span-2 xl:col-span-1 order-1 md:order-2 rounded-cardRadius overflow-hidden relative">
+                <div
+                    className="min-h-[400px] md:min-h-[600px] h-full shadow-cardShadow col-span-3 md:col-span-2 xl:col-span-1 order-1 md:order-2 rounded-cardRadius overflow-hidden relative">
                     <Image
                         src="/images/about-photo.png"
                         alt="Profile photo"
