@@ -55,7 +55,7 @@ export const Scene = (props) => {
             <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
             <Physics gravity={[0, 0, 0]}>
                 <Pointer isPointerOver={isPointerOver} />
-                {connectors.slice(0, isMobile ? 6 : connectors.length).map((props, i) => (
+                {connectors.slice(0, isMobile ? 4 : connectors.length).map((props, i) => (
                     <Connector key={i} {...props} />
                 ))}
             </Physics>
