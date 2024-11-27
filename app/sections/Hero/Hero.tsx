@@ -38,8 +38,8 @@ export default function Hero() {
         )
             .fromTo(
                 "#hero-scene",
-                { opacity: 0, filter: "blur(10px)" },
-                { opacity: 1, filter: "blur(0px)", duration: 1.5 },
+                { opacity: 0, filter: "blur(10px)", scale: 0.75 },
+                { opacity: 1, filter: "blur(0px)", scale: 1, duration: 1.5 },
                 "-=1"
             )
             .fromTo(
