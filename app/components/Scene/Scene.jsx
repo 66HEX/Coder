@@ -7,7 +7,7 @@ import { EffectComposer, N8AO } from '@react-three/postprocessing';
 import { easing } from 'maath';
 
 const accents = ['#4060ff', '#20ffa0', '#ff4060', '#ffcc00'];
-const backgroundColors = ['#030e0a', '#0d0505', '#0a0b05', '#06080e'];
+const backgroundColors = ['#051a14', '#1a0a14', '#1a1405', '#0a0c1a'];
 
 
 const shuffle = (accent = 0) => [
