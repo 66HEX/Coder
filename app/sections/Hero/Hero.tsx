@@ -42,7 +42,7 @@ export default function Hero({ isPreloaderComplete }: HeroProps) {
             .fromTo(
                 "#hero-description",
                 { opacity: 0},
-                { opacity: 1, duration: 0.6 },
+                { opacity: 1, duration: 1 },
                 "-=1.2"
             )
             .fromTo(

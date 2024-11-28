@@ -74,8 +74,6 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
             })
             .to(".preloader", {
                 opacity: 0,
-                delay: 0.5,
-                duration: 0.3,
                 display: "none",
             });
 
