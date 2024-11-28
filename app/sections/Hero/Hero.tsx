@@ -7,7 +7,11 @@ import { useRef, useState, useEffect } from "react";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
-export default function Hero() {
+interface HeroProps {
+    isPreloaderComplete: boolean;
+}
+
+export default function Hero({ isPreloaderComplete }: HeroProps) {
     const descRef = useRef<HTMLHeadingElement>(null);
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -21,7 +25,7 @@ export default function Hero() {
     }, []);
 
     useGSAP(() => {
-        if (!isLoaded) return;
+        if (!isPreloaderComplete) return;
 
         const childSplit = new SplitText(descRef.current, { type: "lines" });
         new SplitText(descRef.current, {
@@ -33,27 +37,27 @@ export default function Hero() {
         tl.fromTo(
             "#hero-title",
             { x: -100, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1 }
+            { x: 0, opacity: 1, duration: 1.2 }
         )
             .fromTo(
                 "#hero-description",
                 { opacity: 0},
-                { opacity: 1, duration: 1.5 },
-                "-=1"
+                { opacity: 1, duration: 0.6 },
+                "-=1.2"
             )
             .fromTo(
                 "#hero-scene",
                 { opacity: 0, filter: "blur(10px)"},
-                { opacity: 1, filter: "blur(0px)", duration: 1.5 },
-                "-=1"
+                { opacity: 1, filter: "blur(0px)", duration: 1.2 },
+                "-=1.2"
             )
             .fromTo(
                 texts,
                 { y: '100%', opacity: 0 },
-                { y: '0%', opacity: 1, duration: 1 },
-                "-=0.5"
+                { y: '0%', opacity: 1, duration: 1.2 },
+                "-=0.6"
             );
-    }, [isLoaded]);
+    }, [isPreloaderComplete]);
 
     return (
         <section

@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Portfolio Black
 
-First, run the development server:
+Portfolio Black is a sleek and modern portfolio website built with **Next.js**, **React**, **GSAP**, **TailwindCSS**, and other libraries to showcase projects and testimonials with smooth animations.
+
+## Table of Contents
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Technologies Used
+
+- **Next.js** – A React framework for building static and dynamic websites.
+- **React** – A JavaScript library for building user interfaces.
+- **GSAP** – A library for creating high-performance animations.
+- **TailwindCSS** – A utility-first CSS framework for styling.
+- **TypeScript** – A statically typed superset of JavaScript.
+- **Three.js** – A 3D graphics library for rendering interactive 3D content.
+
+## Features
+
+- **Smooth Animations**: The website utilizes GSAP for high-performance animations that enhance the user experience.
+- **Responsive Design**: Fully responsive layout optimized for both desktop and mobile views.
+- **Customizable Components**: Modular and customizable components for easy extension of the portfolio.
+
+## Installation
+
+### Prerequisites
+
+Make sure you have **Node.js** installed. You can check your Node.js version by running:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+node -v
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This should return a version number, e.g., `v16.8.0`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Steps to Install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
 
-## Learn More
+   ```bash
+   git clone https://github.com/yourusername/portfolio-black.git
+   cd portfolio-black
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Start the development server:
 
-## Deploy on Vercel
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   This will start the development server, and the website will be available at `http://localhost:3000`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Usage
+
+After the development server starts, navigate to `http://localhost:3000` in your browser. You can start editing the components, projects, and pages directly from the `app` directory.
+
+To build the production version of the site, run:
+
+```bash
+npm run build
+```
+
+To generate the sitemap for the site (used for SEO), run:
+
+```bash
+npm run postbuild
+```
+
+## Contributing
+
+1. Fork this repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -am 'Add new feature'`).
+4. Push to your branch (`git push origin feature-branch`).
+5. Create a new Pull Request.
+
+Please make sure that your code follows the existing coding style and includes tests where necessary.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
