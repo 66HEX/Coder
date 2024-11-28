@@ -9,7 +9,7 @@ gsap.registerPlugin(SplitText, CustomEase);
 
 export default function Hero() {
     const descRef = useRef<HTMLHeadingElement>(null);
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false); // Dodajemy stan dla załadowania komponentu
 
     CustomEase.create("customEase", "0.76,0,0.24,1");
 
@@ -17,7 +17,6 @@ export default function Hero() {
         const handleLoad = () => {
             setIsLoaded(true);
         };
-
         handleLoad();
     }, []);
 
@@ -38,8 +37,8 @@ export default function Hero() {
         )
             .fromTo(
                 "#hero-scene",
-                { opacity: 0, filter: "blur(10px)", scale: 0.9 },
-                { opacity: 1, filter: "blur(0px)", scale: 1, duration: 1.5 },
+                { opacity: 0, filter: "blur(10px)"},
+                { opacity: 1, filter: "blur(0px)", duration: 1.5 },
                 "-=1"
             )
             .fromTo(
@@ -72,9 +71,7 @@ export default function Hero() {
                 id="hero-scene"
                 className="h-2/3 w-full bg-card shadow-cardShadow flex flex-col justify-center items-center overflow-hidden relative rounded-cardRadius"
             >
-                {isLoaded && (
-                    <Scene />
-                )}
+                <Scene />
             </div>
         </section>
     );
