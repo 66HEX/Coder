@@ -85,10 +85,9 @@ const Menu: React.FC = () => {
 
             gsap.fromTo(
                 links,
-                { y: "100%", opacity: 0 },
+                { y: "100%" },
                 {
                     y: "0%",
-                    opacity: 1,
                     delay: 0.25,
                     duration: 0.5,
                     ease: "customEase",
@@ -99,7 +98,6 @@ const Menu: React.FC = () => {
             gsap.to(links, {
                 duration: 0.5,
                 y: "100%",
-                opacity: 0,
                 ease: "customEase",
                 stagger: 0.1,
                 onComplete: () => {

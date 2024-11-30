@@ -53,8 +53,8 @@ export default function Hero({ isPreloaderComplete }: HeroProps) {
             )
             .fromTo(
                 texts,
-                { y: '100%', opacity: 0 },
-                { y: '0%', opacity: 1, duration: 1.2 },
+                { y: '100%' },
+                { y: '0%', duration: 1.2 },
                 "-=0.6"
             );
     }, [isPreloaderComplete]);
