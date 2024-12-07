@@ -200,7 +200,7 @@ const Menu: React.FC = () => {
         >
             <button
                 id="toggleButton"
-                className="absolute top-0 right-0 h-16 w-16 md:h-20 md:w-20 rounded-full bg-card cursor-pointer z-40 shadow-cardShadow"
+                className="absolute top-0 right-0 h-16 w-16 md:h-20 md:w-20 rounded-full bg-card cursor-pointer z-40"
                 onClick={handleToggle}
                 ref={toggleButtonRef}
                 aria-expanded={isToggled ? "true" : "false"}
@@ -210,13 +210,13 @@ const Menu: React.FC = () => {
                 <div
                     ref={toggleButtonLine1Ref}
                     id="toggleButtonLine1"
-                    className="absolute w-1/2 border border-textPrimary top-[42.5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                    className="absolute w-1/2 border-2 border-textPrimary top-[42.5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
                     aria-hidden="true"
                 ></div>
                 <div
                     ref={toggleButtonLine2Ref}
                     id="toggleButtonLine2"
-                    className="absolute w-1/2 border border-textPrimary top-[57.5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+                    className="absolute w-1/2 border-2 border-textPrimary top-[57.5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
                     aria-hidden="true"
                 ></div>
             </button>
