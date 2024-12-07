@@ -87,7 +87,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
     return (
         <div className="preloader min-h-svh h-full fixed inset-0 bg-background z-50 flex items-end">
             <div
-                className="progress-bar h-16 md:h-24 bg-black relative"
+                className="progress-bar h-16 md:h-24 bg-textPrimary relative"
                 style={{
                     width: "0%",
                     opacity: 0,
