@@ -7,25 +7,13 @@ import { useRef, useState, useEffect } from "react";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
-interface HeroProps {
-    isPreloaderComplete: boolean;
-}
 
-export default function Hero({ isPreloaderComplete }: HeroProps) {
+export default function Hero() {
     const descRef = useRef<HTMLHeadingElement>(null);
-    const [isLoaded, setIsLoaded] = useState(false);
 
     CustomEase.create("customEase", "0.76,0,0.24,1");
 
-    useEffect(() => {
-        const handleLoad = () => {
-            setIsLoaded(true);
-        };
-        handleLoad();
-    }, []);
-
     useGSAP(() => {
-        if (!isPreloaderComplete) return;
 
         const childSplit = new SplitText(descRef.current, { type: "lines" });
         new SplitText(descRef.current, {
@@ -37,32 +25,32 @@ export default function Hero({ isPreloaderComplete }: HeroProps) {
         tl.fromTo(
             "#hero-title",
             { x: -100, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1.2 }
+            { x: 0, opacity: 1, duration: 1 }
         )
             .fromTo(
                 "#hero-description",
                 { opacity: 0},
                 { opacity: 1, duration: 1 },
-                "-=1.2"
+                "-=1"
             )
             .fromTo(
                 "#hero-scene",
                 { opacity: 0, filter: "blur(10px)"},
-                { opacity: 1, filter: "blur(0px)", duration: 1.2 },
-                "-=1.2"
+                { opacity: 1, filter: "blur(0px)", duration: 1 },
+                "-=1"
             )
             .fromTo(
                 texts,
                 { y: '100%' },
-                { y: '0%', duration: 1.2 },
-                "-=0.6"
+                { y: '0%', duration: 1 },
+                "-=0.25"
             );
-    }, [isPreloaderComplete]);
+    }, []);
 
     return (
         <section
             id="home"
-            className="h-svh w-screen p-4 font-AeonikProRegular text-textPrimary"
+            className="h-svh w-screen p-4 font-AeonikProRegular font-light text-textPrimary"
         >
             <div className="h-1/3 w-full grid grid-cols-4">
                 <div className="col-span-1 h-full">

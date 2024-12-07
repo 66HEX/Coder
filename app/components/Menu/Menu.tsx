@@ -33,8 +33,8 @@ const Menu: React.FC = () => {
         const largeClosedSize = "5rem";
         const smallOpenWidth = "15rem";
         const smallOpenHeight = "20rem";
-        const largeOpenWidth = "20rem";
-        const largeOpenHeight = "25rem";
+        const largeOpenWidth = "17.5rem";
+        const largeOpenHeight = "22.5rem";
 
         const closedSize = isXLView ? largeClosedSize : smallClosedSize;
         const openWidth = isXLView ? largeOpenWidth : smallOpenWidth;
@@ -186,10 +186,11 @@ const Menu: React.FC = () => {
     }, [isToggled, handleToggle]);
 
     const headerData = [
-        { id: "home", label: "home" },
-        { id: "about", label: "about" },
-        { id: "works", label: "works" },
-        { id: "contact", label: "contact" },
+        { id: "home", label: "Home" },
+        { id: "about", label: "About" },
+        { id: "works", label: "Works" },
+        { id: "testimonials", label: "Testimonials" },
+        { id: "contact", label: "Contact" },
     ];
 
     return (
@@ -236,7 +237,7 @@ const Menu: React.FC = () => {
                     >
                         <Link
                             href={`#${item.id}`}
-                            className="font-AeonikProRegular text-4xl md:text-6xl text-textPrimary cursor-pointer"
+                            className="font-AeonikProRegular text-4xl text-textPrimary cursor-pointer"
                             onClick={(e) => handleScroll(e, item.id)}
                             role="menuitem"
                             aria-label={`Navigate to ${item.label}`}
@@ -247,6 +248,8 @@ const Menu: React.FC = () => {
                         </Link>
                     </li>
                 ))}
+
+
             </ul>
         </nav>
     );

@@ -28,9 +28,7 @@ const config: Config = {
       },
       fontSize: {
         '2xl': ['1.5rem', '2.125rem'],
-        fluid: '12.5vw',  // hero, preloader, works
         fluid2: '9vw',    // contact
-        fluid3: '12.5vw',
       },
     },
   },

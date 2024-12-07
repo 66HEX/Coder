@@ -39,7 +39,6 @@ const AnimatedLink: React.FC<TextWrapperProps> = ({ children, className }) => {
             rotationX: 90,
             duration: 0.5,
             ease: 'customEase',
-            stagger: 0.025,
         });
 
         timeline.to(copy.lines, {
@@ -75,7 +74,7 @@ const AnimatedLink: React.FC<TextWrapperProps> = ({ children, className }) => {
     return (
         <div
             ref={wrapperRef}
-            className={`relative flex cursor-pointer ${className}`}
+            className={`relative flex cursor-pointer overflow-hidden ${className}`}
         >
             <div ref={textRef} className="flex">
                 {children}
